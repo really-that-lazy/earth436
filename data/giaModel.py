@@ -18,6 +18,8 @@ from matplotlib.font_manager import FontProperties
 
 import itertools
 
+
+
 fontP = FontProperties()
 fontP.set_size('small')
 
@@ -42,13 +44,15 @@ def getLinearModel(x_values, y_values, k=1.0, l=1.0):
 	
 	for x in x_values:
 		y = trendline(x, grad, interc)
-		yHigh = trendline(x, grad+std_err, interc)
-		yLow = trendline(x, grad-std_err, interc)		
+		yHigh = trendline(x, grad+(1.96*std_err), interc)
+		yLow = trendline(x, grad-(1.96*std_err), interc)		
 		y_model.append(y)
 		yModelHigh.append(yHigh)
 		yModelLow.append(yLow)	
 	
-	return y_model, grad, interc, std_err, yModelHigh, yModelLow
+	rSquare = r_value**2
+	
+	return y_model, grad, interc, std_err, yModelHigh, yModelLow, rSquare
 	
 	## yModelHigh and yModelLow are the y model built with a slope at the
 	## extreme of the error bounds on the gradient
@@ -204,17 +208,19 @@ def mapSiteToColour(siteLoc):
 
 
 
-def plotGradientConfidenceIntervals(giaRegressionsByCombo):
+def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys):
 	def plotInterval(y, xstart, xstop, intervalLabel, colord, colords):
 		"""Plot interval at y from xstart to xstop with given color."""   
-		plt.hlines(y, xstart, xstop, colord, lw=4, label=intervalLabel)
-		plt.vlines(xstart, y+0.3, y-0.3, colords, lw=2)
-		plt.vlines(xstop, y+0.3, y-0.3, colords, lw=2)
+  
+		plt.hlines(y, xstart, xstop, colords, lw=7)
+		plt.hlines(y, xstart, xstop, colord, lw=3, label=intervalLabel)
+		##plt.vlines(xstart, y+0.3, y-0.3, colords, lw=2)
+		##plt.vlines(xstop, y+0.3, y-0.3, colords, lw=2)
 
 
-	y = 0
-	for combo in giaRegressionsByCombo:
-		y += 1
+	y = 12
+	for combo in keys:
+		y -= 1
 		combo1 = combo.split('-')[0]
 		combo2 = combo.split('-')[1].split('_')[0]
 		order = combo.split('-')[1].split('_')[1]
@@ -225,10 +231,18 @@ def plotGradientConfidenceIntervals(giaRegressionsByCombo):
 		else:
 			d = combo2
 			ds = combo1
-			
-		plotInterval(y, giaRegressionsByCombo[combo]['gradient'][0], giaRegressionsByCombo[combo]['gradient'][1], combo, mapSiteToColour(d), mapSiteToColour(ds))
+		if(order == 'forward'):
+			plotInterval(y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), d, mapSiteToColour(d), mapSiteToColour(ds))
+		else:
+			plotInterval(y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), d,  mapSiteToColour(d), mapSiteToColour(ds))			
+		
+		est = abs(giaRegressionsByCombo[combo]['gradientEstimator'])
+		
+		plt.vlines(est, y+0.3, y-0.3, mapSiteToColour(d), lw=4)
 	plt.xlabel('GIA')
-	plt.legend(loc=2, prop={'size': 5})
+
+
+	plt.legend(loc=3, prop={'size': 11})
 	plt.savefig('intervals.png')
 
 
@@ -303,7 +317,7 @@ if(__name__ == "__main__"):
 		print ds, datasetObjects[ds].data
 		x = datasetObjects[ds].getAgeValues()
 		y = datasetObjects[ds].getElevationValues()
-		plt.plot(x, y, mapSiteToColour(ds) + 's', label=ds, markersize=4.0)
+		plt.plot(x, y, mapSiteToColour(ds) + 's', label="%s, n=%i" % (ds, len(x)), markersize=4.0)
 
 	for d in datasets:
 		plt.plot(sorted(allAgesSampled), [datasetModels[d].getModelledElevation(age) for age in sorted(allAgesSampled)], mapSiteToColour(d), label=d+" (model)")
@@ -329,22 +343,63 @@ if(__name__ == "__main__"):
 	
 	giaRegressionsByCombo = {}
 	
+	giaRegressionKeys = []
+	
 	for combo in siteCombinations:
+		totalAges = []
+		histogramFloor = 0
 		for site in combo:
+			x = datasetObjects[site].getAgeValues()
+			totalAges += x
+			y = datasetObjects[site].getElevationValues()
+			if(histogramFloor == 0):
+				histogramFloor = min(y)
+			else:
+				histogramFloor = min([min(y), histogramFloor])	
+
+
+		histogramFloor /= 10
+		histogramFloor = int(histogramFloor)
+		histogramFloor *= 10
+		histogramFloor -= 10
+		
+		
+		
+		for site in combo:
+			
+			
 			
 			print site 
 			##datasetObjects[site].data
 			x = datasetObjects[site].getAgeValues()
 			y = datasetObjects[site].getElevationValues()
-			plt.plot(x, y, mapSiteToColour(site) + 's', label=site, markersize=4.0)
+
+			plt.hist(x, bottom = histogramFloor, normed=False, bins=range(int(min(totalAges))-200, int(max(totalAges))+200, 200), alpha=0.4, color=mapSiteToColour(site))
+
+			plt.plot(x, y, mapSiteToColour(site) + 's', label="%s, n=%i" % (site, len(x)), markersize=4.0)
 
 			plt.plot(sorted(allAgesSampled), [datasetModels[site].getModelledElevation(age) for age in sorted(allAgesSampled)], mapSiteToColour(site), label=site+" (model)")
+
+
 
 		plt.title("Data and Model for site Combination %s/%s" % (combo[0], combo[1]))	
 		plt.ylabel('Elevation')
 		plt.xlabel('Age')
 		plt.legend(loc=2, prop={'size': 7})
+		
+		
+		axes1 = plt.gca()
+		print plt.gca()
+		yScaleRange =  max(axes1.get_ylim()) - min(axes1.get_ylim())
+
+
+		axes2 = plt.twinx()
+		axes2.set_ylabel('Count')		
+		axes2.axis([None,None,0,yScaleRange])
+		
+		
 		plt.savefig('%s-%s_DataAndModel.png' % (combo[0], combo[1]))
+		
 		plt.close()
 	
 	
@@ -387,20 +442,23 @@ if(__name__ == "__main__"):
 			
 			thisComparisonGia = " measured data from %s relative to %s model" % (d, ds)
 			
+
+			
 			plt.plot(allowableAgeValues, elevationDiffs, mapSiteToColour(d)+'+', label=thisComparisonGia, markersize=4.0)
 			
 			
-			linRegressYValues, gradient, intercept, gradientError, 	yModelHigh, yModelLow = getLinearModel(allowableAgeValues, elevationDiffs)
+			linRegressYValues, gradient, intercept, gradientError, 	yModelHigh, yModelLow, rSquare = getLinearModel(allowableAgeValues, elevationDiffs)
 			
 			if(d != ds):
-				giaRegressions[thisComparisonGia] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+gradientError, gradient-gradientError], "intercept": intercept, }
-				giaRegressionsByCombo["%s-%s_%s" % (combo[0], combo[1], order)] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+gradientError, gradient-gradientError], "intercept": intercept, }			
-			
+				giaRegressions[thisComparisonGia] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+(1.96*gradientError), gradient-(1.96*gradientError)], "intercept": intercept, }
+				giaRegressionsByCombo["%s-%s_%s" % (combo[0], combo[1], order)] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+(1.96*gradientError), gradient-(1.96*gradientError)], "intercept": intercept, }			
+				giaRegressionKeys.append("%s-%s_%s" % (combo[0], combo[1], order))
 			plt.plot(allowableAgeValues, linRegressYValues, mapSiteToColour(d)+'', label=" measured data from %s relative to %s model linearRegression" % (d, ds), markersize=4.0)
 			plt.plot(allowableAgeValues, yModelHigh, mapSiteToColour(ds)+'', markersize=4.0)
 			plt.plot(allowableAgeValues, yModelLow, mapSiteToColour(ds)+'', markersize=4.0)
 	
-			plt.title("Plot of Elevation Diff for %s relative to %s model by Age\n(%s order for %s-%s), n=%i" % (d, ds, order, combo[0], combo[1], len(allowableAgeValues)))
+	
+			plt.suptitle("Plot of Elevation Diff for %s relative to %s model by Age\n(%s order for %s-%s), n=%i\ny=mx+b, m = %.4f SE(%.4f), b = %.4f, r^2 = %.3f" % (d, ds, order, combo[0], combo[1], len(allowableAgeValues), gradient, gradientError, intercept, rSquare), fontsize=10)
 			plt.ylabel('Elevation')
 			plt.xlabel('Age')
 			if(d == "ATB"):
@@ -440,6 +498,6 @@ if(__name__ == "__main__"):
 	for regress in sortedKeys:
 		print regress, ",", giaRegressions[regress]['gradient'][0], ",", giaRegressions[regress]['gradient'][1]	
 	
-	plotGradientConfidenceIntervals(giaRegressionsByCombo)
+	plotGradientConfidenceIntervals(giaRegressionsByCombo, giaRegressionKeys)
 
 
