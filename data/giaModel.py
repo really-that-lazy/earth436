@@ -19,7 +19,7 @@ from matplotlib.font_manager import FontProperties
 import itertools
 
 from rawhide import bootstrapper
-##from rawhide import bootstrapper.plotBootstrapsOnDataPlot as plotBootstrapsOnDataPlot
+
 
 
 fontP = FontProperties()
@@ -251,12 +251,10 @@ def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys):
 
 
 
+## "./reformattedData.ods"
 
-
-
-
-if(__name__ == "__main__"):
-	lookupTable = pyexcel_ods.get_data("./reformattedData.ods")
+def getDatasetsModelsAndObjects(filenameToLoad):
+	lookupTable = pyexcel_ods.get_data(filenameToLoad)
 	## open up the excel file to get the data as a dict of 2-lists
 	locations = ['BATB', 'TAHB', 'GTB', 'ATB']
 	## the first key for the lookupTable is the site location
@@ -291,7 +289,13 @@ if(__name__ == "__main__"):
 		plt.plot(x, y, mapSiteToColour(ds) + 's', label=ds, markersize=4.0)
 		
 		datasetModels[ds] = siteModelConnectTheDots(datasetObjects[ds])
-	
+	return datasets, datasetModels, datasetObjects
+
+
+
+if(__name__ == "__main__"):
+
+	datasets, datasetModels, datasetObjects = getDatasetsModelsAndObjects("./reformattedData.ods")
 	
 	allAgesSampled = [datasetObjects[d].getAgeValues() for d in datasets]
 	allAgesSampled = [item for sublist in allAgesSampled for item in sublist]

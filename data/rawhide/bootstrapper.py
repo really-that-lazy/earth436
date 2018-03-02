@@ -21,7 +21,7 @@ def plotBootstrapsOnDataPlot(pllt, x, y, strapColor='grey', regressColor='red'):
 
 		lr = LinearRegression()
 		lr.fit(X_samples, y_samples)
-		plt.plot(x, lr.predict(X), color=strapColor, alpha=0.2, zorder=1)
+		plt.plot(x, lr.predict(X), color=strapColor, alpha=0.1, zorder=1)
 
 	##plt.scatter(x,y, marker='o', color='orange', zorder=4)
 
