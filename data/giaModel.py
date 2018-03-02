@@ -18,6 +18,8 @@ from matplotlib.font_manager import FontProperties
 
 import itertools
 
+from rawhide import bootstrapper
+##from rawhide import bootstrapper.plotBootstrapsOnDataPlot as plotBootstrapsOnDataPlot
 
 
 fontP = FontProperties()
@@ -441,7 +443,8 @@ if(__name__ == "__main__"):
 			elevationDiffs = [(datasetModels[d].getModelledElevation(age) - datasetModels[ds].getModelledElevation(age)) for age in allowableAgeValues]
 			
 			thisComparisonGia = " measured data from %s relative to %s model" % (d, ds)
-			
+	
+			bootstrapper.plotBootstrapsOnDataPlot(plt, allowableAgeValues, elevationDiffs, mapSiteToColour(ds), mapSiteToColour(d));		
 
 			
 			plt.plot(allowableAgeValues, elevationDiffs, mapSiteToColour(d)+'+', label=thisComparisonGia, markersize=4.0)
@@ -453,10 +456,12 @@ if(__name__ == "__main__"):
 				giaRegressions[thisComparisonGia] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+(1.96*gradientError), gradient-(1.96*gradientError)], "intercept": intercept, }
 				giaRegressionsByCombo["%s-%s_%s" % (combo[0], combo[1], order)] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+(1.96*gradientError), gradient-(1.96*gradientError)], "intercept": intercept, }			
 				giaRegressionKeys.append("%s-%s_%s" % (combo[0], combo[1], order))
-			plt.plot(allowableAgeValues, linRegressYValues, mapSiteToColour(d)+'', label=" measured data from %s relative to %s model linearRegression" % (d, ds), markersize=4.0)
-			plt.plot(allowableAgeValues, yModelHigh, mapSiteToColour(ds)+'', markersize=4.0)
-			plt.plot(allowableAgeValues, yModelLow, mapSiteToColour(ds)+'', markersize=4.0)
-	
+			
+
+			##plt.plot(allowableAgeValues, linRegressYValues, mapSiteToColour(d)+'', label=" measured data from %s relative to %s model linearRegression" % (d, ds), markersize=4.0)
+			##plt.plot(allowableAgeValues, yModelHigh, mapSiteToColour(ds)+'', markersize=4.0)
+			##plt.plot(allowableAgeValues, yModelLow, mapSiteToColour(ds)+'', markersize=4.0)
+			
 	
 			plt.suptitle("Plot of Elevation Diff for %s relative to %s model by Age\n(%s order for %s-%s), n=%i\ny=mx+b, m = %.4f SE(%.4f), b = %.4f, r^2 = %.3f" % (d, ds, order, combo[0], combo[1], len(allowableAgeValues), gradient, gradientError, intercept, rSquare), fontsize=10)
 			plt.ylabel('Elevation')
@@ -466,7 +471,8 @@ if(__name__ == "__main__"):
 
 			else:	
 				plt.legend(prop=fontP, loc=3)
-			plt.savefig('./theGIA_%s_relative_to_%s.png' % (d, ds))
+			##plt.savefig('./theGIA_%s_relative_to_%s.png' % (d, ds))
+			## ^ this was creating a ton of clutter
 			plt.savefig('./gias/theGIA_%s_relative_to_%s.png' % (d, ds))
 			plt.close()
 	

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+if [[ $1 != "noReplot" ]]; then
+	cd data
+	python giaModel.py
+	cd ../
+fi
+pdflatex gia.tex
+
+
+
+exit 0
