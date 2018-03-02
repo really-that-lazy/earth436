@@ -6,6 +6,8 @@ if [[ $1 != "noReplot" ]]; then
 	python giaModel.py
 	cd ../
 fi
+## noReplot can be passed to skip regenerating all of the graphs,
+## giaModel.py has gotten a bit bloated in terms of runtime
 pdflatex gia.tex
 
 
