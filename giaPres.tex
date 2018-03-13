@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+
+\begin{document}
+\include{titlePage}
+\section{Locations}   
+-Grand Traverse Bay, Michigan (GTB)\\
+-Au Train Bay, Michigan (ATB)\\
+-Batchawana Bay, Ontario (BATB)\\
+-Tahquamenon Bay, Michigan (TAHB)\\
+\newpage
+\section{Method}
+-OSL dating used to determine age for sequences of late Holocene shoreline
+deposits, (known as Strandplain sequences) at each site vs current day elevation.\\
+-Not all strandplains were age dated due to cost, so a linear regression model of age vs horizontal distance along the strandplain sequence is used to estimate age values for strandplains that were not directly age dated.\\
+-This is then used to create a graph of elevation vs time for each site\\
+\newpage
+\section[2]{Method}
+-OSL dating used to determine age for sequences of Quaternary beach deposits (strandplain sequences) at each site vs current day elevation.\\
+-This is then used to create a graph of elevation vs time for each site\\
+\include{rawDataGraph}
+\newpage
+\section[2]{Method}
+-Data not available continuously for each site, or at the same time for each site to compare gia, so values must be inferred using linear interpolation between known data points.\\
+\include{rawDataWithModelGraph}
+\newpage
+\section[2]{Method}
+-GIA is now plotted by subtracting between the measured values of one dataset and the modelled value of another.\\
+-6 combinations of pairs of sites are created, each of which has a forward (A to B) and backward (B to A) comparison.\\
+\include{graphs}
+
+
+
+
+
+
+\end{document}

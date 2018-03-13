@@ -8,8 +8,17 @@ if [[ $1 != "noReplot" ]]; then
 fi
 ## noReplot can be passed to skip regenerating all of the graphs,
 ## giaModel.py has gotten a bit bloated in terms of runtime
-pdflatex gia.tex
+printf "\n\n################################################################################\n"
+printf "## Generating Presentation PDF... ##############################################\n"
+printf "################################################################################\n\n"
 
+pdflatex giaPres.tex
+
+printf "\n\n################################################################################\n"
+printf "## Generating Paper PDF... #####################################################\n"
+printf "################################################################################\n\n"
+
+pdflatex gia.tex
 
 
 exit 0
