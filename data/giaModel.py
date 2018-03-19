@@ -85,9 +85,21 @@ class siteData(object):
 		for row in self.data:
 			if(row[1] == someAge):
 				return row[0]
+
+	def getThisSiteBinCount(self, binStart, binWidth):
+		
+		def withinside(someValue, binStart, binWidth):
+			delta = someValue - binStart
+			if((delta >= 0)and(delta <= binWidth)):
+				return True
+			else:
+				return False
+		
+		return len([row[1] for row in self.data if withinside(row[1], binStart, binWidth)])	
 		
 	def getSiteName(self):
 		return self.siteName
+
 
 
 class siteModel(object):
@@ -101,6 +113,11 @@ class siteModel(object):
 	
 	## getModelledElevation: Num -> Num
 
+
+def getAgeBinByAgeValue(ageValue, ageBins):
+	ageBinsDelta = ageBins[1] - ageBins[0]
+	## should be consistent throughout the ageBins list
+	
 	
 class siteModelConnectTheDots(siteModel):	
 	
@@ -125,6 +142,8 @@ class siteModelConnectTheDots(siteModel):
 		if(someAge in self.rawDataObject.getAgeValues()):
 			return True	
 		return False
+
+	def ageComparisonValidForThisBin(self, otherModelToCompareAgainst, ageValue):
 		
 		
 	def getModelledElevation(self, someAge):
@@ -282,13 +301,7 @@ def getDatasetsModelsAndObjects(filenameToLoad):
 		## to get rid of the first few non data lines and any empty spaces
 
 	
-	for ds in datasetObjects:
-		print ds, datasetObjects[ds].data
-		x = datasetObjects[ds].getAgeValues()
-		y = datasetObjects[ds].getElevationValues()
-		plt.plot(x, y, mapSiteToColour(ds) + 's', label=ds, markersize=4.0)
-		
-		datasetModels[ds] = siteModelConnectTheDots(datasetObjects[ds])
+
 	return datasets, datasetModels, datasetObjects
 
 
@@ -299,26 +312,31 @@ if(__name__ == "__main__"):
 	
 	allAgesSampled = [datasetObjects[d].getAgeValues() for d in datasets]
 	allAgesSampled = [item for sublist in allAgesSampled for item in sublist]
+	## flatten out the 2-list with some list comprehension
 	print min(allAgesSampled), max(allAgesSampled)
-	##print allAgesSampled	
+
+	## create the raw plot of data points ######################################
+	for ds in datasetObjects:
+		print ds, datasetObjects[ds].data
+		x = datasetObjects[ds].getAgeValues()
+		y = datasetObjects[ds].getElevationValues()
+		plt.plot(x, y, mapSiteToColour(ds) + 's', label=ds, markersize=4.0)
+		
+		datasetModels[ds] = siteModelConnectTheDots(datasetObjects[ds])
 	
-	for age in allAgesSampled:
-		for d in datasets:
-			
-			##plt.plot(allAgesSampled, [datasetModels[d].getModelledElevation(age) for age in allAgesSampled], mapSiteToColour(d))
-			##print d, age, datasetModels[d].getModelledElevation(age)
-			print "",
-
-
-
 	plt.title("Plot of Elevation by Age\nRaw Data only")
 	plt.ylabel('Elevation')
 	plt.xlabel('Age')
 	plt.legend(loc=2, prop={'size': 7})
 	plt.savefig('./theDataRaw.png')
 	plt.close()
+	############################################################################
+	
 
 
+
+
+	## create the raw plot with the model included #############################
 	for ds in datasetObjects:
 		print ds, datasetObjects[ds].data
 		x = datasetObjects[ds].getAgeValues()
@@ -334,15 +352,26 @@ if(__name__ == "__main__"):
 	plt.legend(loc=2, prop={'size': 7})
 	plt.savefig('./theData.png')
 	plt.close()
+	############################################################################
 
 
+	############################################################################
+	## create a list of the shortform name of all the sites, then use ##########
+	## itertools to make a list of the sites!, all possible combinations of ####
+	## sites ###################################################################
+	
+	
+	## ie [A,B,C] -> [[A,B], [B,C], [C, A]]
 	sites = [ds for ds in datasetObjects]
 	siteCombinations = list(itertools.combinations(sites, 2))
-
+	############################################################################
+	
 	for combo in siteCombinations:
 		print combo
 		for i in range(len(combo)):
 			print i, combo[i]
+	
+	
 	
 	
 	giaRegressions = {}
@@ -351,24 +380,63 @@ if(__name__ == "__main__"):
 	
 	giaRegressionKeys = []
 	
+	globalHistogramFloor = None
+	## ayy lmao
+	
+	histogramFloorsList = []
+
+	histogramFloorsByCombo = {}
+
+	totalAges = []
+
 	for combo in siteCombinations:
-		totalAges = []
-		histogramFloor = 0
+		
+		histogramFloor = None
+		ageFloor = None
 		for site in combo:
 			x = datasetObjects[site].getAgeValues()
 			totalAges += x
 			y = datasetObjects[site].getElevationValues()
-			if(histogramFloor == 0):
+			if(histogramFloor == None):
 				histogramFloor = min(y)
 			else:
 				histogramFloor = min([min(y), histogramFloor])	
 
+			if(ageFloor == None):
+				ageFloor = min(x)
+			else:
+				ageFloor = min([min(x), ageFloor])
 
-		histogramFloor /= 10
-		histogramFloor = int(histogramFloor)
-		histogramFloor *= 10
-		histogramFloor -= 10
-		
+		def roundFloatDownToNearestTen(someFloat):
+			someFloat /= 10
+			someFloat = int(someFloat)
+			someFloat *= 10
+			someFloat -= 10
+			return someFloat
+					
+		histogramFloor = roundFloatDownToNearestTen(histogramFloor)
+		ageFloor = roundFloatDownToNearestTen(ageFloor)
+		histogramFloorsByCombo[combo] = histogramFloor
+			
+		histogramFloorsList.append(ageFloor)
+		print "histogramFloor for site combo", combo, ": ", histogramFloor
+	
+	globalHistogramFloor = min(histogramFloorsList)	
+	
+	print "global bin floor set at ", globalHistogramFloor
+	
+	globalBins=range(globalHistogramFloor, int(max(totalAges))+200, 200)
+	
+	print "global bins: ", globalBins
+	
+	for combo in siteCombinations:
+		for i in globalBins:
+			for site in combo:
+				thisSiteDataset = datasetObjects[site]
+				print "(",i, ",", i+200, "), site %.4s  count: " % site, thisSiteDataset.getThisSiteBinCount(i, 200)
+	
+	for combo in siteCombinations:
+
 		
 		
 		for site in combo:
@@ -380,7 +448,7 @@ if(__name__ == "__main__"):
 			x = datasetObjects[site].getAgeValues()
 			y = datasetObjects[site].getElevationValues()
 
-			plt.hist(x, bottom = histogramFloor, normed=False, bins=range(int(min(totalAges))-200, int(max(totalAges))+200, 200), alpha=0.4, color=mapSiteToColour(site))
+			plt.hist(x, bottom = histogramFloor, normed=False, bins=globalBins, alpha=0.4, color=mapSiteToColour(site))
 
 			plt.plot(x, y, mapSiteToColour(site) + 's', label="%s, n=%i" % (site, len(x)), markersize=4.0)
 
