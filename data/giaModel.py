@@ -20,7 +20,8 @@ import itertools
 
 from rawhide import bootstrapper
 
-
+from linearInterpolationModel import *
+from giaUtils import *
 
 fontP = FontProperties()
 fontP.set_size('small')
@@ -61,154 +62,7 @@ def getLinearModel(x_values, y_values, k=1.0, l=1.0):
 
 
 
-class siteData(object):
 	
-	## siteData: Str Listof(Any) -> siteData
-	
-	def __init__(self, siteName, rawData):
-		self.dataHeader = []
-		self.data = [row for row in rawData if len(row) == 2]
-		## filter to only those rows that contain exactly two elements in order
-		## to get rid of the unimportant details at the top of each sheet
-		self.siteName = siteName
-		
-		
-	def getAgeValues(self):
-		## get all available (measured) data points for age
-		return [row[1] for row in self.data]
-		
-
-	def getElevationValues(self):
-		return [row[0] for row in self.data]
-		
-	def getElevationByGivenAge(self, someAge):	
-		for row in self.data:
-			if(row[1] == someAge):
-				return row[0]
-
-	def getThisSiteBinCount(self, binStart, binWidth):
-		
-		def withinside(someValue, binStart, binWidth):
-			delta = someValue - binStart
-			if((delta >= 0)and(delta <= binWidth)):
-				return True
-			else:
-				return False
-		
-		return len([row[1] for row in self.data if withinside(row[1], binStart, binWidth)])	
-		
-	def getSiteName(self):
-		return self.siteName
-
-
-
-class siteModel(object):
-	## parent to all models that take a set of siteData and attempt to build a
-	
-	def __init__(self):
-		pass
-	## uhhhh
-
-	## I guess I can just write a contract
-	
-	## getModelledElevation: Num -> Num
-
-
-def getAgeBinByAgeValue(ageValue, ageBins):
-	ageBinsDelta = ageBins[1] - ageBins[0]
-	## should be consistent throughout the ageBins list
-	
-	
-class siteModelConnectTheDots(siteModel):	
-	
-	## siteModelConnectTheDots: siteData -> siteModelConnectTheDots
-	
-	def __init__(self, dataAvailable):
-		self.siteName = dataAvailable.getSiteName()
-		self.rawDataObject = dataAvailable
-	
-	def ageValueIsInRangeCoveredByModel(self, someAge):
-		if(someAge in self.rawDataObject.getAgeValues()):
-			return True
-		else:
-			maxAgeCovered = max(self.rawDataObject.getAgeValues())
-			minAgeCovered = min(self.rawDataObject.getAgeValues())
-			if((someAge <= maxAgeCovered)and(someAge >= minAgeCovered)):
-				return True
-			else:
-				return False
-		
-	def ageValueInRawData(self, someAge):
-		if(someAge in self.rawDataObject.getAgeValues()):
-			return True	
-		return False
-
-	def ageComparisonValidForThisBin(self, otherModelToCompareAgainst, ageValue):
-		
-		
-	def getModelledElevation(self, someAge):
-		if(someAge in self.rawDataObject.getAgeValues()):
-			return self.rawDataObject.getElevationByGivenAge(someAge)
-		else:
-			## dont have a datapoint available at that age value, so we need to
-			## interpolate linearly between them to get it
-			ageValues = np.array(self.rawDataObject.getAgeValues())
-
-			if(ageValues[ageValues < someAge].size == 0):
-				## case where our value to interpolate is off the bottom end
-				## of the dataset, so we extrapolate from the last two values
-				## min, and 2dmin
-				
-				minValue = min(ageValues)
-				restOfValues = np.array([val for val in ageValues if val != minValue])
-				## maybe npifying the array will make the min/max calls faster
-				## idk
-				secondMinValue = min(restOfValues)
-				ageDelta = someAge - secondMinValue
-				## distance from second smallest to the point we want to
-				## interpolate
-				
-				
-				
-				secondMinAgeElevation = self.rawDataObject.getElevationByGivenAge(secondMinValue)
-				minAgeElevation = self.rawDataObject.getElevationByGivenAge(minValue)
-				
-				outputElevationGuess = secondMinAgeElevation + ( (ageDelta/(abs(secondMinValue-minValue)))*(secondMinAgeElevation - minAgeElevation) )	
-			
-			elif(ageValues[ageValues > someAge].size == 0):
-				## case where our value to interpolate is off the top end
-				maxValue = max(ageValues)
-				restOfValues = np.array([val for val in ageValues if val != maxValue])
-				## maybe npifying the array will make the min/max calls faster
-				## idk
-				secondMaxValue = max(restOfValues)
-				
-				ageDelta = someAge - secondMaxValue
-				
-				secondMaxAgeElevation = self.rawDataObject.getElevationByGivenAge(secondMaxValue)
-				maxAgeElevation = self.rawDataObject.getElevationByGivenAge(maxValue)				
-
-				outputElevationGuess = secondMaxAgeElevation + ( (ageDelta/(abs(maxValue - secondMaxValue)))*(maxAgeElevation - secondMaxAgeElevation) )				
-
-			else:
-				closestAgeBelow = ageValues[ageValues < someAge].max()
-				closestAgeAbove = ageValues[ageValues > someAge].min()			
-
-				
-			
-			
-				ageDelta = closestAgeAbove - closestAgeBelow
-			
-				elevBelow = self.rawDataObject.getElevationByGivenAge(closestAgeBelow)
-				elevAbove = self.rawDataObject.getElevationByGivenAge(closestAgeAbove)
-				
-				elevDelta = elevAbove - elevBelow
-			
-				outputElevationGuess = elevBelow + elevDelta*((someAge - closestAgeBelow)/(ageDelta))
-			
-			return outputElevationGuess
-		
-
 
 ## ideas for future models:
 ## -same connect the dots idea, but with binned means every so many years
@@ -216,10 +70,6 @@ class siteModelConnectTheDots(siteModel):
 ## second largest/smallest age data point, as that part is royally fucking up
 ## the forecasts relative to the general trend
 
-
-def mapSiteToColour(siteLoc):
-	siteMappings ={'BATB': 'b', 'TAHB': 'g', 'GTB': 'm', 'ATB': 'r'}
-	return siteMappings[siteLoc]
 
 
 
@@ -253,9 +103,9 @@ def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys):
 			d = combo2
 			ds = combo1
 		if(order == 'forward'):
-			plotInterval(y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), d, mapSiteToColour(d), mapSiteToColour(ds))
+			plotInterval(y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), "", mapSiteToColour(d), mapSiteToColour(ds))
 		else:
-			plotInterval(y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), d,  mapSiteToColour(d), mapSiteToColour(ds))			
+			plotInterval(y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), "",  mapSiteToColour(d), mapSiteToColour(ds))			
 		
 		est = abs(giaRegressionsByCombo[combo]['gradientEstimator'])
 		
@@ -263,9 +113,9 @@ def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys):
 	plt.xlabel('GIA')
 
 
-	plt.legend(loc=3, prop={'size': 11})
+	##plt.legend(loc=3, prop={'size': 11})
 	plt.savefig('intervals.png')
-
+	plt.close()
 
 
 
@@ -327,7 +177,7 @@ if(__name__ == "__main__"):
 	plt.title("Plot of Elevation by Age\nRaw Data only")
 	plt.ylabel('Elevation')
 	plt.xlabel('Age')
-	plt.legend(loc=2, prop={'size': 7})
+	plt.legend(loc=2, prop={'size': 17})
 	plt.savefig('./theDataRaw.png')
 	plt.close()
 	############################################################################
@@ -349,7 +199,7 @@ if(__name__ == "__main__"):
 	plt.title("Plot of Elevation by Age\nRaw with Model")
 	plt.ylabel('Elevation')
 	plt.xlabel('Age')
-	plt.legend(loc=2, prop={'size': 7})
+	plt.legend(loc=2, prop={'size': 17})
 	plt.savefig('./theData.png')
 	plt.close()
 	############################################################################
@@ -459,7 +309,7 @@ if(__name__ == "__main__"):
 		plt.title("Data and Model for site Combination %s/%s" % (combo[0], combo[1]))	
 		plt.ylabel('Elevation')
 		plt.xlabel('Age')
-		plt.legend(loc=2, prop={'size': 7})
+		plt.legend(loc=2, prop={'size': 17})
 		
 		
 		axes1 = plt.gca()
@@ -495,7 +345,7 @@ if(__name__ == "__main__"):
 			allowableAgeValues = []
 			
 			for age in sorted(allAgesSampled):
-				if(datasetModels[d].ageValueInRawData(age) and datasetModels[ds].ageValueIsInRangeCoveredByModel(age) ):
+				if(datasetModels[d].ageValueInRawData(age) and datasetModels[ds].ageValueIsInRangeCoveredByModel(age) and datasetModels[ds].ageComparisonValidForThisBin(datasetModels[d], globalBins, age) ):
 					allowableAgeValues.append(age)
 				else:
 					continue
@@ -539,10 +389,10 @@ if(__name__ == "__main__"):
 			plt.ylabel('Elevation')
 			plt.xlabel('Age')
 			if(d == "ATB"):
-				plt.legend(prop=fontP, loc=2)
+				plt.legend(loc=2, prop={'size': 14})
 
 			else:	
-				plt.legend(prop=fontP, loc=3)
+				plt.legend( loc=3, prop={'size': 14})
 			##plt.savefig('./theGIA_%s_relative_to_%s.png' % (d, ds))
 			## ^ this was creating a ton of clutter
 			plt.savefig('./gias/theGIA_%s_relative_to_%s.png' % (d, ds))
@@ -578,4 +428,10 @@ if(__name__ == "__main__"):
 	
 	plotGradientConfidenceIntervals(giaRegressionsByCombo, giaRegressionKeys)
 
-
+	for site in sites:
+		plt.plot([1], [1], mapSiteToColour(site)+'s', label=site, markersize=20)
+		plt.plot([1], [1], mapSiteToColour(site), label=site+" model", markersize=20)
+	plt.axis('off')
+	plt.legend(loc=3, prop={'size': 29})
+	plt.savefig("legendary.png")
+	plt.close()

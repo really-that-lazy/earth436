@@ -2,24 +2,53 @@
 
 \usepackage{graphicx}
 
+\usepackage[%
+  papersize={12.8cm,9.6cm},
+  hmargin=1cm,%
+  vmargin=1cm,%
+  head=0.5cm,% might be changed later
+  headsep=0pt,%
+  foot=0.5cm% might be changed later
+  ]{geometry}% http://ctan.org/pkg/geometry
+
 \begin{document}
 \include{titlePage}
+
+
+\section{Introduction}
+-Movement of Earths crust atop the mantle is driven by many factors including buoyancy\\
+-Addition and removal of weight, in this case the Laurentide Ice Sheet, from the crust will cause vertical adjustments known as GIA\\
+-As inclination of ground surface changes, water levels (ie Lakes) and the paths taken by
+the flow of water (rivers, lake outlets, groundwater) change\\
+-This has implications for engineering and environmental assessments\\
+-projection of future changes due to GIA relies on having a reliable estimate of
+past rates of GIA\\
+% cant infer long term process from short term data
+% mention past efforts using water gauges, gps data
+\newpage
+
+\section[2]{Previous Work}
+-OSL dating used to determine age for sequences of Quaternary beach deposits (strandplain sequences) at each site vs current day elevation.\\
+-This is then used to create a graph of elevation vs time for each site\\
+-Paleohydrographs were created in Johnston et al. 2012
+\newpage
 \section{Locations}   
 -Grand Traverse Bay, Michigan (GTB)\\
 -Au Train Bay, Michigan (ATB)\\
 -Batchawana Bay, Ontario (BATB)\\
 -Tahquamenon Bay, Michigan (TAHB)\\
+\\
+\begin{figure}[h]
+	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{johnstonLaurentianMap.png}}
+	\caption{Map of the study sites used. Reproduced with permission from Johnston et al. 2012}
+	\label{fig:jj2012map}
+\end{figure}
+
+\newpage
+
+
 % add map, maybe with data points
 \newpage
-\section{Method}
--OSL dating used to determine age for sequences of late Holocene shoreline
-deposits, (known as Strandplain sequences) at each site vs current day elevation.\\
--Not all strandplains were age dated due to cost, so a linear regression model of age vs horizontal distance along the strandplain sequence is used to estimate age values for strandplains that were not directly age dated.\\
--This is then used to create a graph of elevation vs time for each site\\
-\newpage
-\section[2]{Method}
--OSL dating used to determine age for sequences of Quaternary beach deposits (strandplain sequences) at each site vs current day elevation.\\
--This is then used to create a graph of elevation vs time for each site\\
 % talk about location
 % talk about link between importance of water levels and they cant be understood
 % without understanding gia
@@ -29,6 +58,8 @@ deposits, (known as Strandplain sequences) at each site vs current day elevation
 % talk about objective
 \newpage
 \section[2]{Method}
+-Johnston et al. 2012 used a linear regression method for each site to get relative GIA rates between sites\\
+-Model is likely too simplistic and doesnt take account of local variations\\
 -Data not available continuously for each site, or at the same time for each site to compare gia, so values must be inferred using linear interpolation between known data points.\\
 \include{rawDataWithModelGraph}
 % note mainville & craymer, previous work has used water level gauge data, but
@@ -37,11 +68,27 @@ deposits, (known as Strandplain sequences) at each site vs current day elevation
 \section[2]{Method}
 -GIA is now plotted by subtracting between the measured values of one dataset and the modelled value of another.\\
 -6 combinations of pairs of sites are created, each of which has a forward (A to B) and backward (B to A) comparison.\\
-\input{previousWork}
+\newpage
+%\input{previousWork}
 \include{graphs}
-
-
-
+\newpage
+\begin{figure}[h]
+	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{johnstonLaurentianMapWithMyGIARates.png}}
+	\caption{Relative GIA Rates produced by this papers method}
+	\label{fig:myGIARates}
+\end{figure}
+\newpage
+\begin{figure}[h]
+	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{mainvilleGias.png}}
+	\caption{Relative GIA Rates produced by Mainville \& Craymer (reproduced from Mainville \& Craymer, 2005)}
+	\label{fig:craymerGIARatesBigPlot}
+\end{figure}
+\newpage
+\begin{figure}[h]
+	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{johnstonLaurentianMapWithCraymerGIARates.png}}
+	\caption{Relative GIA Rates produced by Mainville \& Craymer}
+	\label{fig:craymerGIARates}
+\end{figure}
 
 
 
