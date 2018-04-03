@@ -6,6 +6,32 @@ from dataModel import *
 
 import numpy as np
 
+
+def percentageDifference(someValue, anotherValue):
+	average = float(someValue + anotherValue)/2.0
+	diff = abs(someValue - anotherValue)
+	return float(diff/average)
+	
+def conditionMet(thisBinCount, otherBinCount, condition):
+	if(condition == "any"):
+		return True
+	elif(condition == "bothNonZero"):
+		if((thisBinCount > 0) and (otherBinCount > 0)):
+			return True
+		return False
+	elif(condition == "withinTwentyPercent"):
+		if(percentageDifference(thisBinCount, otherBinCount) <= 0.20):
+			return True
+		return False
+	elif(condition == "withinThirtyPercent"):
+		if(percentageDifference(thisBinCount, otherBinCount) <= 0.30):
+			return True
+		return False
+	elif(condition == "withinFiftyPercent"):
+		if(percentageDifference(thisBinCount, otherBinCount) <= 0.50):
+			return True
+		return False
+
 	
 class siteModelConnectTheDots(siteModel):	
 	
@@ -31,15 +57,18 @@ class siteModelConnectTheDots(siteModel):
 			return True	
 		return False
 
-	def ageComparisonValidForThisBin(self, otherModelToCompareAgainst, globalBins, ageValue):
+	def ageComparisonValidForThisBin(self, otherModelToCompareAgainst, globalBins, ageValue, conditions):
 		binStart, binWidth = getAgeBinByAgeValue(ageValue, globalBins)
 			
 		thisModelsBinCount = self.rawDataObject.getThisSiteBinCount(binStart, binWidth)
 		otherModelsBinCount = otherModelToCompareAgainst.rawDataObject.getThisSiteBinCount(binStart, binWidth)
-		if((thisModelsBinCount > 0) and (otherModelsBinCount > 0)):
-			return True
-		else:
-			return False
+		
+		for condition in conditions:
+			if(not conditionMet(thisModelsBinCount, otherModelsBinCount, conditions[condition])):
+				return False
+		return True
+		## the loop successfully met every condition, so we're good to go
+		
 		
 	def getModelledElevation(self, someAge):
 		if(someAge in self.rawDataObject.getAgeValues()):

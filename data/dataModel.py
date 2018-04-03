@@ -28,6 +28,12 @@ def inRange(value, high, low):
 		return True
 	return False
 
+
+## getAgeBinByAgeValue: float, listof(float) -> float, float
+
+## ageValue is a float
+## ageBins is some list of bin endpoints
+
 def getAgeBinByAgeValue(ageValue, ageBins):
 	baseAge = ageBins[0]
 	ageBinsDelta = ageBins[1] - baseAge
