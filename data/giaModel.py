@@ -412,7 +412,10 @@ if(__name__ == "__main__"):
 	############################################################################
 	## plot the gia graphs and store the raw regression numbers used to create #
 	## them ####################################################################
-	for conditions in [{"valueDifference": "withinThirtyPercent","valueCounts": "bothNonZero"}, {"valueDifference": "withinFiftyPercent","valueCounts": "bothNonZero"}, {"valueDifference": "withinTwentyPercent","valueCounts": "bothNonZero"}, {"valueCounts": "bothNonZero"}]:
+	for conditions in [{"valueDifference": "withinThirtyPercent","valueCounts": "bothNonZero"},\
+						{"valueDifference": "withinFiftyPercent","valueCounts": "bothNonZero"}, \
+						{"valueDifference": "withinTwentyPercent","valueCounts": "bothNonZero"}, \
+						{"valueCounts": "bothNonZero"}]:
 		outputPathDict = populateConditionsDict(conditions)
 
 		outputPath = convertListToRelativePath([outputPathDict[setting] for setting in getCurrentSettingOptions()])
