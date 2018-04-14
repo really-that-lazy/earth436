@@ -75,98 +75,42 @@ def getLinearModel(x_values, y_values, k=1.0, l=1.0):
 
 
 
-def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys, giaRegressionDescriptions, outputPathDict):
-	def plotInterval(ax, y, xstart, xstop, intervalLabel, colord, colords):
+def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys):
+	def plotInterval(y, xstart, xstop, intervalLabel, colord, colords):
 		"""Plot interval at y from xstart to xstop with given color."""   
   
-		ax.hlines(y, xstart, xstop, colords, lw=7)
-		ax.hlines(y, xstart, xstop, colord, lw=3, label=intervalLabel)
+		plt.hlines(y, xstart, xstop, colords, lw=7)
+		plt.hlines(y, xstart, xstop, colord, lw=3, label=intervalLabel)
 		##plt.vlines(xstart, y+0.3, y-0.3, colords, lw=2)
 		##plt.vlines(xstop, y+0.3, y-0.3, colords, lw=2)
 
 
-	outputPath = convertListToRelativePath([outputPathDict[setting] for setting in getCurrentSettingOptions()])
-	
-	
-
-	y = 0
-	
-	fig,ax = plt.subplots(1)
-	##ax.plot(sim_1['t'],sim_1['V'],'k')
-	
+	y = 12
 	for combo in keys:
-		y += 1
+		y -= 1
 		combo1 = combo.split('-')[0]
 		combo2 = combo.split('-')[1].split('_')[0]
 		order = combo.split('-')[1].split('_')[1]
 		
 		if(order == 'forward'):
-			direct = combo1
-			modelled = combo2
+			d = combo1
+			ds = combo2
 		else:
-			direct = combo2
-			modelled = combo1
-			
-		est = giaRegressionsByCombo[combo]['gradientEstimator']	
-			
-		ciStart = giaRegressionsByCombo[combo]['gradient'][0]
-		ciEnd = giaRegressionsByCombo[combo]['gradient'][1]
-		
-		if(est < 0):
-			est = -est
-			ciStart = -ciStart
-			ciEnd = -ciEnd
-			
+			d = combo2
+			ds = combo1
 		if(order == 'forward'):
-			plotInterval(ax, y, ciStart, ciEnd, "", mapSiteToColour(direct), mapSiteToColour(modelled))
-
-			##plotInterval(ax, y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), "", mapSiteToColour(direct), mapSiteToColour(modelled))
+			plotInterval(y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), "", mapSiteToColour(d), mapSiteToColour(ds))
 		else:
-			plotInterval(ax, y, ciStart, ciEnd, "",  mapSiteToColour(direct), mapSiteToColour(modelled))			
+			plotInterval(y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), "",  mapSiteToColour(d), mapSiteToColour(ds))			
 		
-			##plotInterval(ax, y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), "",  mapSiteToColour(direct), mapSiteToColour(modelled))			
+		est = abs(giaRegressionsByCombo[combo]['gradientEstimator'])
 		
-		
-		ax.vlines(est, y+0.3, y-0.3, mapSiteToColour(direct), lw=4)
-	ax.set_xlabel('GIA (m/year)')
-	
-	ax.set_xlim([0,0.009])
+		plt.vlines(est, y+0.3, y-0.3, mapSiteToColour(d), lw=4)
+	plt.xlabel('GIA')
 
-	##ax.set_yticklabels(keys)
-	##ax.set_yticklabels([])
-	
-	plt.yticks(list(np.arange(1, len(keys)+1, 1.0)), [giaRegressionDescriptions[key] for key in keys], rotation=0)
-
-	fileNameIdentifier = "_".join([outputPathDict[setting] for setting in getCurrentSettingOptions()])
-
-	plt.title("95p Confidence intervals on GIA\nfilters: %s" % fileNameIdentifier)
-
-	##for item in ([ax.title, ax.xaxis.label, ax.yaxis.label] +
-    ##        ax.get_xticklabels() + ax.get_yticklabels()):
-
-	for item in ax.get_yticklabels():
-		item.set_fontsize(8)
 
 	##plt.legend(loc=3, prop={'size': 11})
-	
-	outputFilePath = filePathOnRelativePath(outputPath+"gias/", fileName='intervals', ext="png")
-	print "Saving gia intervals plot at '%s'" % outputFilePath
-	verifyPath(outputPath+"gias/")
-	
-
-	
-	plt.savefig(outputFilePath,bbox_inches='tight')
-
-
-
-
-
-	outputFilePath = filePathOnRelativePath(outputPath+"gias/", fileName='%s_intervals' % fileNameIdentifier, ext="png")
-
-	print "Saving gia intervals plot at '%s'" % outputFilePath
-
-	plt.savefig(outputFilePath,bbox_inches='tight')
-
+	plt.savefig('intervals.png')
 	plt.close()
 
 
@@ -276,9 +220,11 @@ if(__name__ == "__main__"):
 	
 	
 	
-
+	giaRegressions = {}
 	
+	giaRegressionsByCombo = {}
 	
+	giaRegressionKeys = []
 	
 	globalHistogramFloor = None
 	## ayy lmao
@@ -358,116 +304,69 @@ if(__name__ == "__main__"):
 	############################################################################
 	
 	
-	giaRegressions = {}
-	giaRegressionComboMappingsByConditions = {}	
 	
-	giaRegressionKeys = []
-	giaRegressionDescriptions = {}
-	giaKeysByDescriptions = {}
 	
-	for combo in siteCombinations:
-		for order in ['forward', 'reverse']:
-			if(order == 'forward'):
-				direct = combo[0]
-				## d is the site we are using as our direct comparison
-				
-				## ie MUST have a measured data point at this age
-				modelled = combo[1]
-				## ds is what we are comparing against, so it can just be a
-				## modelled point
-			else:
-				direct = combo[1]
-				modelled = combo[0]
-			thisRegressionKey = "%s-%s_%s" % (combo[0], combo[1], order)
-				
-			giaRegressionKeys.append(thisRegressionKey)
-			thisComparisonGiaDescription = " measured data from %s relative to %s model" % (direct, modelled)
-			giaRegressionDescriptions[thisRegressionKey] = thisComparisonGiaDescription
-			giaKeysByDescriptions[thisComparisonGiaDescription] = thisRegressionKey
-	
-	sortedKeys =  sorted(giaRegressionKeys)
-	print "sortedKeys: ", sortedKeys	
-
-	############################################################################
-	## plot the raw data plots with counts for each bin ########################
-		
-	for combo in siteCombinations:
-		print "\nPlotting raw data for site combo: "
-		for site in combo:
-			print site		
-			
-		for site in combo: 
-			x = datasetObjects[site].getAgeValues()
-			y = datasetObjects[site].getElevationValues()
-
-
-			plt.plot(x, y, mapSiteToColour(site) + 's', label="%s, n=%i" % (site, len(x)), markersize=4.0)
-			## plot the raw data for each site
-				
-			plt.plot(sorted(allAgesSampled), [datasetModels[site].getModelledElevation(age) for age in sorted(allAgesSampled)], mapSiteToColour(site), label=site+" (model)")
-			## plot the linear interpolation model for each site
-				
-			plt.hist(x, bottom = histogramFloor, normed=False, bins=globalBins, alpha=0.4, color=mapSiteToColour(site))
-			## plot the histogram of data set counts on the plot alongside the 
-			## data itself
-				
-			## histogram floor was chosen here as a nice looking spot to put the
-			## count histogram so it doesnt overlap the main data
-
-
-		plt.title("Data and Model for site Combination %s/%s" % (combo[0], combo[1]))	
-		plt.ylabel('Elevation')
-		plt.xlabel('Age')
-		plt.legend(loc=2, prop={'size': 17})
-			
-			
-		axes1 = plt.gca()
-		yScaleRange =  max(axes1.get_ylim()) - min(axes1.get_ylim())
-
-
-		axes2 = plt.twinx()
-		axes2.set_ylabel('Count')		
-		axes2.axis([None,None,0,yScaleRange])
-		## set the left axis to be elevation relative to datum
-			
-		## and the right axis to be count of each dataset in each bin
-			
-		outputFilePath = filePathOnRelativePath("./", fileName='%s-%s_DataAndModel' % (combo[0], combo[1]), ext="png")
-		print "Saving rawData plot at '%s'" % outputFilePath
-		verifyPath("./")
-		## umm ok
-		plt.savefig(outputFilePath)
-		plt.close()
-		## save the raw data combo graph
-	############################################################################	
-		
 	
 	############################################################################
-	## plot the gia graphs and store the raw regression numbers used to create #
-	## them ####################################################################
-	for conditions in [{"valueDifference": "withinThirtyPercent","valueCounts": "bothNonZero"},\
-						{"valueDifference": "withinFiftyPercent","valueCounts": "bothNonZero"}, \
-						{"valueDifference": "withinTwentyPercent","valueCounts": "bothNonZero"}, \
-						{"valueDifference": "withinSeventyFivePercent","valueCounts": "bothNonZero"},  \
-						{"valueDifference": "withinSixtyPercent","valueCounts": "bothNonZero"},  \
-						{"valueCounts": "bothNonZero"}]:
+	## plot the raw data plots and the gia graphs (along with calculation of ###
+	## gia rates ###############################################################
+	for conditions in [{"valueDifference": "withinTwentyPercent","valueCounts": "bothNonZero"}]:
 		outputPathDict = populateConditionsDict(conditions)
 
 		outputPath = convertListToRelativePath([outputPathDict[setting] for setting in getCurrentSettingOptions()])
-		conditionIdString = "_".join([outputPathDict[setting] for setting in getCurrentSettingOptions()])
-		
-		giaRegressionsByCombo = {}
 		
 		for combo in siteCombinations:
 
 
-			print "\nPlotting gia for site combo: "
+			print "Plotting site combo: "
 			for site in combo:
 				print site		
 			
+			for site in combo: 
+				x = datasetObjects[site].getAgeValues()
+				y = datasetObjects[site].getElevationValues()
+
+
+				plt.plot(x, y, mapSiteToColour(site) + 's', label="%s, n=%i" % (site, len(x)), markersize=4.0)
+				## plot the raw data for each site
+				
+				plt.plot(sorted(allAgesSampled), [datasetModels[site].getModelledElevation(age) for age in sorted(allAgesSampled)], mapSiteToColour(site), label=site+" (model)")
+				## plot the linear interpolation model for each site
+				
+				plt.hist(x, bottom = histogramFloor, normed=False, bins=globalBins, alpha=0.4, color=mapSiteToColour(site))
+				## plot the histogram of data set counts on the plot alongside the 
+				## data itself
+				
+				## histogram floor was chosen here as a nice looking spot to put the
+				## count histogram so it doesnt overlap the main data
+
+
+			plt.title("Data and Model for site Combination %s/%s" % (combo[0], combo[1]))	
+			plt.ylabel('Elevation')
+			plt.xlabel('Age')
+			plt.legend(loc=2, prop={'size': 17})
+			
+			
+			axes1 = plt.gca()
+			yScaleRange =  max(axes1.get_ylim()) - min(axes1.get_ylim())
+
+
+			axes2 = plt.twinx()
+			axes2.set_ylabel('Count')		
+			axes2.axis([None,None,0,yScaleRange])
+			## set the left axis to be elevation relative to datum
+			
+			## and the right axis to be count of each dataset in each bin
+			
+			verifyPath(outputPath)
+			outputFilePath = filePathOnRelativePath(outputPath, fileName='%s-%s_DataAndModel' % (combo[0], combo[1]), ext="png")
+			print "Saving rawData plot at '%s'" % outputFilePath
+			plt.savefig(outputFilePath)
+			plt.close()
+			## save the raw data combo graph
 		
 		
-			## now the gia calculations
+			## now for the gia calculations
 			for order in ['forward', 'reverse']:
 				## each comparison has a forward A to B, and reverse B to A,
 				## comparison, the CIs on the absolute value of slope for this must
@@ -520,19 +419,20 @@ if(__name__ == "__main__"):
 
 				elevationDiffs = [(datasetModels[direct].getModelledElevation(age) - datasetModels[modelled].getModelledElevation(age)) for age in allowableAgeValues]
 				
+				thisComparisonGia = " measured data from %s relative to %s model" % (d, ds)
 		
 				bootstrapper.plotBootstrapsOnDataPlot(plt, allowableAgeValues, elevationDiffs, mapSiteToColour(modelled), mapSiteToColour(direct));		
 
-				thisComparisonGiaDescription = " measured data from %s relative to %s model" % (direct, modelled)
-				plt.plot(allowableAgeValues, elevationDiffs, mapSiteToColour(direct)+'+', label=thisComparisonGiaDescription, markersize=4.0)
+				
+				plt.plot(allowableAgeValues, elevationDiffs, mapSiteToColour(direct)+'+', label=thisComparisonGia, markersize=4.0)
 				
 				
 				linRegressYValues, gradient, intercept, gradientError, 	yModelHigh, yModelLow, rSquare = getLinearModel(allowableAgeValues, elevationDiffs)
 				
 				if(direct != modelled):
-					giaRegressionKey = "%s-%s_%s" % (combo[0], combo[1], order)
-					
-					giaRegressionsByCombo[giaRegressionKey] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+(1.96*gradientError), gradient-(1.96*gradientError)], "intercept": intercept, }			
+					giaRegressions[thisComparisonGia] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+(1.96*gradientError), gradient-(1.96*gradientError)], "intercept": intercept, }
+					giaRegressionsByCombo["%s-%s_%s" % (combo[0], combo[1], order)] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+(1.96*gradientError), gradient-(1.96*gradientError)], "intercept": intercept, }			
+					giaRegressionKeys.append("%s-%s_%s" % (combo[0], combo[1], order))
 		
 				plt.suptitle("Plot of Elevation Diff for %s relative to %s model by Age\n(%s order for %s-%s), n=%i\ny=mx+b, m = %.4f SE(%.4f), b = %.4f, r^2 = %.3f" % (direct, modelled, order, combo[0], combo[1], len(allowableAgeValues), gradient, gradientError, intercept, rSquare), fontsize=10)
 				plt.ylabel('Elevation')
@@ -546,19 +446,12 @@ if(__name__ == "__main__"):
 				## ^ this was creating a ton of clutter
 
 
-				outputFilePath = filePathOnRelativePath(outputPath+"gias/", fileName='theGIA_%s_relative_to_%s' % (direct, modelled), ext="png")
-				print "Saving gia plot at '%s'" % outputFilePath
-				verifyPath(outputPath+"gias/")
-				plt.savefig(outputFilePath)
+
+				plt.savefig('./gias/theGIA_%s_relative_to_%s.png' % (direct, modelled))
 				plt.close()
-		giaRegressionComboMappingsByConditions[conditionIdString] = giaRegressionsByCombo
-		plotGradientConfidenceIntervals(giaRegressionsByCombo, giaRegressionKeys, giaRegressionDescriptions, outputPathDict)
-	############################################################################
+	
 	print "Finished gia plots"
-
-
-	############################################################################
-	## Check for any exact age matches in the datasets provided ################
+	
 	ageMatches = []
 	for d in datasets:
 		for dv in datasetObjects[d].getAgeValues():
@@ -566,22 +459,26 @@ if(__name__ == "__main__"):
 				if(od != d):
 					if((dv in datasetObjects[od].getAgeValues())and dv not in ageMatches):
 						ageMatches.append(dv)
-	print "Exact age matches between datasets: ", ageMatches
-	############################################################################
+	print ageMatches
+	
+	sortedKeys = sorted([regress for regress in giaRegressions])
+	print "sortedKeys: ", sortedKeys
+	for regress in sortedKeys:
+		print regress			
+	
+	print "\n\n"
+	
+	for regress in sortedKeys:
+		print regress, ": ", giaRegressions[regress], "\n"
+	
+	print "\n\n\n"		
+
 	
 
-
-
+	for regress in sortedKeys:
+		print regress, ",", giaRegressions[regress]['gradient'][0], ",", giaRegressions[regress]['gradient'][1]	
 	
-	for idString in giaRegressionComboMappingsByConditions:
-		print "\n\n%s:	" % idString
-		
-		giaRegressionsByCombo = giaRegressionComboMappingsByConditions[idString]
-		
-		for regress in sortedKeys:
-			
-			print giaRegressionDescriptions[regress], ",", giaRegressionsByCombo[regress]['gradient'][0], ",", giaRegressionsByCombo[regress]['gradient'][1]	
-
+	plotGradientConfidenceIntervals(giaRegressionsByCombo, giaRegressionKeys)
 
 
 	############################################################################

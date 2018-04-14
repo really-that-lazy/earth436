@@ -13,9 +13,7 @@ def percentageDifference(someValue, anotherValue):
 	return float(diff/average)
 	
 def conditionMet(thisBinCount, otherBinCount, condition):
-	if(condition == "any"):
-		return True
-	elif(condition == "bothNonZero"):
+	if(condition == "bothNonZero"):
 		if((thisBinCount > 0) and (otherBinCount > 0)):
 			return True
 		return False
@@ -23,23 +21,6 @@ def conditionMet(thisBinCount, otherBinCount, condition):
 		if(percentageDifference(thisBinCount, otherBinCount) <= 0.20):
 			return True
 		return False
-	elif(condition == "withinThirtyPercent"):
-		if(percentageDifference(thisBinCount, otherBinCount) <= 0.30):
-			return True
-		return False
-	elif(condition == "withinFiftyPercent"):
-		if(percentageDifference(thisBinCount, otherBinCount) <= 0.50):
-			return True
-		return False
-	elif(condition == "withinSixtyPercent"):
-		if(percentageDifference(thisBinCount, otherBinCount) <= 0.60):
-			return True
-		return False	
-	elif(condition == "withinSeventyFivePercent"):
-		if(percentageDifference(thisBinCount, otherBinCount) <= 0.75):
-			return True
-		return False		
-
 	
 class siteModelConnectTheDots(siteModel):	
 	

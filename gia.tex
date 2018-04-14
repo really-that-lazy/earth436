@@ -1,6 +1,9 @@
 \documentclass{article}
 
 \usepackage{graphicx}
+\usepackage{pgffor}
+\usepackage{listings}
+
 
 \begin{document}
 \include{titlePage}
@@ -41,16 +44,20 @@
  (the modelled elevation) is created by using linear interpolation between datapoints,
  represented as a solid line between points in Figure \ref{fig:rawDataWithModel}.\\
 \input{rawDataWithModelGraph}
- 
 \newpage
 \input{previousWork}
 
 
 
-\include{graphs}
+\include{graphsCommented}
 
-
-
+\foreach \python in  {./data/giaModel.py, ./data/giaUtils.py} {
+   \begin{figure}[tpb]
+        \lstinputlisting[language=java]{\python}
+        \caption{Source code for \textsf{\python}}
+     \label{fig:\python}
+   \end{figure}
+}
 
 
 
