@@ -5,18 +5,21 @@
 from rawData import *
 
 
-
-
+## ideas for future models:
+## -same connect the dots idea, but with binned means every so many years
+## -use mean water level of other sites in areas where a site has a gap to 
+## adjust for global water lows caused by climate, etc.
 
 
 class siteModel(object):
 	## parent to all models that take a set of siteData and attempt to build a
+	## model of elevations for all of the possible age values in between points
+	## where the elevation is directly sampled for that exact time.
+	
+	
 	
 	def __init__(self):
 		pass
-	## uhhhh
-
-	## I guess I can just write a contract
 	
 	## getModelledElevation: Num -> Num
 

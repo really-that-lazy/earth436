@@ -32,6 +32,8 @@ def verifyPath(somePath):
 		os.makedirs(somePath)
 		return os.path.exists(somePath)
 
+
+## input dict
 ## ie {"valueDifference": "withinTwentyPercent","valueCounts": "bothNonZero"}
 		
 def populateConditionsDict(inputDict):
@@ -44,7 +46,25 @@ def populateConditionsDict(inputDict):
 
 def getCurrentSettingOptions():
 	return [ "valueCounts", "valueDifference"]
-		
+
+
+
+def mergeConfidenceIntervals(intervalA, intervalB):
+	if((intervalA["start"] >= intervalB["end"]) or (intervalB["start"] >= intervalA["end"])):
+		return "No overlap"
+	else:
+		## some overlap
+		if((intervalB["start"] < intervalA["end"]) and (intervalB["end"] > intervalA["end"])):
+			return (intervalB["start"], intervalA["end"])
+		elif((intervalA["start"] < intervalB["end"]) and (intervalA["end"] > intervalB["end"])):
+			return (intervalA["start"], intervalB["end"])
+		elif((intervalB["start"] > intervalA["start"]) and (intervalB["end"] < intervalA["end"])):
+			return (intervalB["start"], intervalB["end"])
+		elif((intervalA["start"] > intervalB["start"]) and (intervalA["end"] < intervalB["end"])):
+			return (intervalA["start"], intervalA["end"])
+
 		
 if(__name__ == "__main__"):
 	print convertListToRelativePath(["withinTwentyPercent", "baseFixedAt450", "gias"])
+
+

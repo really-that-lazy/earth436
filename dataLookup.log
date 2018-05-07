@@ -1,0 +1,565 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.30)  18 APR 2018 14:19
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**dataLookup.tex
+(./dataLookup.tex
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/memoir/memoir.cls
+Document Class: memoir 2015/07/08 v3.7e configurable book, report, article docu
+ment class
+\onelineskip=\skip41
+\lxvchars=\skip42
+\xlvchars=\skip43
+\@memcnta=\count79
+\c@@memmarkcntra=\count80
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Class memoir Info: An `ifetex' package is being emulated on input line 265.
+
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+\stockheight=\skip44
+\stockwidth=\skip45
+\trimtop=\skip46
+\trimedge=\skip47
+
+(/usr/share/texlive/texmf-dist/tex/latex/memoir/mem10.clo
+File: mem10.clo 2008/01/30 v0.3 memoir class 10pt size option
+)
+\binding=\skip48
+\spinemargin=\skip49
+\foremargin=\skip50
+\uppermargin=\skip51
+\lowermargin=\skip52
+\headdrop=\skip53
+\normalrulethickness=\skip54
+\mem@maxheadheight=\skip55
+\mem@maxfootheight=\skip56
+\headwidth=\skip57
+\c@storedpagenumber=\count81
+\memPD=\dimen102
+\m@mabparskip=\skip58
+\thanksmarkwidth=\skip59
+\thanksmarksep=\skip60
+\droptitle=\skip61
+\c@book=\count82
+\c@part=\count83
+\c@chapter=\count84
+\c@section=\count85
+\c@subsection=\count86
+\c@subsubsection=\count87
+\c@paragraph=\count88
+\c@subparagraph=\count89
+\beforechapskip=\skip62
+\midchapskip=\skip63
+\afterchapskip=\skip64
+\chapindent=\skip65
+\bottomsectionskip=\skip66
+\secindent=\skip67
+\beforesecskip=\skip68
+\aftersecskip=\skip69
+\subsecindent=\skip70
+\beforesubsecskip=\skip71
+\aftersubsecskip=\skip72
+\subsubsecindent=\skip73
+\beforesubsubsecskip=\skip74
+\aftersubsubsecskip=\skip75
+\paraindent=\skip76
+\beforeparaskip=\skip77
+\afterparaskip=\skip78
+\subparaindent=\skip79
+\beforesubparaskip=\skip80
+\aftersubparaskip=\skip81
+\pfbreakskip=\skip82
+\c@@ppsavesec=\count90
+\c@@ppsaveapp=\count91
+\ragrparindent=\dimen103
+\everylistparindent=\dimen104
+\parsepi=\skip83
+\topsepi=\skip84
+\itemsepi=\skip85
+\parsepii=\skip86
+\topsepii=\skip87
+\topsepiii=\skip88
+\itemsepii=\skip89
+\itemsepiii=\skip90
+\partopsepii=\skip91
+\partopsepiii=\skip92
+\m@msavetopsep=\skip93
+\m@msavepartopsep=\skip94
+\@enLab=\toks14
+\abstitleskip=\skip95
+\absleftindent=\skip96
+\abs@leftindent=\dimen105
+\absrightindent=\skip97
+\absparindent=\skip98
+\absparsep=\skip99
+\c@vslineno=\count92
+\c@poemline=\count93
+\c@modulo@vs=\count94
+\c@memfvsline=\count95
+\vleftskip=\skip100
+\vrightskip=\skip101
+\stanzaskip=\skip102
+\versewidth=\skip103
+\vgap=\skip104
+\vindent=\skip105
+\vleftmargin=\dimen106
+\c@verse=\count96
+\c@chrsinstr=\count97
+\beforepoemtitleskip=\skip106
+\afterpoemtitleskip=\skip107
+\c@poem=\count98
+\beforePoemTitleskip=\skip108
+\midPoemTitleskip=\skip109
+\afterPoemTitleskip=\skip110
+\col@sep=\dimen107
+\extrarowheight=\dimen108
+\NC@list=\toks15
+\extratabsurround=\skip111
+\backup@length=\skip112
+\TX@col@width=\dimen109
+\TX@old@table=\dimen110
+\TX@old@col=\dimen111
+\TX@target=\dimen112
+\TX@delta=\dimen113
+\TX@cols=\count99
+\TX@ftn=\toks16
+\heavyrulewidth=\dimen114
+\lightrulewidth=\dimen115
+\cmidrulewidth=\dimen116
+\belowrulesep=\dimen117
+\belowbottomsep=\dimen118
+\aboverulesep=\dimen119
+\abovetopsep=\dimen120
+\cmidrulesep=\dimen121
+\cmidrulekern=\dimen122
+\defaultaddspace=\dimen123
+\@cmidla=\count100
+\@cmidlb=\count101
+\@aboverulesep=\dimen124
+\@belowrulesep=\dimen125
+\@thisruleclass=\count102
+\@lastruleclass=\count103
+\@thisrulewidth=\dimen126
+\ctableftskip=\skip113
+\ctabrightskip=\skip114
+\abovecolumnspenalty=\count104
+\@linestogo=\count105
+\@cellstogo=\count106
+\@cellsincolumn=\count107
+\crtok=\toks17
+\@mincolumnwidth=\dimen127
+\c@newflo@tctr=\count108
+\mem@margin@floatbox=\box26
+\@contcwidth=\skip115
+\@contindw=\skip116
+\abovecaptionskip=\skip117
+\belowcaptionskip=\skip118
+\subfloattopskip=\skip119
+\subfloatcapskip=\skip120
+\subfloatcaptopadj=\skip121
+\subfloatbottomskip=\skip122
+\subfloatlabelskip=\skip123
+\subfloatcapmargin=\dimen128
+\c@@contsubnum=\count109
+\m@mscap@capbox=\box27
+\m@mscap@fbox=\box28
+\sidecapsep=\dimen129
+\sidecapwidth=\dimen130
+\m@m@tempdima=\dimen131
+\m@mscapraise=\dimen132
+\sidecapraise=\dimen133
+\m@mscapmainwidth=\dimen134
+\m@mscaplkern=\dimen135
+\beforeepigraphskip=\skip124
+\afterepigraphskip=\skip125
+\epigraphwidth=\skip126
+\epigraphrule=\skip127
+LaTeX Info: Redefining \em on input line 7535.
+LaTeX Info: Redefining \emph on input line 7543.
+\tocentryskip=\skip128
+\tocbaseline=\skip129
+\cftparskip=\skip130
+\cftbeforebookskip=\skip131
+\cftbookindent=\dimen136
+\cftbooknumwidth=\dimen137
+\cftbeforepartskip=\skip132
+\cftpartindent=\skip133
+\cftpartnumwidth=\skip134
+\cftbeforechapterskip=\skip135
+\cftchapterindent=\skip136
+\cftchapternumwidth=\skip137
+\cftbeforesectionskip=\skip138
+\cftsectionindent=\skip139
+\cftsectionnumwidth=\skip140
+\cftbeforesubsectionskip=\skip141
+\cftsubsectionindent=\skip142
+\cftsubsectionnumwidth=\skip143
+\cftbeforesubsubsectionskip=\skip144
+\cftsubsubsectionindent=\skip145
+\cftsubsubsectionnumwidth=\skip146
+\cftbeforeparagraphskip=\skip147
+\cftparagraphindent=\skip148
+\cftparagraphnumwidth=\skip149
+\cftbeforesubparagraphskip=\skip150
+\cftsubparagraphindent=\skip151
+\cftsubparagraphnumwidth=\skip152
+\prechapterprecisshift=\dimen138
+\c@maxsecnumdepth=\count110
+\bibindent=\dimen139
+\bibitemsep=\skip153
+\indexcolsep=\skip154
+\indexrule=\skip155
+\indexmarkstyle=\toks18
+\@indexbox=\insert199
+\glossarycolsep=\dimen140
+\glossaryrule=\dimen141
+\sideparvshift=\skip156
+\sideins=\insert198
+\sidebartopsep=\skip157
+\sidebarhsep=\skip158
+\sidebarvsep=\skip159
+\sidebarwidth=\skip160
+\footmarkwidth=\skip161
+\footmarksep=\skip162
+\footparindent=\skip163
+\footinsdim=\skip164
+\footinsv@r=\insert197
+\@mpfootinsv@r=\insert196
+\m@m@k=\count111
+\m@m@h=\dimen142
+\m@mipn@skip=\skip165
+\sidefootins=\insert195
+\sidefootadjust=\skip166
+\sidefootheight=\skip167
+\sidefoothsep=\skip168
+\sidefootvsep=\skip169
+\sidefootwidth=\skip170
+\m@mdownsf=\skip171
+\c@sidefootnote=\count112
+\sidefootmarkwidth=\skip172
+\sidefootmarksep=\skip173
+\sidefootparindent=\skip174
+\c@pagenote=\count113
+\c@pagenoteshadow=\count114
+\mem@pn@lastkern=\skip175
+\every@verbatim=\toks19
+\afterevery@verbatim=\toks20
+\verbatim@line=\toks21
+\tab@position=\count115
+\verbatim@in@stream=\read1
+\verbatimindent=\skip176
+\verbatim@out=\write3
+\bvboxsep=\skip177
+\c@memfbvline=\count116
+\c@bvlinectr=\count117
+\bvnumlength=\skip178
+\fb@frw=\dimen143
+\fb@frh=\dimen144
+\FrameRule=\dimen145
+\FrameSep=\dimen146
+\c@cp@cntr=\count118
+LaTeX Info: Redefining \: on input line 12052.
+LaTeX Info: Redefining \! on input line 12054.
+\c@ism@mctr=\count119
+\c@xsm@mctr=\count120
+\c@csm@mctr=\count121
+\c@ksm@mctr=\count122
+\c@xksm@mctr=\count123
+\c@cksm@mctr=\count124
+\c@msm@mctr=\count125
+\c@xmsm@mctr=\count126
+\c@cmsm@mctr=\count127
+\c@bsm@mctr=\count128
+\c@workm@mctr=\count129
+\c@sheetsequence=\count130
+\c@lastsheet=\count131
+\c@lastpage=\count132
+\c@figure=\count133
+\c@lofdepth=\count134
+\cftbeforefigureskip=\skip179
+\cftfigureindent=\skip180
+\cftfigurenumwidth=\skip181
+\c@table=\count135
+\c@lotdepth=\count136
+\cftbeforetableskip=\skip182
+\cfttableindent=\skip183
+\cfttablenumwidth=\skip184
+Package abstract [2008/07/23] emulated by memoir.
+Package appendix [2008/07/23] emulated by memoir.
+Package array [2008/09/09] emulated by memoir.
+Package booktabs [2008/07/23] emulated by memoir.
+Package ccaption [2008/07/23] emulated by memoir.
+Package changepage [2008/07/23] emulated by memoir.
+Package chngcntr [2008/07/23] emulated by memoir.
+Package chngpage [2008/07/23] emulated by memoir.
+Package crop emulated by memoir.
+Package dcolumn [2008/07/23] emulated by memoir.
+Package delarray [2008/07/23] emulated by memoir.
+Package enumerate [2008/07/23] emulated by memoir.
+Package epigraph [2008/07/23] emulated by memoir.
+Package ifmtarg [2008/07/23] emulated by memoir.
+Package ifetex [2008/07/23] emulated by memoir.
+Package index [2008/07/23] emulated by memoir.
+Package makeidx [2008/07/23] emulated by memoir.
+Package moreverb [2008/07/23] emulated by memoir.
+Package mparhack [2008/07/23] emulated by memoir.
+Package needspace [2008/07/23] emulated by memoir.
+Package newfile [2008/07/23] emulated by memoir.
+Package nextpage [2008/07/23] emulated by memoir.
+Package pagenote [2008/07/23] emulated by memoir.
+Package parskip [2008/07/23] emulated by memoir.
+Package patchcmd [2008/07/23] emulated by memoir.
+Package setspace [2008/07/23] emulated by memoir.
+Package shortvrb [2008/07/23] emulated by memoir.
+Package showidx [2008/07/23] emulated by memoir.
+Package tabularx [2008/07/23] emulated by memoir.
+Package titleref [2008/07/23] emulated by memoir.
+Package titling [2008/07/23] emulated by memoir.
+Package tocbibind [2008/07/23] emulated by memoir.
+Package tocloft [2008/07/23] emulated by memoir.
+Package tocvsec2 [2008/07/23] emulated by memoir.
+Package verbatim [2008/07/23] emulated by memoir.
+Package verse [2008/07/23] emulated by memoir.
+
+(/usr/share/texlive/texmf-dist/tex/latex/memoir/mempatch.sty
+Package: mempatch 2009/07/24 v6.0f Patches for memoir class v1.6180339
+))
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool.sty
+Package: datatool 2016/01/18 v2.25 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks22
+\XKV@tempa@toks=\toks23
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count137
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xfor/xfor.sty
+Package: xfor 2009/02/05 v1.05 (NLCT)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/substr/substr.sty
+Package: substr 2009/10/20 v1.2 Handle substrings
+\c@su@anzahl=\count138
+)
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count139
+)
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-base.sty
+Package: datatool-base 2016/01/18 v2.25 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
+\@mathmargin=\skip185
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks24
+\ex@=\dimen147
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen148
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count140
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count141
+\leftroot@=\count142
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count143
+\DOTSCASE@=\count144
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen149
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+\macc@depth=\count145
+\c@MaxMatrixCols=\count146
+\dotsspace@=\muskip10
+\c@parentequation=\count147
+\dspbrk@lvl=\count148
+\tag@help=\toks25
+\row@=\count149
+\column@=\count150
+\maxfields@=\count151
+\andhelp@=\toks26
+\eqnshift@=\dimen150
+\alignsep@=\dimen151
+\tagshift@=\dimen152
+\tagwidth@=\dimen153
+\totwidth@=\dimen154
+\lineht@=\dimen155
+\@envbody=\toks27
+\multlinegap=\skip186
+\multlinetaggap=\skip187
+\mathdisplay@stack=\toks28
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/datatool/datatool-fp.sty
+Package: datatool-fp 2016/01/18 v2.25 (NLCT)
+
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp.sty
+Package: fp 1995/04/02
+
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+(/usr/share/texlive/texmf-dist/tex/latex/fp/defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count152
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count153
+\FP@xia=\count154
+\FP@xib=\count155
+\FP@xfa=\count156
+\FP@xfb=\count157
+\FP@rega=\count158
+\FP@regb=\count159
+\FP@regs=\count160
+\FP@times=\count161
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-addons.sty
+Package: fp-addons 1995/03/15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-snap.sty
+Package: fp-snap 1995/04/05
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-exp.sty
+Package: fp-exp 1995/04/03
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-trigo.sty
+Package: fp-trigo 1995/04/14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-pas.sty
+Package: fp-pas 1994/08/29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count162
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eqn.sty
+Package: fp-eqn 1995/04/03
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-upn.sty
+Package: fp-upn 1996/10/21
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eval.sty
+Package: fp-eval 1995/04/03
+)))
+\@dtl@toks=\toks29
+\@dtl@tmpcount=\count163
+\dtl@tmplength=\skip188
+\dtl@sortresult=\count164
+\@dtl@numgrpsepcount=\count165
+\@dtl@datatype=\count166
+\dtl@codeA=\count167
+\dtl@codeB=\count168
+\@dtl@foreach@level=\count169
+)
+\dtlcolumnnum=\count170
+\dtlrownum=\count171
+\@dtl@before=\toks30
+\@dtl@after=\toks31
+\@dtl@colhead=\toks32
+\dtlcurrentrow=\toks33
+\dtlbeforerow=\toks34
+\dtlafterrow=\toks35
+\dtlforeachlevel=\count172
+\c@DTLrowi=\count173
+\c@DTLrowii=\count174
+\c@DTLrowiii=\count175
+\c@DTLrow=\count176
+\dtl@rowi=\count177
+\dtl@rowii=\count178
+\dtl@rowiii=\count179
+\@dtl@curi=\toks36
+\@dtl@previ=\toks37
+\@dtl@nexti=\toks38
+\@dtl@curii=\toks39
+\@dtl@previi=\toks40
+\@dtl@nextii=\toks41
+\@dtl@curiii=\toks42
+\@dtl@previii=\toks43
+\@dtl@nextiii=\toks44
+\@dtl@elements=\count180
+\@dtl@list=\toks45
+\@dtl@rowa=\toks46
+\@dtl@rowb=\toks47
+\@dtl@toksA=\toks48
+\@dtl@toksB=\toks49
+\@dtl@write=\write4
+\@dtl@read=\read2
+\dtl@entrycr=\count181
+\dtl@omitlines=\count182
+)
+\dtldb@players=\toks50
+\dtlkeys@players=\toks51
+\dtlrows@players=\count183
+\dtlcols@players=\count184
+ (./dataLookup.aux)
+\openout1 = `dataLookup.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+(./template.tex) (./template.tex) (./template.tex
+! Missing $ inserted.
+<inserted text> 
+                $
+l.8 \subsubsection{\name}
+                         
+? x
+ 
+Here is how much of TeX's memory you used:
+ 6402 strings out of 494953
+ 83372 string characters out of 6180977
+ 217169 words of memory out of 5000000
+ 9657 multiletter control sequences out of 15000+600000
+ 5000 words of font info for 19 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 51i,4n,32p,884b,137s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.
+PDF statistics:
+ 0 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

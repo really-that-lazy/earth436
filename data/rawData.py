@@ -8,7 +8,6 @@
 class siteData(object):
 	
 	## siteData: Str Listof(Any) -> siteData
-	
 	def __init__(self, siteName, rawData):
 		self.dataHeader = []
 		self.data = [row for row in rawData if len(row) == 2]
@@ -23,9 +22,11 @@ class siteData(object):
 		
 
 	def getElevationValues(self):
+		## get the entire list of elevation values for this dataset
 		return [row[0] for row in self.data]
 		
 	def getElevationByGivenAge(self, someAge):	
+		## map an age to an elevation if possible
 		for row in self.data:
 			if(row[1] == someAge):
 				return row[0]
@@ -33,6 +34,7 @@ class siteData(object):
 	def getThisSiteBinCount(self, binStart, binWidth):
 		
 		def withinside(someValue, binStart, binWidth):
+			## determine if someValue is between binStart and (binStart+binWidth)
 			delta = someValue - binStart
 			if((delta >= 0)and(delta <= binWidth)):
 				return True

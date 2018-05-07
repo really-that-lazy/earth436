@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+if [ $# -eq 0 ]; then
+	baseFolder="."
+else
+	baseFolder="$1"
+fi
+
+
+
+geany "$baseFolder/data/rawData.py" "$baseFolder/data/dataModel.py" "$baseFolder/data/linearInterpolationModel.py" "$baseFolder/data/giaUtils.py" "$baseFolder/data/rawhide/bootstrapper.py" "$baseFolder/data/giaModel.py" "$baseFolder/abstract.tex" "$baseFolder/outstract.tex" "$baseFolder/titlePage.tex" "$baseFolder/rawDataGraph.tex" "$baseFolder/rawDataWithModelGraph.tex" "$baseFolder/previousWork.tex" "$baseFolder/graphs.tex" "$baseFolder/giaResultsMap.tex" "$baseFolder/giaPres.tex" "$baseFolder/graphsCommented.tex" "$baseFolder/gia.tex" "$baseFolder/gitter" &

@@ -12,6 +12,7 @@ def percentageDifference(someValue, anotherValue):
 	diff = abs(someValue - anotherValue)
 	return float(diff/average)
 	
+	
 def conditionMet(thisBinCount, otherBinCount, condition):
 	if(condition == "any"):
 		return True
@@ -111,8 +112,8 @@ class siteModelConnectTheDots(siteModel):
 				## case where our value to interpolate is off the top end
 				maxValue = max(ageValues)
 				restOfValues = np.array([val for val in ageValues if val != maxValue])
-				## maybe npifying the array will make the min/max calls faster
-				## idk
+				## npifying this array could make the min/max calls faster
+				
 				secondMaxValue = max(restOfValues)
 				
 				ageDelta = someAge - secondMaxValue

@@ -1,0 +1,12 @@
+\documentclass{memoir}
+\usepackage{datatool}
+\DTLloaddb{players}{data/bothNonZero_withinSeventyFivePercent_intervals.csv}
+\newcommand{\player}[1]{%
+    \dtlgetrowforvalue{players}{\dtlcolumnindex{players}{id}}{#1}%
+    \input{./template.tex}%
+}
+\begin{document}
+\player{ATB-BATB_forward}
+\player{ATB-BATB_reverse}
+\player{ATB-BATB}
+\end{document}

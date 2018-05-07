@@ -4,20 +4,30 @@
 ################################################################################
 import pyexcel_ods
 
-import sys
-import random
+##import sys
+
+
+import csv
 
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
+
 from matplotlib.font_manager import FontProperties
 
 import itertools
+## used to generate the number of links between sites
+import random
+from random import sample
+## used in the random choice feature of the zoomed site comparisons 
 
 from rawhide import bootstrapper
+## get the custom bootstrap plotting function from this projects code
 
 from linearInterpolationModel import *
 from giaUtils import *
+
+
 
 fontP = FontProperties()
 fontP.set_size('small')
@@ -60,11 +70,7 @@ def getLinearModel(x_values, y_values, k=1.0, l=1.0):
 
 	
 
-## ideas for future models:
-## -same connect the dots idea, but with binned means every so many years
-## -the extensions off the end use the means for both parameters in place of
-## second largest/smallest age data point, as that part is royally fucking up
-## the forecasts relative to the general trend
+
 
 
 
@@ -81,8 +87,7 @@ def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys, giaRegressionDe
   
 		ax.hlines(y, xstart, xstop, colords, lw=7)
 		ax.hlines(y, xstart, xstop, colord, lw=3, label=intervalLabel)
-		##plt.vlines(xstart, y+0.3, y-0.3, colords, lw=2)
-		##plt.vlines(xstop, y+0.3, y-0.3, colords, lw=2)
+		## plots the interval in the colours of both sites
 
 
 	outputPath = convertListToRelativePath([outputPathDict[setting] for setting in getCurrentSettingOptions()])
@@ -90,9 +95,10 @@ def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys, giaRegressionDe
 	
 
 	y = 0
+	## used in spacing out the intervals for each site vertically through the
+	## graph
 	
 	fig,ax = plt.subplots(1)
-	##ax.plot(sim_1['t'],sim_1['V'],'k')
 	
 	for combo in keys:
 		y += 1
@@ -119,12 +125,8 @@ def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys, giaRegressionDe
 			
 		if(order == 'forward'):
 			plotInterval(ax, y, ciStart, ciEnd, "", mapSiteToColour(direct), mapSiteToColour(modelled))
-
-			##plotInterval(ax, y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), "", mapSiteToColour(direct), mapSiteToColour(modelled))
 		else:
 			plotInterval(ax, y, ciStart, ciEnd, "",  mapSiteToColour(direct), mapSiteToColour(modelled))			
-		
-			##plotInterval(ax, y, abs(giaRegressionsByCombo[combo]['gradient'][0]), abs(giaRegressionsByCombo[combo]['gradient'][1]), "",  mapSiteToColour(direct), mapSiteToColour(modelled))			
 		
 		
 		ax.vlines(est, y+0.3, y-0.3, mapSiteToColour(direct), lw=4)
@@ -132,22 +134,14 @@ def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys, giaRegressionDe
 	
 	ax.set_xlim([0,0.009])
 
-	##ax.set_yticklabels(keys)
-	##ax.set_yticklabels([])
-	
 	plt.yticks(list(np.arange(1, len(keys)+1, 1.0)), [giaRegressionDescriptions[key] for key in keys], rotation=0)
 
 	fileNameIdentifier = "_".join([outputPathDict[setting] for setting in getCurrentSettingOptions()])
 
 	plt.title("95p Confidence intervals on GIA\nfilters: %s" % fileNameIdentifier)
 
-	##for item in ([ax.title, ax.xaxis.label, ax.yaxis.label] +
-    ##        ax.get_xticklabels() + ax.get_yticklabels()):
-
 	for item in ax.get_yticklabels():
 		item.set_fontsize(8)
-
-	##plt.legend(loc=3, prop={'size': 11})
 	
 	outputFilePath = filePathOnRelativePath(outputPath+"gias/", fileName='intervals', ext="png")
 	print "Saving gia intervals plot at '%s'" % outputFilePath
@@ -171,8 +165,6 @@ def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys, giaRegressionDe
 
 
 
-
-## "./reformattedData.ods"
 
 def getDatasetsModelsAndObjects(filenameToLoad):
 	lookupTable = pyexcel_ods.get_data(filenameToLoad)
@@ -218,17 +210,20 @@ if(__name__ == "__main__"):
 	print min(allAgesSampled), max(allAgesSampled)
 
 	## create the raw plot of data points ######################################
-	for ds in datasetObjects:
-		print ds, datasetObjects[ds].data
-		x = datasetObjects[ds].getAgeValues()
-		y = datasetObjects[ds].getElevationValues()
-		plt.plot(x, y, mapSiteToColour(ds) + 's', label=ds, markersize=4.0)
+	for site in datasetObjects:
+		print site, datasetObjects[site].data
+		x = datasetObjects[site].getAgeValues()
+		y = datasetObjects[site].getElevationValues()
 		
-		datasetModels[ds] = siteModelConnectTheDots(datasetObjects[ds])
+		n = len(datasetObjects[site].getAgeValues())
+		
+		plt.plot(x, y, mapSiteToColour(site) + 's', label=site+" n=%i" % n, markersize=4.0)
+		
+		datasetModels[site] = siteModelConnectTheDots(datasetObjects[site])
 	
 	plt.title("Plot of Elevation by Age\nRaw Data only")
-	plt.ylabel('Elevation')
-	plt.xlabel('Age')
+	plt.ylabel('Elevation (m)')
+	plt.xlabel('Age Before Present (years)')
 	plt.legend(loc=2, prop={'size': 17})
 	plt.savefig('./theDataRaw.png')
 	plt.close()
@@ -246,15 +241,71 @@ if(__name__ == "__main__"):
 		plt.plot(x, y, mapSiteToColour(ds) + 's', label="%s, n=%i" % (ds, len(x)), markersize=4.0)
 
 	for d in datasets:
-		plt.plot(sorted(allAgesSampled), [datasetModels[d].getModelledElevation(age) for age in sorted(allAgesSampled)], mapSiteToColour(d), label=d+" (model)")
+		plt.plot([age for age in sorted(allAgesSampled)  if datasetModels[d].ageValueIsInRangeCoveredByModel(age)], [datasetModels[d].getModelledElevation(age) for age in sorted(allAgesSampled) if datasetModels[d].ageValueIsInRangeCoveredByModel(age)], mapSiteToColour(d), label=d+" (model)")
 
-	plt.title("Plot of Elevation by Age\nRaw with Model")
-	plt.ylabel('Elevation')
-	plt.xlabel('Age')
+	plt.title("Plot of Elevation by Age\nRaw Data with Model")
+	plt.ylabel('Elevation (m)')
+	plt.xlabel('Age Before Present (years)')
 	plt.legend(loc=2, prop={'size': 17})
 	plt.savefig('./theData.png')
 	plt.close()
 	############################################################################
+	
+	############################################################################
+	## create the raw plot with the model included, zooming in on the 2000-2300#
+	## ybp window, y axis limited to 183-187 m #################################
+	
+	
+	zoomXRange = (2000, 2400)
+	zoomYRange = (182, 190)
+	
+	for site in datasetObjects:
+		print site, datasetObjects[site].data
+		x = datasetObjects[site].getAgeValues()
+		y = datasetObjects[site].getElevationValues()
+		plt.plot(x, y, mapSiteToColour(site) + 's', label="%s" % (site), markersize=4.0)
+
+	for site in datasets:
+		plt.plot(sorted(allAgesSampled), [datasetModels[site].getModelledElevation(age) for age in sorted(allAgesSampled)], mapSiteToColour(site), label=site+" (model)")
+		## plot the dataset models as straight lines
+		
+	siteCodeOptions = [site for site in datasetObjects]
+	
+	exampleSites = sample(siteCodeOptions, 2)
+	print exampleSites
+	
+	direct = exampleSites[0]
+	modelled = exampleSites[1]
+	
+	agesToConsider = [age for age in sorted(allAgesSampled) if ( ((age >= min(zoomXRange))and(age <= max(zoomXRange))) and (datasetModels[direct].ageValueInRawData(age) and datasetModels[modelled].ageValueIsInRangeCoveredByModel(age)) )]
+	
+	for age in agesToConsider:
+		print age
+	
+	demoComparisonPoint = random.choice(agesToConsider)
+	print "-> ", demoComparisonPoint	
+	
+	
+	directElevation = datasetObjects[direct].getElevationByGivenAge(demoComparisonPoint)
+	modelledElevation = datasetModels[modelled].getModelledElevation(demoComparisonPoint)	
+	
+	print "Direct [%s]:" % direct, directElevation
+	print "Modelled [%s]:" % modelled, modelledElevation
+	
+	##exit()
+	##ax = plt.axes()
+	##ax.arrow(demoComparisonPoint, directElevation, 0, modelledElevation-directElevation, head_width=5.5, head_length=10.1, fc=mapSiteToColour(direct), ec="y")
+	plt.plot([demoComparisonPoint, demoComparisonPoint], [directElevation, modelledElevation], "%s" % mapSiteToColour(direct), linewidth=3.0)
+	plt.plot([demoComparisonPoint, demoComparisonPoint], [directElevation, modelledElevation], "%s--" % mapSiteToColour(modelled), linewidth=2.0)
+	##'--'
+	plt.title("Plot of Elevation by Age\nRaw Data with Model")
+	plt.ylabel('Elevation (m)')
+	plt.xlabel('Age Before Present (years)')
+	plt.axis((zoomXRange[0], zoomXRange[1],zoomYRange[0],zoomYRange[1]))
+	plt.legend(loc=2, prop={'size': 7})
+	plt.savefig('./theDataZoomed.png')
+	plt.close()
+	############################################################################	
 
 
 	############################################################################
@@ -447,9 +498,9 @@ if(__name__ == "__main__"):
 	## them ####################################################################
 	for conditions in [{"valueDifference": "withinThirtyPercent","valueCounts": "bothNonZero"},\
 						{"valueDifference": "withinFiftyPercent","valueCounts": "bothNonZero"}, \
-						{"valueDifference": "withinTwentyPercent","valueCounts": "bothNonZero"}, \
+						##{"valueDifference": "withinTwentyPercent","valueCounts": "bothNonZero"}, \
 						{"valueDifference": "withinSeventyFivePercent","valueCounts": "bothNonZero"},  \
-						{"valueDifference": "withinSixtyPercent","valueCounts": "bothNonZero"},  \
+						##{"valueDifference": "withinSixtyPercent","valueCounts": "bothNonZero"},  \
 						{"valueCounts": "bothNonZero"}]:
 		outputPathDict = populateConditionsDict(conditions)
 
@@ -559,6 +610,7 @@ if(__name__ == "__main__"):
 
 	############################################################################
 	## Check for any exact age matches in the datasets provided ################
+	## Spoiler: there arent any ################################################
 	ageMatches = []
 	for d in datasets:
 		for dv in datasetObjects[d].getAgeValues():
@@ -572,20 +624,59 @@ if(__name__ == "__main__"):
 
 
 
-	
+	############################################################################
+	## now that values have been generated for GIA for each site comparison, ###
+	## convert them to intervals for each site combination and save the result #
+	## to file #################################################################
 	for idString in giaRegressionComboMappingsByConditions:
 		print "\n\n%s:	" % idString
 		
 		giaRegressionsByCombo = giaRegressionComboMappingsByConditions[idString]
-		
-		for regress in sortedKeys:
+		siteCombos = ["ATB-BATB","GTB-ATB","GTB-BATB","GTB-TAHB","TAHB-ATB","TAHB-BATB"]
+
+		with open("%s_intervals.csv" % idString, "wb") as csv_file:
+			writer = csv.writer(csv_file, delimiter=',')
 			
-			print giaRegressionDescriptions[regress], ",", giaRegressionsByCombo[regress]['gradient'][0], ",", giaRegressionsByCombo[regress]['gradient'][1]	
+			writer.writerow(["id", "name", "startValue", "endValue"])
+			for regress in sortedKeys:
+				description = giaRegressionDescriptions[regress]
+				ciStart = giaRegressionsByCombo[regress]['gradient'][0]
+				ciEnd = giaRegressionsByCombo[regress]['gradient'][1]
+				
 
+				writer.writerow([regress, description, ciStart, ciEnd])
+		
+			for combo in siteCombos:
+				for order in ["forward", "reverse"]:
+					regress = "%s_%s" % (combo, order)
+					print giaRegressionDescriptions[regress], ",", giaRegressionsByCombo[regress]['gradient'][0], ",", giaRegressionsByCombo[regress]['gradient'][1]			
+				
+					est = giaRegressionsByCombo[regress]['gradientEstimator']	
+					ciStart = 100*100*giaRegressionsByCombo[regress]['gradient'][0]
+					ciEnd = 100*100*giaRegressionsByCombo[regress]['gradient'][1]
+				
+					if(est < 0):
+						ciStart = -ciStart
+						ciEnd = -ciEnd
+					
+					if(order == "forward"):
+						forwardInterval = {"start":min(ciStart, ciEnd), "end": max(ciStart, ciEnd)}
+					elif(order == "reverse"):
+						reverseInterval = {"start":min(ciStart, ciEnd), "end": max(ciStart, ciEnd)}
+				mergedInterval = mergeConfidenceIntervals(forwardInterval, reverseInterval)
+				
+				print combo, ": ", mergedInterval
+				if(mergedInterval == "No overlap"):
+					writer.writerow([combo, "%s_merged" % combo, mergedInterval, ""])
+				else:
+					writer.writerow([combo, "%s_merged" % combo, "%.3f" % mergedInterval[0], "%.3f" % mergedInterval[1]])
 
+	
 
 	############################################################################
 	## plot a legend showing the colour coding system for the sites ############
+	## this sounded like a decent idea earlier, but it eventually proved #######
+	## not to be needed ########################################################
 	for site in sites:
 		plt.plot([1], [1], mapSiteToColour(site)+'s', label=site, markersize=20)
 		plt.plot([1], [1], mapSiteToColour(site), label=site+" model", markersize=20)

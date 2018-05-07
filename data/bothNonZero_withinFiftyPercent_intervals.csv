@@ -1,0 +1,19 @@
+id,name,startValue,endValue
+ATB-BATB_forward, measured data from ATB relative to BATB model,-0.0020823309318572535,-0.0029226782289845416
+ATB-BATB_reverse, measured data from BATB relative to ATB model,0.0030547986131896181,0.0020115984057269285
+GTB-ATB_forward, measured data from GTB relative to ATB model,0.0013427190249363679,0.00057478045853453499
+GTB-ATB_reverse, measured data from ATB relative to GTB model,-0.00089698781911037731,-0.0016578153894106135
+GTB-BATB_forward, measured data from GTB relative to BATB model,-0.00091733436054070201,-0.0012543129373644773
+GTB-BATB_reverse, measured data from BATB relative to GTB model,0.0011843525168614083,0.00087314101091235047
+GTB-TAHB_forward, measured data from GTB relative to TAHB model,0.0062963619495824564,-0.0015674427241529998
+GTB-TAHB_reverse, measured data from TAHB relative to GTB model,-0.00049493804756801799,-0.0069827947871900775
+TAHB-ATB_forward, measured data from TAHB relative to ATB model,0.0032968021263864349,0.0019443044064497601
+TAHB-ATB_reverse, measured data from ATB relative to TAHB model,-0.0016895915532129245,-0.0029238007926180331
+TAHB-BATB_forward, measured data from TAHB relative to BATB model,-0.001218925366145368,-0.0017069548347573632
+TAHB-BATB_reverse, measured data from BATB relative to TAHB model,0.0017480617050682394,0.0011302595693795463
+ATB-BATB,ATB-BATB_merged,20.116,29.227
+GTB-ATB,GTB-ATB_merged,8.970,13.427
+GTB-BATB,GTB-BATB_merged,9.173,11.844
+GTB-TAHB,GTB-TAHB_merged,4.949,62.964
+TAHB-ATB,TAHB-ATB_merged,19.443,29.238
+TAHB-BATB,TAHB-BATB_merged,11.303,17.070

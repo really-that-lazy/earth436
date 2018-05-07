@@ -3,10 +3,43 @@
 \usepackage{graphicx}
 \usepackage{pgffor}
 \usepackage{listings}
+\usepackage{color}
+
+\usepackage{datatool}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+%% footnote size proved perfect here for getting the code to appear as 80 chars
+%% wide like standard
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=true,
+  columns=flexible,
+  basicstyle={\footnotesize\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=3
+}
 
 
 \begin{document}
+
+
+
 \include{titlePage}
+
+\tableofcontents
+\newpage
 
 \input{abstract}
 \newpage
@@ -14,18 +47,27 @@
 \section{Introduction}
  The Earths crust rests on top of the mantle, its elevation rising and falling
  with the amount of mass weighing on it. During glacial periods, a significant portion
- of the water on earth is transferred in form from water in the Oceans to glacial ice,
- weighing down the continental crust. This causes the crust to ride lower in elevation,
- a change which is quickly reversed when the weight is removed as the ice sheets melt.
- This vertical motion of the crust while returning to its previous position is known
- as glacial isostatic adjustment (GIA).\\
+ of the water on earth is transferred in form from water in the oceans to glacial ice sheets,
+ weighing down the continental crust and causing the mantle to dynamically adjust
+ with it. This causes the crust to ride relatively lower in elevation,
+ a change which reverses when the weight is removed as the ice sheets melt.
+ This vertical motion of the crust while attempting to returning to its previous position is known
+ as glacial isostatic adjustment (GIA) (Scott et al, 2010).\\
  
- This process of isostatic rebound has implications for the routes that the flow
+ The process of GIA has implications for the routes that the flow
  of water on the Earths surface takes; the "tilting" of the surface caused by 
- uneven rates of GIA in different locations may open or close locations along basins,
- causing some rivers and lake outlets to close, while potentially opening others.
+ uneven rates of GIA in different locations (the thickness and residence time of
+ the ice sheet impacts how much the crust subsides and how rapidly it rebounds) 
+ may open or close drainage outlets from basins, possibly
+ causing some rivers and lake outlets to go dry, while opening new ones as the
+ 'tilt' of the lake basin changes.
  Additionally, the change in "tilt" has potential to change shorelines of existing
- basins, which has implications for property assessment, structural projections, etc.\\
+ basins, which has implications for land usage and long term engineering
+ projections for structures such as locks and dams, where the usage lifetime of
+ the structure may extend over decades or centuries.\\
+
+\newpage
+\input{previousWork}
  
  In order to project the future impact of this process on the Great Lakes Basin,
  an estimate of the historical rate of GIA is needed. This estimate is obtained by
@@ -34,29 +76,109 @@
  by a variety of indicators in the sediment record, in this case, beach deposits known
  as strandplain sequences are used, their ages determined by optically stimulated
  luminescence (OSL) dating. This raw data is presented in Figure \ref{fig:rawData}.\\
-\input{rawDataGraph}
+\include{rawDataGraph}
 
 \newpage 
  
- Given that none of the datasets have elevations sampled
- at the same times, an estimate of elevation is needed for times where one dataset
- has a data point present, but the other does not. This estimate 
+ The data was sampled from four separate locations around Lake Superior, namely
+ Au Train Bay, Michigan (known in this paper as ATB), Grand Traverse Bay,
+ Michigan (known as GTB), Batchawana Bay, Ontario (known as BATB), and 
+ Tahquamenon Bay, Michigan (TAHB).\\
+ \begin{figure}[h]
+	\includegraphics[width=0.8\linewidth]{johnstonLaurentianMapWithSites.png}
+	\caption{Geographic Map of Lake Superior \& surrounding regions. Note that
+	 the colour of each site marker will remain constant throughout the rest of
+	 this paper for convenience. Reproduced from Johnston et al, 2014}
+	\label{fig:johnstonLaurentianMapWithSites}
+ \end{figure}
+
+ These datasets were previously created by
+ Johnston et al, 2014, but were analyzed using a different method.
+ From observing the graph, it can be seen that all four datasets follow somewhat
+ linear trends, increasing in elevation as the time before present increases.
+ This is because the crust underlying the Great Lakes has been rebounding upwards
+ over the time period in question, implying that areas that were at the
+ elevation of the water surface in the past have been shifted up in elevation
+ above the current water surface elevation. The rate of this upward trend varies
+ by site, generally increasing for sites closest to the north and east extremes.
+ (this is due to the rate of rebound increasing with closeness to the center of
+ the Laurentide Ice Sheet, roughly near current day James Bay in Northern Ontario).\\
+ Between the four sites, the most common feature is good data coverage between
+ 1000 and 3500 years before present, with a common gap in coverage around 2000
+ years before present. This was due to conditions which worked against the
+ formation of strandplain sequences during the Algoma lake level fluctuation
+ (Johnston et al, 2014), thus causing most of our datasets to have interrupted
+ records of lake level elevation at this time. While some of the datasets have
+ coverage extending far beyond this range, the only dataset which does not follow
+ this pattern of data coverage is TAHB, which will be discussed later in this section.\\ 
+ In order to measure a relative rate of GIA between sites, the rate at which these
+ trends diverge must be measured. In the previous work done on this dataset, this
+ was accomplished by representing the trend of increasing elevation with age as
+ a straight line using a linear regression (Johnston et al, 2014). This was an
+ effective first approximation, but failed to take into account that large gaps
+ exist the ranges of time before present where no data is available for some
+ sites. For example, the TAHB dataset has a large gap between 600 and 2100 years
+ before present in which no data is available. A linear regression of this dataset
+ would imply a similar rate of change connecting these two disconnected ranges,
+ during which there is no actual evidence that the sites actual elevation was
+ anywhere near the linear regression line. which it is represented by in
+ calculations for producing a GIA rate.\\
+ In order to produce an estimate of GIA which better reflects the inconsistent
+ coverage of the data over time, a better strategy would be to simply subtract
+ the differences in elevation between sites and plot these differences with
+ respect to time. Unfortunately however, none of the datasets have elevations
+ sampled at the same times, an estimate of elevation being needed for times where
+ one dataset
+ has a data point present, but the other does not. In this paper, this estimate 
  (the modelled elevation) is created by using linear interpolation between datapoints,
- represented as a solid line between points in Figure \ref{fig:rawDataWithModel}.\\
+ represented as a solid line between points as seen in Figure \ref{fig:rawDataWithModel}.\\
 \input{rawDataWithModelGraph}
+ \subsection{Methods}
+ Once this estimate of elevation for times between sampled datapoints at a site
+ is created, the difference in gia between sites can be created by subtracting
+ the elevation of a measured data point from the modelled elevation of another
+ dataset at that point in time, this difference is the dashed line shown in
+ Figure \ref{fig:rawDataWithModelZoomed}:
+ \begin{figure}[h]
+	\includegraphics[width=1.1\linewidth]{data/theDataZoomed.png}
+	\caption{Example GIA comparison from a data point to a linear interpolation
+	model, represented by an alternating dashed line}
+	\label{fig:rawDataWithModelZoomed}
+ \end{figure}
+ To avoid making comparisons between data in one dataset and a model for another
+ in areas where the model stretched over long distances between measured data
+ (such as the 1500 year gap in TAHB), the data was grouped into a series of bins
+ starting at 450 years before present with width of 200 years (ie the error bounds
+ on the age values reported in the original data). If any bin had no data
+ available for one site or the other in a comparison, none of the datapoints in
+ that bin range were used to make comparisons, thus ensuring that areas like the
+ gap in TAHB were avoided when making comparisons. In addition, a second rule
+ that the counts for the bins needed to be within 75\% of one another was used,
+ which cleared up a few areas where the datasets for both bins compared poorly,
+ but produced valid comparison windows (see the small zone of GTB-TAHB overlap
+ at \~ 600 years before present).
+
 \newpage
-\input{previousWork}
-
-
-
 \include{graphsCommented}
 
-\foreach \python in  {./data/giaModel.py, ./data/giaUtils.py} {
-   \begin{figure}[tpb]
-        \lstinputlisting[language=java]{\python}
-        \caption{Source code for \textsf{\python}}
-     \label{fig:\python}
-   \end{figure}
+\include{giaResultsMap}
+
+
+\section{References}
+Mainville, A., \& Craymer, M. R. (2005). Present-day tilting of the Great Lakes region based on water level gauges. Geological Society of America Bulletin, 117(7-8), 1070-1080.\\
+Scott, T. W., Swift, D. J., Whittecar, G. R., \& Brook, G. A. (2010). Glacioisostatic influences on Virginia's late Pleistocene coastal plain deposits. Geomorphology, 116(1-2), 175-188.\\
+Johnston, J. W., Argyilan, E. P., Thompson, T. A., Baedke, S. J., Lepper, K., Wilcox, D. A., \& Forman, S. L. (2012). A Sault-outlet-referenced mid-to late-Holocene paleohydrograph for Lake Superior constructed from strandplains of beach ridges. Canadian Journal of Earth Sciences, 49(11), 1263-1279.\\
+Johnston, J. W., Thompson, T. A., \& Wilcox, D. A. (2014). Palaeohydrographic reconstructions from strandplains of beach ridges in the Laurentian Great Lakes. Geological Society, London, Special Publications, 388(1), 213-228.\\
+
+\newpage
+
+\section{Appendix}
+\foreach \python in  {giaModel.py, giaUtils.py , rawhide/bootstrapper.py, rawData.py, dataModel.py, linearInterpolationModel.py}
+{
+	\subsection{Source code for \textsf{\python}}
+	\lstinputlisting[language=python]{./data/\python}
+	\newpage
+	
 }
 
 
