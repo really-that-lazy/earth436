@@ -1,14 +1,14 @@
 \contentsline {section}{\numberline {1}Abstract}{3}
 \contentsline {section}{\numberline {2}Introduction}{5}
-\contentsline {subsection}{\numberline {2.1}Previous Work}{6}
-\contentsline {subsection}{\numberline {2.2}Methods}{12}
-\contentsline {section}{\numberline {3}Gia Graphs}{15}
-\contentsline {section}{\numberline {4}Results}{40}
-\contentsline {section}{\numberline {5}References}{43}
-\contentsline {section}{\numberline {6}Appendix}{44}
-\contentsline {subsection}{\numberline {6.1}Source code for \textsf {giaModel.py}}{44}
-\contentsline {subsection}{\numberline {6.2}Source code for \textsf {giaUtils.py }}{71}
-\contentsline {subsection}{\numberline {6.3}Source code for \textsf {rawhide/bootstrapper.py}}{74}
-\contentsline {subsection}{\numberline {6.4}Source code for \textsf {rawData.py}}{76}
-\contentsline {subsection}{\numberline {6.5}Source code for \textsf {dataModel.py}}{78}
-\contentsline {subsection}{\numberline {6.6}Source code for \textsf {linearInterpolationModel.py}}{81}
+\contentsline {subsection}{\numberline {2.1}Previous Work}{7}
+\contentsline {subsection}{\numberline {2.2}Methods}{14}
+\contentsline {section}{\numberline {3}Gia Graphs}{17}
+\contentsline {section}{\numberline {4}Results}{42}
+\contentsline {section}{\numberline {5}References}{45}
+\contentsline {section}{\numberline {6}Appendix}{46}
+\contentsline {subsection}{\numberline {6.1}Source code for \textsf {giaModel.py}}{46}
+\contentsline {subsection}{\numberline {6.2}Source code for \textsf {giaUtils.py }}{73}
+\contentsline {subsection}{\numberline {6.3}Source code for \textsf {rawhide/bootstrapper.py}}{76}
+\contentsline {subsection}{\numberline {6.4}Source code for \textsf {rawData.py}}{78}
+\contentsline {subsection}{\numberline {6.5}Source code for \textsf {dataModel.py}}{80}
+\contentsline {subsection}{\numberline {6.6}Source code for \textsf {linearInterpolationModel.py}}{83}

@@ -221,8 +221,8 @@ if(__name__ == "__main__"):
 		
 		datasetModels[site] = siteModelConnectTheDots(datasetObjects[site])
 	
-	plt.title("Plot of Elevation by Age\nRaw Data only")
-	plt.ylabel('Elevation (m)')
+	##plt.title("Plot of Elevation by Age\nRaw Data only")
+	plt.ylabel('Elevation (m IGLD1985)')
 	plt.xlabel('Age Before Present (years)')
 	plt.legend(loc=2, prop={'size': 17})
 	plt.savefig('./theDataRaw.png')
@@ -243,8 +243,8 @@ if(__name__ == "__main__"):
 	for d in datasets:
 		plt.plot([age for age in sorted(allAgesSampled)  if datasetModels[d].ageValueIsInRangeCoveredByModel(age)], [datasetModels[d].getModelledElevation(age) for age in sorted(allAgesSampled) if datasetModels[d].ageValueIsInRangeCoveredByModel(age)], mapSiteToColour(d), label=d+" (model)")
 
-	plt.title("Plot of Elevation by Age\nRaw Data with Model")
-	plt.ylabel('Elevation (m)')
+	##plt.title("Plot of Elevation by Age\nRaw Data with Model")
+	plt.ylabel('Elevation (m IGLD1985)')
 	plt.xlabel('Age Before Present (years)')
 	plt.legend(loc=2, prop={'size': 17})
 	plt.savefig('./theData.png')
