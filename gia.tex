@@ -91,8 +91,9 @@
 
 \newpage 
  
- The data used for this paper was sampled from four separate locations around
-  Lake Superior, namely
+ The data used for this paper was previously published in
+ Johnston et al, 2012, being sampled from four separate locations around
+  Lake Superior:
  Au Train Bay, Michigan (known in this paper as ATB), Grand Traverse Bay,
  Michigan (GTB), Batchawana Bay, Ontario (BATB), and 
  Tahquamenon Bay, Michigan (TAHB).\\
@@ -106,75 +107,84 @@
 	\label{fig:johnstonLaurentianMapWithSites}
  \end{figure}
 
- These datasets were previously created by
- Johnston et al, 2014, but were analyzed using a different method.
+ 
  Observing Figure \ref{fig:johnstonLaurentianMapWithSites}, it can be seen that
  all four datasets follow somewhat
  linear trends, decreasing in elevation as the time before present approaches the
  current day.
- This is because the crust underlying the Great Lakes has been rebounding upwards
- over the time period in question, implying that areas that were at the
- elevation of the water surface in the past have been shifted up in elevation
+ This is because the crust underlying the LGL has been rebounding upwards
+ over the past 5000 years, which can be interpreted to imply that areas that were at the
+ elevation of the water surface in the past have been shifted upwards in elevation
  above the current water surface elevation. The rate of this upward trend varies
- by site, generally increasing for sites closest to the north and east extremes.
+ by site, generally increasing for sites closest to the north and east extremes
+ of the range studied.
  (this is due to the rate of rebound increasing with closeness to the center of
  the Laurentide Ice Sheet, roughly near current day James Bay in Northern Ontario).\\
- Between the four sites, the most common feature is good data coverage between
- 1000 and 3500 years before present, with a common gap in coverage around 2000
+ Between the four study sites, the most common feature is good data coverage between
+ approximately 1000 and 3500 years before present, and a common gap in coverage around 2000
  years before present. This was due to conditions which worked against the
  formation of strandplain sequences during the Algoma lake level fluctuation
  (Johnston et al, 2014), thus causing most of our datasets to have interrupted
- records of lake level elevation at this time. While some of the datasets have
- coverage extending far beyond this range, the only dataset which does not follow
+ records of lake level elevation at this time. While BATB has data
+ coverage extending far beyond this range up to 5000 years before present, the others do not, which makes relative GIA
+ comparisons impossible over that time range. The only dataset which does not follow
  this pattern of data coverage is TAHB, which will be discussed later in this section.\\ 
  In order to measure a relative rate of GIA between sites, the rate at which these
  trends diverge must be measured. In the previous work done on this dataset, this
  was accomplished by representing the trend of increasing elevation with age as
- a straight line using a linear regression (Johnston et al, 2014). This was an
- effective first approximation, but failed to take into account that large gaps
- exist the ranges of time before present where no data is available for some
- sites. For example, the TAHB dataset has a large gap between 600 and 2100 years
- before present in which no data is available. A linear regression of this dataset
- would imply a similar rate of change connecting these two disconnected ranges,
- during which there is no actual evidence that the sites actual elevation was
- anywhere near the linear regression line. which it is represented by in
- calculations for producing a GIA rate.\\
- In order to produce an estimate of GIA which better reflects the inconsistent
- coverage of the data over time, a better strategy would be to simply subtract
+ a straight line using a linear regression over the age range of each lake phase (Johnston et al, 2012). This was an
+ effective first approximation, but failed to take into account that the behaviour
+ of each dataset may not necessarily have been truly linear over each lake phase, being affected by
+ global water level changes caused by climate and other factors. \\
+ In order to produce an estimate of GIA which better reflects the rate of GIA from
+ comparisons made between elevations measured at similar times, a better strategy would be to simply subtract
  the differences in elevation between sites and plot these differences with
- respect to time. Unfortunately however, none of the datasets have elevations
+ respect to time, similar to the method used by Mainville \& Craymer (2005), using
+ water gauge data. Unfortunately however, none of the datasets have elevations
  sampled at the same times, an estimate of elevation being needed for times where
  one dataset
- has a data point present, but the other does not. In this paper, this estimate 
- (the modelled elevation) is created by using linear interpolation between datapoints,
- represented as a solid line between points as seen in Figure \ref{fig:rawDataWithModel}.\\
+ has a data point present, but the other does not. The goal of the research
+ presented in this paper was to develop a new method of calculating direct differences
+ in elevation between sites for the strandplain paleohydrographs published in
+ Johnston et al (2012), and compare the results with rates for the process of GIA
+ as calculated in prior studies concerning the LGL. \\
 \input{rawDataWithModelGraph}
- \subsection{Methods}
- Once this estimate of elevation for times between sampled datapoints at a site
- is created, the difference in gia between sites can be created by subtracting
+ 
+ \section{Methods}
+ In this paper, the modelled elevation for points where elevation was not directly
+ measured is created by using linear interpolation between datapoints,
+ represented as a solid line between points as seen in Figure \ref{fig:rawDataWithModel}.
+ Once this estimate of elevation for times between sampled datapoints at each site
+ was created, the difference in GIA between sites were calculated by subtracting
  the elevation of a measured data point from the modelled elevation of another
- dataset at that point in time, this difference is the dashed line shown in
+ dataset at that point in time. This difference is shown as a dashed line in
  Figure \ref{fig:rawDataWithModelZoomed}:
  \begin{figure}[h]
 	\includegraphics[width=1.1\linewidth]{data/theDataZoomed.png}
-	\caption{Example GIA comparison from a data point to a linear interpolation
-	model, represented by an alternating dashed line}
+	\caption{Example GIA comparison between strandplain datasets. Comparison made from a data point to the linear interpolation
+	model, represented by a vertical alternating dashed line}
 	\label{fig:rawDataWithModelZoomed}
  \end{figure}
  To avoid making comparisons between data in one dataset and a model for another
  in areas where the model stretched over long distances between measured data
- (such as the 1500 year gap in TAHB), the data was grouped into a series of bins
- starting at 450 years before present with width of 200 years (ie the error bounds
- on the age values reported in the original data). If any bin had no data
+ (such as the 1500 year gap in TAHB), the data for all four sites was grouped into a series of bins
+ starting at 450 years before present with a width of 200 years for each bin (chosen as the error bounds
+ for the values reported in the age models published by Johnston et al (2012)). If any bin had no data
  available for one site or the other in a comparison, none of the datapoints in
  that bin range were used to make comparisons, thus ensuring that areas like the
- gap in TAHB were avoided when making comparisons. In addition, a second rule
- that the counts for the bins needed to be within 75\% of one another was used,
- which cleared up a few areas where the datasets for both bins compared poorly,
- but produced valid comparison windows (see the small zone of GTB-TAHB overlap
- at \~ 600 years before present).
+ gap in TAHB were not included when making comparisons. In addition, a second rule
+ was created, stipulating that the counts for the bins needed to be within 75\% of one another to be considered
+ in calculating relative elevation between sites. This
+ avoided a few areas where the datasets for both bins compared poorly,
+ but produced valid comparison windows (On Figure \ref{fig:rawDataWithModel} see the small zone of GTB-TAHB overlap
+ at \~ 600 years before present).\\
+ In order to implement the methods described above, a python script was used to
+ process the data provided by Professor Johnston from his 2012 paper. The source
+ code used can be seen in the appendix of this paper.
 
 \newpage
+
+\section{Results}
 \include{graphsCommented}
 
 \include{giaResultsMap}
