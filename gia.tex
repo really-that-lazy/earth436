@@ -37,6 +37,13 @@
 \setlength{\parskip}{1em}
 \renewcommand{\baselinestretch}{2.0}
 
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+
+\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
 
 \begin{document}
 
@@ -168,7 +175,12 @@
  To avoid making comparisons between data in one dataset and a model for another
  in areas where the model stretched over long distances between measured data
  (such as the 1500 year gap in TAHB), the data for all four sites was grouped into a series of bins
- starting at 450 years before present with a width of 200 years for each bin (chosen as the error bounds
+ starting at 450 years before present with a width of 200 years for each bin.
+ The start point was chosen by taking the youngest age value recorded in any of
+ the datasets and rounding down to the nearest ten, in this case 450 years
+ before present. The 200 year bin width was chosen as the error on the age models
+ for shorelines published in Johnston et al (2012) had error bounds of approximately
+ 200 years.
  for the values reported in the age models published by Johnston et al (2012)). If any bin had no data
  available for one site or the other in a comparison, none of the datapoints in
  that bin range were used to make comparisons, thus ensuring that areas like the
@@ -181,6 +193,17 @@
  In order to implement the methods described above, a python script was used to
  process the data provided by Professor Johnston from his 2012 paper. The source
  code used can be seen in the appendix of this paper.
+ 
+ Using comparisons from measured data points to linear interpolation model for
+ pairs of study sites,
+ two graphs of the relative difference over time was created for each pair
+ of sites. For example, for
+ the site combination of ATB \& BATB, ATB was first compared to BATB, followed 
+ by a comparison from BATB to ATB. The rates of GIA produced by these comparisons
+ should be of opposite signs, but similar magnitudes.
+ 
+ The GIA rates are determined by applying a linear regression to each comparison,
+ the slope of each regression representing the relative rate of GIA between sites.
 
 \newpage
 

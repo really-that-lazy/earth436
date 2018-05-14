@@ -274,32 +274,36 @@ if(__name__ == "__main__"):
 	exampleSites = sample(siteCodeOptions, 2)
 	print exampleSites
 	
-	direct = exampleSites[0]
-	modelled = exampleSites[1]
 	
-	agesToConsider = [age for age in sorted(allAgesSampled) if ( ((age >= min(zoomXRange))and(age <= max(zoomXRange))) and (datasetModels[direct].ageValueInRawData(age) and datasetModels[modelled].ageValueIsInRangeCoveredByModel(age)) )]
+	for order in ['forward', 'reverse']:
+		
+		if(order == 'forward'):
+			direct = exampleSites[0]
+			modelled = exampleSites[1]
+		elif(order == 'reverse'):
+			direct = exampleSites[1]
+			modelled = exampleSites[0]		
+		agesToConsider = [age for age in sorted(allAgesSampled) if ( ((age >= min(zoomXRange))and(age <= max(zoomXRange))) and (datasetModels[direct].ageValueInRawData(age) and datasetModels[modelled].ageValueIsInRangeCoveredByModel(age)) )]
+		
+		for age in agesToConsider:
+			print age
+		
+		demoComparisonPoint = random.choice(agesToConsider)
+		print "-> ", demoComparisonPoint	
+		
+		
+		directElevation = datasetObjects[direct].getElevationByGivenAge(demoComparisonPoint)
+		modelledElevation = datasetModels[modelled].getModelledElevation(demoComparisonPoint)	
+		
+		print "Direct [%s]:" % direct, directElevation
+		print "Modelled [%s]:" % modelled, modelledElevation
+		
+		##plt.plot([demoComparisonPoint, demoComparisonPoint], [directElevation, modelledElevation], "%s" % mapSiteToColour(direct), linewidth=3.0)
+		plt.plot([demoComparisonPoint, demoComparisonPoint], [directElevation, modelledElevation], "%s-." % mapSiteToColour(direct), linewidth=2.0)
 	
-	for age in agesToConsider:
-		print age
-	
-	demoComparisonPoint = random.choice(agesToConsider)
-	print "-> ", demoComparisonPoint	
-	
-	
-	directElevation = datasetObjects[direct].getElevationByGivenAge(demoComparisonPoint)
-	modelledElevation = datasetModels[modelled].getModelledElevation(demoComparisonPoint)	
-	
-	print "Direct [%s]:" % direct, directElevation
-	print "Modelled [%s]:" % modelled, modelledElevation
-	
-	##exit()
-	##ax = plt.axes()
-	##ax.arrow(demoComparisonPoint, directElevation, 0, modelledElevation-directElevation, head_width=5.5, head_length=10.1, fc=mapSiteToColour(direct), ec="y")
-	plt.plot([demoComparisonPoint, demoComparisonPoint], [directElevation, modelledElevation], "%s" % mapSiteToColour(direct), linewidth=3.0)
-	plt.plot([demoComparisonPoint, demoComparisonPoint], [directElevation, modelledElevation], "%s--" % mapSiteToColour(modelled), linewidth=2.0)
 	##'--'
-	plt.title("Plot of Elevation by Age\nRaw Data with Model")
-	plt.ylabel('Elevation (m)')
+	##plt.title("Plot of Elevation by Age\nRaw Data with Model")
+	plt.ylabel('Elevation (m IGLD1985)')
 	plt.xlabel('Age Before Present (years)')
 	plt.axis((zoomXRange[0], zoomXRange[1],zoomYRange[0],zoomYRange[1]))
 	plt.legend(loc=2, prop={'size': 7})
