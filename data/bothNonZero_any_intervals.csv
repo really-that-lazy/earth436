@@ -1,19 +1,13 @@
-id,name,startValue,endValue
-ATB-BATB_forward, measured data from ATB relative to BATB model,-0.0024868032755950478,-0.0030065972866132693
-ATB-BATB_reverse, measured data from BATB relative to ATB model,0.0030255909516225723,0.0023415919602242834
-GTB-ATB_forward, measured data from GTB relative to ATB model,0.0013559021707354739,0.00065846122863523265
-GTB-ATB_reverse, measured data from ATB relative to GTB model,-0.0010513063962315104,-0.0016664713022918895
-GTB-BATB_forward, measured data from GTB relative to BATB model,-0.0010431027840021095,-0.0013455822635677728
-GTB-BATB_reverse, measured data from BATB relative to GTB model,0.0013776265829170305,0.0010526629097823881
-GTB-TAHB_forward, measured data from GTB relative to TAHB model,-0.00045591562154574167,-0.00081086043146246954
-GTB-TAHB_reverse, measured data from TAHB relative to GTB model,0.0011692361355795967,0.00034332687018782937
-TAHB-ATB_forward, measured data from TAHB relative to ATB model,0.0032968021263864349,0.0019443044064497601
-TAHB-ATB_reverse, measured data from ATB relative to TAHB model,-0.0016895915532129245,-0.0029238007926180331
-TAHB-BATB_forward, measured data from TAHB relative to BATB model,-0.001189529875762621,-0.0016760985107972012
-TAHB-BATB_reverse, measured data from BATB relative to TAHB model,0.0017023770156837864,0.0010976596387327025
-ATB-BATB,ATB-BATB_merged,23.416,30.066
-GTB-ATB,GTB-ATB_merged,10.513,13.559
-GTB-BATB,GTB-BATB_merged,10.527,13.456
-GTB-TAHB,GTB-TAHB_merged,3.433,8.109
-TAHB-ATB,TAHB-ATB_merged,19.443,29.238
-TAHB-BATB,TAHB-BATB_merged,10.977,16.761
+name,Slope Estimator,Slope Error,r Squared,Slope C.I. (95p)
+ATB relative to BATB model,-27.46700,1.32601,0.881,"-24.86803,-30.06597"
+BATB relative to ATB model,26.83591,1.74490,0.858,"30.25591,23.41592"
+GTB relative to ATB model,10.07182,1.77919,0.427,"13.55902,6.58461"
+ATB relative to GTB model,-13.58889,1.56930,0.595,"-10.51306,-16.66471"
+GTB relative to BATB model,-11.94343,0.77163,0.842,"-10.43103,-13.45582"
+BATB relative to GTB model,12.15145,0.82899,0.850,"13.77627,10.52663"
+GTB relative to TAHB model,-6.33388,0.90547,0.605,"-4.55916,-8.10860"
+TAHB relative to GTB model,7.56282,2.10691,0.380,"11.69236,3.43327"
+TAHB relative to ATB model,26.20553,3.45025,0.643,"32.96802,19.44304"
+ATB relative to TAHB model,-23.06696,3.14849,0.599,"-16.89592,-29.23801"
+TAHB relative to BATB model,-14.32814,1.24125,0.765,"-11.89530,-16.76099"
+BATB relative to TAHB model,14.00018,1.54265,0.733,"17.02377,10.97660"

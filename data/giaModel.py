@@ -103,8 +103,8 @@ def plotGradientConfidenceIntervals(giaRegressionsByCombo, keys, giaRegressionDe
 	for combo in keys:
 		y += 1
 		combo1 = combo.split('-')[0]
-		combo2 = combo.split('-')[1].split('_')[0]
-		order = combo.split('-')[1].split('_')[1]
+		combo2 = combo.split('-')[1].split(':')[0]
+		order = combo.split('-')[1].split(':')[1]
 		
 		if(order == 'forward'):
 			direct = combo1
@@ -433,10 +433,10 @@ if(__name__ == "__main__"):
 			else:
 				direct = combo[1]
 				modelled = combo[0]
-			thisRegressionKey = "%s-%s_%s" % (combo[0], combo[1], order)
+			thisRegressionKey = "%s-%s:%s" % (combo[0], combo[1], order)
 				
 			giaRegressionKeys.append(thisRegressionKey)
-			thisComparisonGiaDescription = " measured data from %s relative to %s model" % (direct, modelled)
+			thisComparisonGiaDescription = "%s relative to %s model" % (direct, modelled)
 			giaRegressionDescriptions[thisRegressionKey] = thisComparisonGiaDescription
 			giaKeysByDescriptions[thisComparisonGiaDescription] = thisRegressionKey
 	
@@ -500,12 +500,11 @@ if(__name__ == "__main__"):
 	############################################################################
 	## plot the gia graphs and store the raw regression numbers used to create #
 	## them ####################################################################
-	for conditions in [{"valueDifference": "withinThirtyPercent","valueCounts": "bothNonZero"},\
-						{"valueDifference": "withinFiftyPercent","valueCounts": "bothNonZero"}, \
+	for conditions in [{"valueCounts": "bothNonZero"},\
+						##{"valueDifference": "withinThirtyPercent","valueCounts": "bothNonZero"},\
+						##{"valueDifference": "withinFiftyPercent","valueCounts": "bothNonZero"}, \
 						##{"valueDifference": "withinTwentyPercent","valueCounts": "bothNonZero"}, \
-						{"valueDifference": "withinSeventyFivePercent","valueCounts": "bothNonZero"},  \
-						##{"valueDifference": "withinSixtyPercent","valueCounts": "bothNonZero"},  \
-						{"valueCounts": "bothNonZero"}]:
+						{"valueDifference": "withinSeventyFivePercent","valueCounts": "bothNonZero"}]:
 		outputPathDict = populateConditionsDict(conditions)
 
 		outputPath = convertListToRelativePath([outputPathDict[setting] for setting in getCurrentSettingOptions()])
@@ -585,9 +584,9 @@ if(__name__ == "__main__"):
 				linRegressYValues, gradient, intercept, gradientError, 	yModelHigh, yModelLow, rSquare = getLinearModel(allowableAgeValues, elevationDiffs)
 				
 				if(direct != modelled):
-					giaRegressionKey = "%s-%s_%s" % (combo[0], combo[1], order)
+					giaRegressionKey = "%s-%s:%s" % (combo[0], combo[1], order)
 					
-					giaRegressionsByCombo[giaRegressionKey] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+(1.96*gradientError), gradient-(1.96*gradientError)], "intercept": intercept, }			
+					giaRegressionsByCombo[giaRegressionKey] = {"N": len(allowableAgeValues), "gradientEstimator": gradient, "gradientError": gradientError, "gradient": [gradient+(1.96*gradientError), gradient-(1.96*gradientError)], "intercept": intercept, "rSquare": rSquare}			
 		
 				plt.suptitle("Plot of Elevation Diff for %s relative to %s model by Age\n(%s order for %s-%s), n=%i\ny=mx+b, m = %.4f SE(%.4f), b = %.4f, r^2 = %.3f" % (direct, modelled, order, combo[0], combo[1], len(allowableAgeValues), gradient, gradientError, intercept, rSquare), fontsize=10)
 				plt.ylabel('Elevation')
@@ -641,18 +640,48 @@ if(__name__ == "__main__"):
 		with open("%s_intervals.csv" % idString, "wb") as csv_file:
 			writer = csv.writer(csv_file, delimiter=',')
 			
-			writer.writerow(["id", "name", "startValue", "endValue"])
+			writer.writerow([ "name", "Slope Estimator", "Slope Error", "r Squared", "Slope C.I. (95p)"])
 			for regress in sortedKeys:
 				description = giaRegressionDescriptions[regress]
-				ciStart = giaRegressionsByCombo[regress]['gradient'][0]
-				ciEnd = giaRegressionsByCombo[regress]['gradient'][1]
-				
+				ciStart = 100*100*giaRegressionsByCombo[regress]['gradient'][0]
+				ciEnd = 100*100*giaRegressionsByCombo[regress]['gradient'][1]
+				est = 100*100*giaRegressionsByCombo[regress]['gradientEstimator']					
+				error = 100*100*giaRegressionsByCombo[regress]['gradientError']	
+				rSquare = giaRegressionsByCombo[regress]['rSquare']	
+						
+				print regress
+				for param in giaRegressionsByCombo[regress]:
+					print param
 
-				writer.writerow([regress, description, ciStart, ciEnd])
+				writer.writerow([ description, "%.5f" % est, "%.5f" % error,  "%.3f" % rSquare, "%.5f,%.5f" % (ciStart, ciEnd)])
 		
+		for combo in siteCombos:
+			comboSites = combo.split('-')
+			
+			print combo, comboSites
+			
+			
+			with open("%s_regressionTable.csv" % combo, "wb") as csv_file:
+				writer = csv.writer(csv_file, delimiter=',')
+				writer.writerow([ "name", "Slope Estimator", "Slope Error", "r Squared", "Slope C.I. (95p)"])
+				for order in ["forward", "reverse"]:
+					regress = "%s:%s" % (combo, order)
+					description = giaRegressionDescriptions[regress]
+					ciStart = 100*100*giaRegressionsByCombo[regress]['gradient'][0]
+					ciEnd = 100*100*giaRegressionsByCombo[regress]['gradient'][1]
+					est = 100*100*giaRegressionsByCombo[regress]['gradientEstimator']					
+					error = 100*100*giaRegressionsByCombo[regress]['gradientError']	
+					rSquare = giaRegressionsByCombo[regress]['rSquare']
+					writer.writerow([ description, "%.5f" % est, "%.5f" % error,  "%.3f" % rSquare, "%.5f,%.5f" % (ciStart, ciEnd)])					
+
+
+		with open("%s_mergedIntervals.csv" % idString, "wb") as csv_file:		
+			writer = csv.writer(csv_file, delimiter=',')
+			
+			writer.writerow(["siteCombination", "startValue", "endValue"])
 			for combo in siteCombos:
 				for order in ["forward", "reverse"]:
-					regress = "%s_%s" % (combo, order)
+					regress = "%s:%s" % (combo, order)
 					print giaRegressionDescriptions[regress], ",", giaRegressionsByCombo[regress]['gradient'][0], ",", giaRegressionsByCombo[regress]['gradient'][1]			
 				
 					est = giaRegressionsByCombo[regress]['gradientEstimator']	

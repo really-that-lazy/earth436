@@ -8,6 +8,8 @@ Listed in this section are the results of each of the possible combinations of s
 Since 4 sites were used, a total of 6 distinct combinations of sites were studied.
 
 
+\subsubsection{ATB-BATB}
+
 \begin{figure}[h]
 	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{data/ATB-BATB_DataAndModel.png}}
 	\caption{Measured and modelled elevation data plotted against age for sites ATB \& BATB}
@@ -15,7 +17,7 @@ Since 4 sites were used, a total of 6 distinct combinations of sites were studie
 \end{figure}
 The data available for sites ATB and BATB shows two of the most common trends in
  the data used in this paper; Data is available for both sites from
- approximately 1000 years before present to roughly 3300 years before present,
+ approximately 1000 to 3300 years before present,
  with a gap in the record at around 2000 years before present (caused by a low
  water level period preferentially not forming beach deposits during this time)
  (Johnston et al, 2014). With the data divided up into bins of 200 years width
@@ -29,6 +31,14 @@ The data available for sites ATB and BATB shows two of the most common trends in
  between ATB and BATB of 23.5-31 cm/century. A plot of the confidence intervals
  for the slopes obtained from each linear regression can be seen in Figure \ref{fig:intervalsGIA}
 
+ %\begin{tabular}{l|c}%
+ %\bfseries Person & \bfseries Matr.~No.% specify table head
+ %\csvreader[head to column names]{grade.csv}{}% use head of csv as column names
+ %{\\\hline\givenname\ \name & \matriculation}% specify your coloumns here
+ %\end{tabular}
+\begin{flushleft}
+\csvautotabular{data/bothNonZero_withinSeventyFivePercent_intervals.csv}
+\end{flushleft}
 
 \newpage
 
@@ -49,6 +59,18 @@ The data available for sites ATB and BATB shows two of the most common trends in
 % this desperately needs to be done as a loop
 
 
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{TAHB-BATB}
 
 \begin{figure}[h]
 	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{data/TAHB-BATB_DataAndModel.png}}
@@ -92,7 +114,7 @@ report a value for relative GIA of between 11-16.7 cm/century.
 
 
 
-
+\subsubsection{TAHB-ATB}
 
 \begin{figure}[h]
 	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{data/TAHB-ATB_DataAndModel.png}}
@@ -132,7 +154,7 @@ relative GIA of between 19.4-29 cm/century.
 
 
 
-
+\subsubsection{GTB-BATB}
 
 \begin{figure}[h]
 	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{data/GTB-BATB_DataAndModel.png}}
@@ -176,7 +198,7 @@ producing one of the better constrained values at 10.4-12 cm/century.
 
 
 
-
+\subsubsection{GTB-ATB}
 
 \begin{figure}[h]
 	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{data/GTB-ATB_DataAndModel.png}}
@@ -217,7 +239,7 @@ the best constrained constrained, giving a rate of GIA of 9-13.4 cm/century.
 
 
 
-
+\subsubsection{GTB-TAHB}
 
 \begin{figure}[h]
 	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{data/GTB-TAHB_DataAndModel.png}}
