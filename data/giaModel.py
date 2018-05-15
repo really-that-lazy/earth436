@@ -653,7 +653,7 @@ if(__name__ == "__main__"):
 				for param in giaRegressionsByCombo[regress]:
 					print param
 
-				writer.writerow([ description, "%.5f" % est, "%.5f" % error,  "%.3f" % rSquare, "%.5f,%.5f" % (ciStart, ciEnd)])
+				writer.writerow([ description, "%.5f" % est, "%.5f" % error,  "%.3f" % rSquare, "%.5f to %.5f" % (ciStart, ciEnd)])
 		
 		for combo in siteCombos:
 			comboSites = combo.split('-')
@@ -672,7 +672,7 @@ if(__name__ == "__main__"):
 					est = 100*100*giaRegressionsByCombo[regress]['gradientEstimator']					
 					error = 100*100*giaRegressionsByCombo[regress]['gradientError']	
 					rSquare = giaRegressionsByCombo[regress]['rSquare']
-					writer.writerow([ description, "%.5f" % est, "%.5f" % error,  "%.3f" % rSquare, "%.5f,%.5f" % (ciStart, ciEnd)])					
+					writer.writerow([ description, "%.5f" % est, "%.5f" % error,  "%.3f" % rSquare, "%.5f to %.5f" % (ciStart, ciEnd)])					
 
 
 		with open("%s_mergedIntervals.csv" % idString, "wb") as csv_file:		

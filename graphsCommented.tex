@@ -28,17 +28,17 @@ The data available for sites ATB and BATB shows two of the most common trends in
  the distance to the nearest datapoint in BATB). The regressions derived from this pair of data sets,
  seen in Figures \ref{fig:gias_ATBxBATB} \& \ref{fig:gias_BATBxATB}, are well
  constrained, and produce a moderately well constrained value on relative GIA
- between ATB and BATB of 23.5-31 cm/century. A plot of the confidence intervals
- for the slopes obtained from each linear regression can be seen in Figure \ref{fig:intervalsGIA}
+ between ATB and BATB of 23.5-31 cm/century. A complete plot of the confidence intervals
+ for the slopes obtained from each linear regression can be seen in Figure \ref{fig:intervalsGIA}. \\
 
- %\begin{tabular}{l|c}%
- %\bfseries Person & \bfseries Matr.~No.% specify table head
- %\csvreader[head to column names]{grade.csv}{}% use head of csv as column names
- %{\\\hline\givenname\ \name & \matriculation}% specify your coloumns here
- %\end{tabular}
-\begin{flushleft}
-\csvautotabular{data/bothNonZero_withinSeventyFivePercent_intervals.csv}
-\end{flushleft}
+
+\begin{figure}[h]
+	\begin{flushleft}
+	\csvautotabular[respect all]{data/ATB-BATB_regressionTable.csv}
+	\end{flushleft}
+	\caption{ATB-BATB Regression output parameters}
+	\label{fig:ATBxBATB_regression}
+\end{figure}
 
 \newpage
 
@@ -92,6 +92,16 @@ The linear regressions produced from this dataset seen in Figures
 \ref{fig:gias_TAHBxBATB} \& \ref{fig:gias_BATBxTAHB}, are well constrained, and
 report a value for relative GIA of between 11-16.7 cm/century.
 
+
+\begin{figure}[h]
+	\begin{flushleft}
+	\csvautotabular[respect all]{data/TAHB-BATB_regressionTable.csv}
+	\end{flushleft}
+	\caption{TAHB-BATB Regression output parameters}
+	\label{fig:TAHBxBATB_regression}
+\end{figure}
+
+
 \newpage
 
 \begin{figure}[h]
@@ -134,6 +144,16 @@ Using only datapoints between 2050 and 3250 years before present results in
 relatively poor regressions that are not as well constrained, giving a wide range for
 relative GIA of between 19.4-29 cm/century.
 
+
+\begin{figure}[h]
+	\begin{flushleft}
+	\csvautotabular[respect all]{data/TAHB-ATB_regressionTable.csv}
+	\end{flushleft}
+	\caption{TAHB-ATB Regression output parameters}
+	\label{fig:TAHBxATB_regression}
+\end{figure}
+
+
 \newpage
 
 \begin{figure}[h]
@@ -175,6 +195,16 @@ ability to make accurate predictions in between measured datapoints.
 The regressions in
 Figures \ref{fig:gias_GTBxBATB} \& \ref{fig:gias_BATBxGTB} bear this out,
 producing one of the better constrained values at 10.4-12 cm/century.
+
+
+\begin{figure}[h]
+	\begin{flushleft}
+	\csvautotabular[respect all]{data/GTB-BATB_regressionTable.csv}
+	\end{flushleft}
+	\caption{GTB-BATB Regression output parameters}
+	\label{fig:GTBxBATB_regression}
+\end{figure}
+
 \newpage
 
 \begin{figure}[h]
@@ -215,6 +245,15 @@ time where GTB has sparse data, making the GTB models predictions unreliable.
 Possibly due to this, the
 regressions in Figures \ref{fig:gias_GTBxATB} \& \ref{fig:gias_ATBxGTB} are not
 the best constrained constrained, giving a rate of GIA of 9-13.4 cm/century.
+
+\begin{figure}[h]
+	\begin{flushleft}
+	\csvautotabular[respect all]{data/GTB-ATB_regressionTable.csv}
+	\end{flushleft}
+	\caption{GTB-ATB Regression output parameters}
+	\label{fig:GTBxATB_regression}
+\end{figure}
+
 \newpage
 
 \begin{figure}[h]
@@ -256,6 +295,15 @@ data in one dataset and a poorly constrained model in the other.
 This resulted in an estimate of GIA that ranges anywhere from -2.8-8.6 cm/century,
 possibly implying that there may be no difference in vertical adjustment rates
 between the TAHB and GTB sites. 
+
+\begin{figure}[h]
+	\begin{flushleft}
+	\csvautotabular[respect all]{data/GTB-TAHB_regressionTable.csv}
+	\end{flushleft}
+	\caption{GTB-TAHB Regression output parameters}
+	\label{fig:GTBxTAHB_regression}
+\end{figure}
+
 \newpage
 
 \begin{figure}[h]
