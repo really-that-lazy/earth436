@@ -696,9 +696,9 @@ if(__name__ == "__main__"):
 						forwardInterval = {"start":min(ciStart, ciEnd), "end": max(ciStart, ciEnd)}
 					elif(order == "reverse"):
 						reverseInterval = {"start":min(ciStart, ciEnd), "end": max(ciStart, ciEnd)}
-				mergedInterval = mergeConfidenceIntervals(forwardInterval, reverseInterval)
 				
-				print combo, ": ", mergedInterval
+				mergedInterval = mergeConfidenceIntervals(forwardInterval, reverseInterval)
+				print combo, " ", " forward: ", forwardInterval, " reverse: ", reverseInterval, " merged: ", mergedInterval
 				if(mergedInterval == "No overlap"):
 					writer.writerow([combo, "%s_merged" % combo, mergedInterval, ""])
 				else:

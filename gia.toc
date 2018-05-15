@@ -4,17 +4,17 @@
 \contentsline {section}{\numberline {4}Methods}{15}
 \contentsline {section}{\numberline {5}Results}{19}
 \contentsline {subsection}{\numberline {5.1}GIA Calculation Results}{20}
-\contentsline {subsubsection}{\numberline {5.1.1}ATB-BATB}{20}
-\contentsline {subsubsection}{\numberline {5.1.2}TAHB-BATB}{24}
-\contentsline {subsubsection}{\numberline {5.1.3}TAHB-ATB}{28}
-\contentsline {subsubsection}{\numberline {5.1.4}GTB-BATB}{32}
-\contentsline {subsubsection}{\numberline {5.1.5}GTB-ATB}{36}
-\contentsline {subsubsection}{\numberline {5.1.6}GTB-TAHB}{40}
-\contentsline {section}{\numberline {6}References}{48}
-\contentsline {section}{\numberline {7}Appendix}{49}
-\contentsline {subsection}{\numberline {7.1}Source code for \textsf {giaModel.py}}{49}
-\contentsline {subsection}{\numberline {7.2}Source code for \textsf {giaUtils.py }}{77}
-\contentsline {subsection}{\numberline {7.3}Source code for \textsf {rawhide/bootstrapper.py}}{80}
-\contentsline {subsection}{\numberline {7.4}Source code for \textsf {rawData.py}}{82}
-\contentsline {subsection}{\numberline {7.5}Source code for \textsf {dataModel.py}}{84}
-\contentsline {subsection}{\numberline {7.6}Source code for \textsf {linearInterpolationModel.py}}{87}
+\contentsline {subsubsection}{\numberline {5.1.1}ATB-BATB}{21}
+\contentsline {subsubsection}{\numberline {5.1.2}TAHB-BATB}{25}
+\contentsline {subsubsection}{\numberline {5.1.3}TAHB-ATB}{29}
+\contentsline {subsubsection}{\numberline {5.1.4}GTB-BATB}{33}
+\contentsline {subsubsection}{\numberline {5.1.5}GTB-ATB}{37}
+\contentsline {subsubsection}{\numberline {5.1.6}GTB-TAHB}{41}
+\contentsline {section}{\numberline {6}References}{49}
+\contentsline {section}{\numberline {7}Appendix}{50}
+\contentsline {subsection}{\numberline {7.1}Source code for \textsf {giaModel.py}}{50}
+\contentsline {subsection}{\numberline {7.2}Source code for \textsf {giaUtils.py }}{78}
+\contentsline {subsection}{\numberline {7.3}Source code for \textsf {rawhide/bootstrapper.py}}{81}
+\contentsline {subsection}{\numberline {7.4}Source code for \textsf {rawData.py}}{83}
+\contentsline {subsection}{\numberline {7.5}Source code for \textsf {dataModel.py}}{85}
+\contentsline {subsection}{\numberline {7.6}Source code for \textsf {linearInterpolationModel.py}}{88}

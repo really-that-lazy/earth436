@@ -50,21 +50,45 @@ def getCurrentSettingOptions():
 
 
 def mergeConfidenceIntervals(intervalA, intervalB):
+	
+	if(intervalA["start"] > intervalA["end"]):
+		realStart = intervalA["end"]
+		realEnd = intervalA["start"]
+		intervalA = {"start": realStart, "end": realEnd}
+
+	if(intervalB["start"] > intervalB["end"]):
+		realStart = intervalB["end"]
+		realEnd = intervalB["start"]
+		intervalB = {"start": realStart, "end": realEnd}
+	
 	if((intervalA["start"] >= intervalB["end"]) or (intervalB["start"] >= intervalA["end"])):
 		return "No overlap"
 	else:
 		## some overlap
-		if((intervalB["start"] < intervalA["end"]) and (intervalB["end"] > intervalA["end"])):
-			return (intervalB["start"], intervalA["end"])
-		elif((intervalA["start"] < intervalB["end"]) and (intervalA["end"] > intervalB["end"])):
+		if((intervalB["start"] < intervalA["start"]) and (intervalB["end"] < intervalA["end"])):
+			##print "case 1"
 			return (intervalA["start"], intervalB["end"])
+		elif((intervalA["start"] < intervalB["start"]) and (intervalA["end"] < intervalB["end"])):
+			##return (intervalB["start"], intervalA["end"])
+			print "case 2"
 		elif((intervalB["start"] > intervalA["start"]) and (intervalB["end"] < intervalA["end"])):
+			##print "B contained case"
 			return (intervalB["start"], intervalB["end"])
 		elif((intervalA["start"] > intervalB["start"]) and (intervalA["end"] < intervalB["end"])):
+			##print "A contained case"
 			return (intervalA["start"], intervalA["end"])
 
 		
 if(__name__ == "__main__"):
 	print convertListToRelativePath(["withinTwentyPercent", "baseFixedAt450", "gias"])
+	
+	forward = {'start': 24.708237969363132, 'end': 31.01253850766}
+	reverse =  {'start': 23.510280201478675, 'end': 31.455032762705734}
+	print mergeConfidenceIntervals(forward, reverse)
+	print mergeConfidenceIntervals(reverse, forward)
 
-
+	forward = {'start': 24.708237969363132, 'end': 31.01253850766}
+	reverse =  {'start': 23.510280201478675, 'end': 29.455032762705734}
+	
+	print mergeConfidenceIntervals(forward, reverse)
+	print mergeConfidenceIntervals(reverse, forward)
