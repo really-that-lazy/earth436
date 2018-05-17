@@ -28,21 +28,21 @@ The data available for sites ATB and BATB shows two of the most common trends in
  the distance to the nearest datapoint in BATB). The regressions derived from this pair of data sets,
  seen in Figures \ref{fig:gias_ATBxBATB} \& \ref{fig:gias_BATBxATB}, are well
  constrained, and produce a moderately well constrained value on relative GIA
- between ATB and BATB of 24.9-30.0 cm/century. In order to produce this range, a
+ between ATB and BATB of 24.7 - 31.0 cm/century. In order to produce this range, a
  regression was done on both comparisons, the results of which can be seen in
  Figure \ref{fig:ATBxBATB_regression}. The absolute rate of GIA was determined from the
  absolute value of the slopes of each regression, reported here as a 95\% confidence interval
  in cm/century. Once these 95\% intervals were created, a final value was created
  from the range where both confidence intervals overlapped. (for example, with this
- site the two ranges are -24.86 to -30.06 and 23.41 to 30.25 cm/century. Converting
- to absolute value, the overlap between (24.86,30.06) \& (23.41,30.25) is the range
- (24.86,30.06) ). A complete plot of the confidence intervals
+ site the two ranges are -24.71 to -31.01 and 23.51 to 31.45 cm/century. Converting
+ to absolute value, the overlap between (24.71,31.01) \& (23.51,31.45) is the range
+ (24.71,31.01) ). A complete plot of the confidence intervals
  for the slopes obtained from every linear regression done in this paper can be seen in Figure \ref{fig:intervalsGIA}. \\
-
+24.708,31.013
 
 \begin{figure}[H]
 	\begin{flushleft}
-	\csvautotabular[respect all]{data/ATB-BATB_regressionTable.csv}
+	\csvautotabular[respect all]{data/ATB-BATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
 	\end{flushleft}
 	\caption{ATB-BATB Regression output parameters}
 	\label{fig:ATBxBATB_regression}
@@ -51,15 +51,15 @@ The data available for sites ATB and BATB shows two of the most common trends in
 \newpage
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_BATB.png}
-	\caption{Differences in elevation measured from the ATB data to the ATB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_BATB.png}
+	\caption{Differences in elevation measured from the ATB data to the BATB model. 95p Bootstrap of the main regression rendered in blue around the estimator version of the regression (rendered as a solid red line).}
 	\label{fig:gias_ATBxBATB}
 \end{figure}
 
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_ATB.png}
-	\caption{Differences in elevation measured from the BATB data to the ATB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_ATB.png}
+	\caption{Differences in elevation measured from the BATB data to the ATB model. 95p Bootstrap of the main regression rendered in red around the estimator version of the regression (rendered as a solid blue line).}
 	\label{fig:gias_BATBxATB}
 \end{figure}
 \newpage
@@ -87,22 +87,24 @@ The data available for sites ATB and BATB shows two of the most common trends in
 
 The data plot for the site combination of TAHB and BATB shows a common issue
 with comparing datasets, as the data with ages more recent than the 2000 year before
-present gap is unsable. This is because the regions where data is available for
+present gap is unusable. This is because the regions where data is available for
 one dataset are empty of datapoints for the other, making the modelled prediction
-of the other dataset highly unreliable. As a result, a filter is applied to the
-data to prevent this, grouping data points into bins 200 years wide, and
+of the other dataset unreliable. As a result, a filter is applied to the
+data to prevent this, grouping data points into bins 200 years wide starting at 450 years before present, and
 ignoring the data points from bins in which either data set had no datapoints,
 as well as any which had bin counts differing by more than 75\% for that bin.
 As a result, only the data from 2050 to 3650 years before present were used in
-creating the GIA comparisons.\\
-The linear regressions produced from this dataset seen in Figures 
-\ref{fig:gias_TAHBxBATB} \& \ref{fig:gias_BATBxTAHB}, are well constrained, and
-report a value for relative GIA of between 11-16.7 cm/century. \\
+creating the GIA comparisons between TAHB and BATB.\\
+The linear regressions produced from this pair of datasets are shown in Figures 
+\ref{fig:gias_TAHBxBATB} \& \ref{fig:gias_BATBxTAHB}, with the parameters for each
+regression listed in Figure \ref{fig:TAHBxBATB_regression}. Merging the two ranges
+reported under the "Slope C.I. (95p)" column in Figure \ref{fig:TAHBxBATB_regression},
+a value for relative GIA of between 11.9-16.8 cm/century is seen. \\
 
 
 \begin{figure}[H]
 	\begin{flushleft}
-	\csvautotabular[respect all]{data/TAHB-BATB_regressionTable.csv}
+	\csvautotabular[respect all]{data/TAHB-BATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
 	\end{flushleft}
 	\caption{TAHB-BATB Regression output parameters}
 	\label{fig:TAHBxBATB_regression}
@@ -112,16 +114,16 @@ report a value for relative GIA of between 11-16.7 cm/century. \\
 \newpage
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_BATB.png}
-	\caption{Differences in elevation measured from the TAHB data to the BATB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_BATB.png}
+	\caption{Differences in elevation measured from the TAHB data to the BATB model. 95p Bootstrap of the main regression rendered in blue around the estimator version of the regression (rendered as a solid green line).}
 	\label{fig:gias_TAHBxBATB}
 \end{figure}
 \newpage
 
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_TAHB.png}
-	\caption{Differences in elevation measured from the BATB data to the TAHB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_TAHB.png}
+	\caption{Differences in elevation measured from the BATB data to the TAHB model. 95p Bootstrap of the main regression rendered in green around the estimator version of the regression (rendered as a solid blue line).}
 	\label{fig:gias_BATBxTAHB}
 \end{figure}
 \newpage
@@ -139,22 +141,24 @@ report a value for relative GIA of between 11-16.7 cm/century. \\
 	\label{fig:data_TAHBxATB}
 \end{figure}
 
-Similar to previous datasets, the combination of TAHB and ATB are constrained to
+Similar to previous dataset comparisons TAHB-BATB and ATB-BATB, the combination of TAHB and ATB are constrained to
 ages older than
-2050 years before present by the Algoma gap, but also have a much shorter range
+2050 years before present, but also have a much shorter range
 of age values that
-can be considered for GIA calculation, ending at around 3100 years before present.
-This is due to TAHB having no data available between 1250-2050 ybp, while ATB
+can be considered for GIA calculation, starting at 2000 and ending at around 3100 years before present.
+This is due to TAHB having no data available between 1250-2050 years before present, while ATB
 has a great deal of data in this range that can not be considered for this
-comparison.
-Using only datapoints between 2050 and 3250 years before present results in
-relatively poor regressions that are not as well constrained, giving a wide range for
-relative GIA of between 19.4-29 cm/century. \\
+comparison. As a result, only datapoints between 2050 and 3250 years before present
+were used, resulting in
+relatively poor regressions ($R^2$ values close to 0.5 where TAHB-BATB and ATB-BATB
+were both well above 0.7) reported in Figure \ref{fig:TAHBxATB_regression}.
+The weak correlation of these regressions results in a wide range for
+relative GIA of between 19.4-29.2 cm/century. \\
 
 
 \begin{figure}[H]
 	\begin{flushleft}
-	\csvautotabular[respect all]{data/TAHB-ATB_regressionTable.csv}
+	\csvautotabular[respect all]{data/TAHB-ATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
 	\end{flushleft}
 	\caption{TAHB-ATB Regression output parameters}
 	\label{fig:TAHBxATB_regression}
@@ -164,16 +168,16 @@ relative GIA of between 19.4-29 cm/century. \\
 \newpage
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_ATB.png}
-	\caption{Differences in elevation measured from the TAHB data to the ATB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_ATB.png}
+	\caption{Differences in elevation measured from the TAHB data to the ATB model. 95p Bootstrap of the main regression rendered in red around the estimator version of the regression (rendered as a solid green line).}
 	\label{fig:gias_TAHBxATB}
 \end{figure}
 \newpage
 
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_TAHB.png}
-	\caption{Differences in elevation measured from the ATB data to the TAHB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_TAHB.png}
+	\caption{Differences in elevation measured from the ATB data to the TAHB model. 95p Bootstrap of the main regression rendered in green around the estimator version of the regression (rendered as a solid red line).}
 	\label{fig:gias_ATBxTAHB}
 \end{figure}
 \newpage
@@ -188,25 +192,28 @@ relative GIA of between 19.4-29 cm/century. \\
 	\caption{Measured and modelled elevation data plotted against age for sites GTB \& BATB. Data grouped into bins with widths of 200 years starting at 450 years before present. Bin Counts shown as a histogram at bottom of graph.}	
 	\label{fig:data_GTBxBATB}
 \end{figure}
-The GTB BATB combination has a data spread similar to that of ATB \& BATB, with
-data available for both datasets from 1050 to 3050 years before present with an
-Algoma related gap from 1850 to 2050 years before present. The first case of the
-75\% difference cutoff has its first appearance here as the oldest shoreline available from GTB
-just falls inside of the 2850-3000 ybp window, causing the entire window to be
+The GTB BATB combination has data available for both datasets from 1050 to 3050 years before present with 
+a gap in coverage from 1850 to 2050 years before present. The first case of the
+75\% difference cutoff rule for bin inclusion has its first appearance here as
+only the oldest shoreline available from GTB falls inside of the 2850-3050 years
+before present window, causing the entire window to be
 used if the only criteria was both dataset counts within that window being non-zero.
 The 75\% cutoff prevents this window from being used in this case, as the counts
-for the 2850-3000 ybp window differ by 120\%. This rule is useful in identifying
+for the bin at 2850-3050 years before present differ by 120\% between GTB and BATB. This rule is useful in identifying
 areas of the dataset where both sites have data available, but the density of
-one of the datasets in that region is low enough to cause issues with the models
-ability to make accurate predictions in between measured datapoints.
-The regressions in
-Figures \ref{fig:gias_GTBxBATB} \& \ref{fig:gias_BATBxGTB} bear this out,
-producing one of the better constrained values at 10.4-12 cm/century. \\
+one of the datasets in that region is low enough to potentially cause inaccurate
+predictions where modelled elevation extends a long distance between measured datapoints.
+The regressions plotted in
+Figures \ref{fig:gias_GTBxBATB} \& \ref{fig:gias_BATBxGTB} are listed in 
+Figure \ref{fig:GTBxBATB_regression}. The $R^2$ values for both regressions
+are well over 0.8, and the ranges for relative GIA listed under the "Slope C.I. (95p)" column
+agree to within less than 1 cm/century,
+producing one of the most well constrained values seen in this paper at 10.5-13.4 cm/century (a range of less than 3 cm/century). \\
 
 
 \begin{figure}[H]
 	\begin{flushleft}
-	\csvautotabular[respect all]{data/GTB-BATB_regressionTable.csv}
+	\csvautotabular[respect all]{data/GTB-BATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
 	\end{flushleft}
 	\caption{GTB-BATB Regression output parameters}
 	\label{fig:GTBxBATB_regression}
@@ -215,16 +222,16 @@ producing one of the better constrained values at 10.4-12 cm/century. \\
 \newpage
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_BATB.png}
-	\caption{Differences in elevation measured from the GTB data to the BATB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_BATB.png}
+	\caption{Differences in elevation measured from the GTB data to the BATB model. 95p Bootstrap of the main regression rendered in blue around the estimator version of the regression (rendered as a solid purple line).}
 	\label{fig:gias_GTBxBATB}
 \end{figure}
 \newpage
 
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_GTB.png}
-	\caption{Differences in elevation measured from the BATB data to the GTB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_GTB.png}
+	\caption{Differences in elevation measured from the BATB data to the GTB model. 95p Bootstrap of the main regression rendered in purple around the estimator version of the regression (rendered as a solid blue line).}
 	\label{fig:gias_BATBxGTB}
 \end{figure}
 \newpage
@@ -243,19 +250,24 @@ producing one of the better constrained values at 10.4-12 cm/century. \\
 	\label{fig:data_GTBxATB}
 \end{figure}
 
-The GTB ATB combination is similar to most of the combinations looked at so far,
-windows from 1250 to 3050 ybp containing data for both sites. Two of these windows
-fail to qualify for use under the filter due to the site counts differing by more
-than 75\%, one from 1850-2050 ybp, and a second one from 2850 to 3050 ybp. Looking
-at the graph, it can be seen that both of these windows coincide with ranges of
-time where GTB has sparse data, making the GTB models predictions unreliable.
-Possibly due to this, the
-regressions in Figures \ref{fig:gias_GTBxATB} \& \ref{fig:gias_ATBxGTB} are not
-the best constrained constrained, giving a rate of GIA of 9-13.4 cm/century. \\
+The GTB-ATB combination has
+bins from 1250 to 3050 years before present containing data for both sites. Two of these bins
+fail to qualify for use due to the site counts differing by more
+than 75\%. These bins can be seen at 1850-2050, and 2850 to 3050 years before present. Looking
+at Figure \ref{fig:data_GTBxATB}, it can be seen that both of these bins coincide with ranges of
+time where GTB has sparse data, making the GTB models predictions unreliable in that bin.
+The regressions plotted in Figures \ref{fig:gias_GTBxATB} \& \ref{fig:gias_ATBxGTB}, and
+listed in Figure \ref{fig:GTBxATB_regression}. These regressions have weak correlations
+(with $R^2$ values of 0.427 and 0.595 respectively), and only overlap in a small
+range of 10.5-13.5 cm/century. Although this range appears very precise, the measurement
+is likely inaccurate, as the comparisons do not agree very well between the forward
+and reverse comparisons, the ranges of GIA produced from each regression only
+overlapping for a small fraction of their respective ranges at the 95\% confidence
+level.\\
 
 \begin{figure}[H]
 	\begin{flushleft}
-	\csvautotabular[respect all]{data/GTB-ATB_regressionTable.csv}
+	\csvautotabular[respect all]{data/GTB-ATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
 	\end{flushleft}
 	\caption{GTB-ATB Regression output parameters}
 	\label{fig:GTBxATB_regression}
@@ -264,16 +276,16 @@ the best constrained constrained, giving a rate of GIA of 9-13.4 cm/century. \\
 \newpage
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_ATB.png}
-	\caption{Differences in elevation measured from the GTB data to the ATB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_ATB.png}
+	\caption{Differences in elevation measured from the GTB data to the ATB model. 95p Bootstrap of the main regression rendered in red around the estimator version of the regression (rendered as a solid purple line).}
 	\label{fig:gias_GTBxATB}
 \end{figure}
 \newpage
 
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_GTB.png}
-	\caption{Differences in elevation measured from the ATB data to the GTB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_GTB.png}
+	\caption{Differences in elevation measured from the ATB data to the GTB model. 95p Bootstrap of the main regression rendered in purple around the estimator version of the regression (rendered as a solid red line).}
 	\label{fig:gias_ATBxGTB}
 \end{figure}
 \newpage
@@ -292,20 +304,24 @@ the best constrained constrained, giving a rate of GIA of 9-13.4 cm/century. \\
 	\caption{Measured and modelled elevation data plotted against age for sites GTB \& TAHB. Data grouped into bins with widths of 200 years starting at 450 years before present. Bin Counts shown as a histogram at bottom of graph.}	
 	\label{fig:data_GTBxTAHB}
 \end{figure}
-The final pair of sites GTB and TAHB has by far the most poorly constrained set
-of regressions, likely due to the alignment of most of both datasets only giving
-sample sizes of n=22 (Figure \ref{fig:gias_TAHBxGTB}) and n=27 (Figure \ref{fig:gias_GTBxTAHB}).
-This was due to the valid range of data extending only from 2050 to 2850 ybp. Two
-potential windows at 650-850 ybp and 2850-3050 ybp were thrown out due to not
-meeting the 75\% rule, as bothwould have produced comparisons between areas of
+The combination of sites GTB and TAHB has data in bins from 450 to 3650 years before
+present, of which only 2050 to 2850 years before present was used. Two
+potential bins located at 650-850 and 2850-3050 years before present were not used due failing to
+meet the 75\% rule, both would have produced comparisons between areas of
 data in one dataset and a poorly constrained model in the other.
+
+The combination of sites GTB and TAHB has by far the poorest regressions, listed
+in \ref{fig:GTBxTAHB_regression}. This is likely due to the alignment of most
+of both datasets only giving limited sample sizes of n=22 (Figure \ref{fig:gias_TAHBxGTB})
+and n=27 (Figure \ref{fig:gias_GTBxTAHB}). 
 This resulted in an estimate of GIA that ranges anywhere from -2.8-8.6 cm/century,
-possibly implying that there may be no difference in vertical adjustment rates
-between the TAHB and GTB sites. \\
+possibly implying that the vertical adjustment rates
+between the TAHB and GTB sites may be zero, or at the least small in comparison to
+other site comparisons. \\
 
 \begin{figure}[H]
 	\begin{flushleft}
-	\csvautotabular[respect all]{data/GTB-TAHB_regressionTable.csv}
+	\csvautotabular[respect all]{data/GTB-TAHB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
 	\end{flushleft}
 	\caption{GTB-TAHB Regression output parameters}
 	\label{fig:GTBxTAHB_regression}
@@ -314,24 +330,25 @@ between the TAHB and GTB sites. \\
 \newpage
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_TAHB.png}
-	\caption{Differences in elevation measured from the GTB data to the TAHB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_TAHB.png}
+	\caption{Differences in elevation measured from the GTB data to the TAHB model. 95p Bootstrap of the main regression rendered in green around the estimator version of the regression (rendered as a solid purple line).}
 	\label{fig:gias_GTBxTAHB}
 \end{figure}
 \newpage
 
 
 \begin{figure}[H]
-	\includegraphics[width=0.9\linewidth]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_GTB.png}
-	\caption{Differences in elevation measured from the TAHB data to the GTB model}
+	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_GTB.png}
+	\caption{Differences in elevation measured from the TAHB data to the GTB model. 95p Bootstrap of the main regression rendered in purple around the estimator version of the regression (rendered as a solid green line).}
 	\label{fig:gias_TAHBxGTB}
 \end{figure}
 \newpage
 
+\subsubsection{Complete Table of GIA Rate comparisons}
 
 \begin{figure}[H]
 	\makebox[\textwidth]{\includegraphics[width=0.6\paperwidth]{data/bothNonZero/withinSeventyFivePercent/gias/intervals.png}}
-	\caption{95p Confidence intervals on GIA rates obtained from site comparisons}
+	\caption{95p Confidence intervals on absolute value of GIA rates obtained from 12 site comparisons across 4 sites.}
 	\label{fig:intervalsGIA}
 \end{figure}
 

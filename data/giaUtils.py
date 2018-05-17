@@ -69,8 +69,9 @@ def mergeConfidenceIntervals(intervalA, intervalB):
 			##print "case 1"
 			return (intervalA["start"], intervalB["end"])
 		elif((intervalA["start"] < intervalB["start"]) and (intervalA["end"] < intervalB["end"])):
-			##return (intervalB["start"], intervalA["end"])
-			print "case 2"
+			##print "case 2"
+			return (intervalB["start"], intervalA["end"])
+			
 		elif((intervalB["start"] > intervalA["start"]) and (intervalB["end"] < intervalA["end"])):
 			##print "B contained case"
 			return (intervalB["start"], intervalB["end"])
@@ -82,13 +83,8 @@ def mergeConfidenceIntervals(intervalA, intervalB):
 if(__name__ == "__main__"):
 	print convertListToRelativePath(["withinTwentyPercent", "baseFixedAt450", "gias"])
 	
-	forward = {'start': 24.708237969363132, 'end': 31.01253850766}
-	reverse =  {'start': 23.510280201478675, 'end': 31.455032762705734}
+	forward = {'start': 5.7478045853453503, 'end': 13.427190249363679}
+	reverse = {'start': 8.9698781911037724, 'end': 16.578153894106137}
 	print mergeConfidenceIntervals(forward, reverse)
 	print mergeConfidenceIntervals(reverse, forward)
 
-	forward = {'start': 24.708237969363132, 'end': 31.01253850766}
-	reverse =  {'start': 23.510280201478675, 'end': 29.455032762705734}
-	
-	print mergeConfidenceIntervals(forward, reverse)
-	print mergeConfidenceIntervals(reverse, forward)

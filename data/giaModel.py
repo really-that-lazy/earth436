@@ -470,9 +470,9 @@ if(__name__ == "__main__"):
 			## count histogram so it doesnt overlap the main data
 
 
-		plt.title("Data and Model for site Combination %s/%s" % (combo[0], combo[1]))	
-		plt.ylabel('Elevation')
-		plt.xlabel('Age')
+		##plt.title("Data and Model for site Combination %s/%s" % (combo[0], combo[1]))	
+		plt.ylabel('Elevation (m IGLD1985)')
+		plt.xlabel('Age Before Present (Years)')
 		plt.legend(loc=2, prop={'size': 17})
 			
 			
@@ -661,7 +661,7 @@ if(__name__ == "__main__"):
 			print combo, comboSites
 			
 			
-			with open("%s_regressionTable.csv" % combo, "wb") as csv_file:
+			with open("%s_regressionTable_%s.csv" % (combo, idString), "wb") as csv_file:
 				writer = csv.writer(csv_file, delimiter=',')
 				writer.writerow([ "name", "Slope Estimator", "Slope Error", "r Squared", "Slope C.I. (95p)"])
 				for order in ["forward", "reverse"]:
