@@ -177,28 +177,36 @@
  Although these short-term variations may better relate to climatic variations,
  one must better compare these datasets to extract the most accurate rates of GIA.
   \\
- In order to produce an estimate of GIA which better reflects the rate of GIA from
- comparisons made between elevations measured at similar times, a better strategy would be to simply subtract
+ In order to better estimate GIA from ancient shorelines, a better method would be to simply subtract
  the differences in elevation between sites and plot these differences with
- respect to time, similar to the method used by Mainville \& Craymer (2005), using
- water gauge data. Unfortunately however, none of the datasets have elevations
- sampled at the same times, an estimate of elevation being needed for times where
+ respect to time, similar to the method of Mainville \& Craymer (2005), with
+ water level gauge data. Unfortunately however, none of the datasets of Johnston
+ et al (2012) have elevations
+ measured at the exact same times. In other words, an estimate of elevation is needed for times where
  one dataset
- has a data point present, but the other does not. The goal of the research
- presented in this paper was to develop a new method of calculating direct differences
- in elevation between sites for the strandplain paleohydrographs published in
- Johnston et al (2012), and compare the results with rates for the process of GIA
- as calculated in prior studies concerning the LGL. \\
+ has a data point present, but the other does not have an elevation datapoint measured.
+ The objective of the research presented in this paper is to develop a new method
+ of calculating differences
+ in elevation between data points and modelled data between sites for the
+ strandplain paleohydrographs published in Johnston et al (2012). Calculated rates
+ of GIA from this papers method will be compared to the results of previous GIA
+ calculations constructed using geological data (Johnston et al, 2012) and
+ historical data (Mainville \& Craymer, 2005). \\
 \input{rawDataWithModelGraph}
  
  \section{Methods}
- In this paper, the modelled elevation for points where elevation was not directly
- measured is created by using linear interpolation between datapoints,
- represented as a solid line between points as seen in Figure \ref{fig:rawDataWithModel}.
+ The data used in this paper was collected by Johnston et al (2012), where elevations
+ were measured in cores through beach ridges to record subsurface elevations
+ representative of past lake level. Ages for each beach ridge cored were calculated
+ using OSL ages collected across strandplains. To account for unequally spaced 
+ elevation data between strandplains, this paper creates a modelled elevation for points where elevation was not directly
+ measured by using linear interpolation between data points. This is
+ represented as a solid line between points for each strandplain site
+ as seen in Figure \ref{fig:rawDataWithModel}.
  Once this estimate of elevation for times between sampled datapoints at each site
- was created, the difference in GIA between sites were calculated by subtracting
+ was created, the difference in elevation between sites were calculated by subtracting
  the elevation of a measured data point from the modelled elevation of another
- dataset at that point in time. This difference is shown as a dashed line in
+ dataset at that point in time. An example of this difference is shown as a dashed line in
  Figure \ref{fig:rawDataWithModelZoomed}:
  \begin{figure}[h]
 	\includegraphics[width=1.1\linewidth]{data/theDataZoomed.png}
@@ -206,30 +214,8 @@
 	model, represented by a vertical alternating dashed line}
 	\label{fig:rawDataWithModelZoomed}
  \end{figure}
- To avoid making comparisons between data in one dataset and a model for another
- in areas where the model stretched over long distances between measured data
- (such as the 1500 year gap in TAHB), the data for all four sites was grouped into a series of bins
- starting at 450 years before present with a width of 200 years for each bin.
- The start point was chosen by taking the youngest age value recorded in any of
- the datasets and rounding down to the nearest ten, in this case 450 years
- before present. The 200 year bin width was chosen as the error on the age models
- for shorelines published in Johnston et al (2012) had error bounds of approximately
- 200 years.
- for the values reported in the age models published by Johnston et al (2012)). If any bin had no data
- available for one site or the other in a comparison, none of the datapoints in
- that bin range were used to make comparisons, thus ensuring that areas like the
- gap in TAHB were not included when making comparisons. In addition, a second rule
- was created, stipulating that the counts for the bins needed to be within 75\% of one another to be considered
- in calculating relative elevation between sites. This
- avoided a few areas where the datasets for both bins compared poorly,
- but produced valid comparison windows (On Figure \ref{fig:rawDataWithModel} see the small zone of GTB-TAHB overlap
- at \~ 600 years before present).\\
- In order to implement the methods described above, a python script was used to
- process the data provided by Professor Johnston from his 2012 paper. The source
- code used can be seen in the appendix of this paper.
- 
- Using comparisons from measured data points to linear interpolation model for
- pairs of study sites,
+ Using comparisons from one study sites measured data points to another sites
+ linear interpolation model,
  two graphs of the relative difference over time was created for each pair
  of sites. For example, for
  the site combination of ATB \& BATB, ATB was first compared to BATB, followed 
@@ -238,10 +224,41 @@
  
  The GIA rates are determined by applying a linear regression to each comparison,
  the slope of each regression representing the relative rate of GIA between sites.
+ 
+ To avoid making comparisons between data in one dataset and modelled elevation
+ data for another site in areas where the linear interpolation model for a
+ strandplain extends over long time periods between measured data
+ (i.e. 1500 year gap in TAHB Figure \ref{fig:rawDataWithModel}), the data for all four sites was grouped into a series of bins.
+ These bins started at 450 years before present with a width of 200 years for each bin.
+ The start point was chosen by taking the youngest age value recorded in any of
+ the datasets and rounding down to the nearest ten, in this case 450 years
+ before present. The 200 year bin width or maximum acceptable age duration for
+ comparisons between strandplains was chosen as it corresponds to the average error
+ of the strandplain age models for shorelines published in Johnston et al (2012).
+ If any bin had no data
+ available for one site or the other when making elevation comparisons between
+ strandplain sites, none of the data points in
+ that bin range were used to make comparisons, thus ensuring that areas like the
+ long gap in TAHB were not included when subtracting elevations to compute GIA.
+ In addition, a second rule
+ was created, stipulating that the site counts for any bin needed to be within
+ 75\% of one another to be considered
+ in calculating relative elevation between sites. This
+ helped identify a few areas where the datasets for both bins compared poorly,
+ but produced valid comparison windows. An example is shown in figure \ref{fig:rawDataWithModel}
+ where there is some overlap between sites GTB and TAHB between 650 and 850 years
+ before present. Although both sites have at least one data point present within this
+ window of time, the very low amount of data for site TAHB (1 data point vs 6 for
+ GTB) calls into question the reliability of any comparison made between actual measurements
+ and a linear interpolation model built off of very limited data.\\
+ In order to implement the methods described above, which include subtracting
+ measured and modelled elevations while filtering for gaps with insufficient
+ data, a python script was written to analyze the data published by Johnston et
+ al (2012). The source code for this thesis can be referenced in the Appendix.
 
 \newpage
 
-\section{Discussion}
+\section{Results and Discussion}
 \include{graphsCommented}
 
 \include{giaResultsMap}
