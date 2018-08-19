@@ -11,14 +11,20 @@
  subtracted to the linear interpolation model of BATB, then the measured elevations
  from BATB would be subtracted to the linear interpolation model of ATB, thus
  creating a pair of plots of elevation differences vs time. Once compiled, a linear
- regression was applied to this 
+ regression was applied to each pair of difference plots. The slope of
+ this regression is measured as the GIA rate between sites, which is of
+ similar absolute value but opposite signs (for example if BATB subtracted
+ to ATB is 20 cm/century, ATB subtracted to BATB should be -20 cm/century).
+ This pair of measurements are compared to see if the values produced (a
+ 95\% confidence interval in rate of cm/century) overlap to produce a
+ range where both measurements agree on a value for GIA.
 
 
 \subsubsection{ATB-BATB}
 
 \begin{figure}[H]
 	\makebox[\textwidth]{\includegraphics[width=0.72\paperwidth]{data/ATB-BATB_DataAndModel.png}}
-	\caption{Measured and modelled elevation data plotted against age for sites ATB \& BATB. Data grouped into bins with widths of 200 years starting at 450 years before present. Bin Counts shown as a histogram at bottom of graph.}
+	\caption{Measured and modelled elevation data plotted against age for sites ATB \& BATB. Data grouped into bins with widths of 200 years starting at 450 years before present. Bin Counts shown as a histogram at bottom of graph. Histogram bins where both sites overlap are rendered in purple.}
 	\label{fig:data_ATBxBATB}
 \end{figure}
 The data available for sites ATB and BATB shows two of the most common trends in
