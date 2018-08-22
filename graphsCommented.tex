@@ -27,36 +27,32 @@
 	\caption{Measured and modelled elevation data plotted against age for sites ATB \& BATB. Data grouped into bins with widths of 200 years starting at 450 years before present. Bin Counts shown as a histogram at bottom of graph. Histogram bins where both sites overlap are rendered in purple.}
 	\label{fig:data_ATBxBATB}
 \end{figure}
-The data available for sites ATB and BATB shows two of the most common trends in
- the data used in this paper; Data is available for both sites from
+ Data is available for both ATB and BATB from
  approximately 1000 to 3300 years before present,
- with a gap in the record at around 2000 years before present (caused by a low
- water level period preferentially not forming beach deposits during this time)
- (Johnston et al, 2014). With the data divided up into bins of 200 years width
- starting at 1050 years before present, the data from every bin between 1250 and 3250 was used
+ with a gap in the record at around 2000 years before present. With the data divided up into bins of 200 years width
+ starting at 450 years before present, the data from every bin between 1250 and 3250 was used
  in calculating a rate of GIA, save for the gap from 1850-2050 years before
- present caused by the Algoma low water level (where comparisons between data in the ATB dataset would be
- subtracting against a modelled value for BATB that is unreliable given
- the distance to the nearest datapoint in BATB). The regressions derived from this pair of data sets,
- seen in Figures \ref{fig:gias_ATBxBATB} \& \ref{fig:gias_BATBxATB}, are well
- constrained, and produce a moderately well constrained value on relative GIA
- between ATB and BATB of 24.7 - 31.0 cm/century. In order to produce this range, a
- regression was done on both comparisons, the results of which can be seen in
- Figure \ref{fig:ATBxBATB_regression}. The absolute rate of GIA was determined from the
- absolute value of the slopes of each regression, reported here as a 95\% confidence interval
+ present. The regressions derived from comparing ATB \& BATB are shown
+ in Figures \ref{fig:gias_ATBxBATB} \& \ref{fig:gias_BATBxATB}. The GIA rates produced
+  indicate that the relative rate of GIA between BATB and ATB of
+ between of 24.7 - 31.0 cm/century (ie, BATB rising faster than ATB by this amount). In order to produce this range, a
+ regression was done on the differences from both ATB measured data to modelled
+ BATB data and vice versa, the results of which are reported in
+ the table under Figure \ref{fig:ATBxBATB_regression}. The relative rate of GIA was determined from the
+ value of the slopes of each regression, reported here as a 95\% confidence interval
  in cm/century. Once these 95\% intervals were created, a final value was created
  from the range where both confidence intervals overlapped. (for example, with this
  site the two ranges are -24.71 to -31.01 and 23.51 to 31.45 cm/century. Converting
  to absolute value, the overlap between (24.71,31.01) \& (23.51,31.45) is the range
  (24.71,31.01) ). A complete plot of the confidence intervals
  for the slopes obtained from every linear regression done in this paper can be seen in Figure \ref{fig:intervalsGIA}. \\
-24.708,31.013
+
 
 \begin{figure}[H]
 	\begin{flushleft}
 	\csvautotabular[respect all]{data/ATB-BATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
 	\end{flushleft}
-	\caption{ATB-BATB Regression output parameters}
+	\caption{ATB-BATB Linear regression output parameters}
 	\label{fig:ATBxBATB_regression}
 \end{figure}
 
@@ -64,14 +60,18 @@ The data available for sites ATB and BATB shows two of the most common trends in
 
 \begin{figure}[H]
 	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_BATB.png}
-	\caption{Differences in elevation measured from the ATB data to the BATB model. 95p Bootstrap of the main regression rendered in blue around the estimator version of the regression (rendered as a solid red line).}
+	\caption{Plot of differences in elevation from ATB measured data to BATB modelled data. A linear regression with its estimator rendered as
+	 a solid red line was fitted to the differences, and a bootstrap for this regression at 95 \% confidence level was rendered in blue
+	 around the estimator line.}
 	\label{fig:gias_ATBxBATB}
 \end{figure}
 
 
 \begin{figure}[H]
 	\includegraphics[width=1.7\linewidth, angle=270 ]{data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_ATB.png}
-	\caption{Differences in elevation measured from the BATB data to the ATB model. 95p Bootstrap of the main regression rendered in red around the estimator version of the regression (rendered as a solid blue line).}
+	\caption{Plot of differences in elevation from BATB measured data to ATB modelled data. A linear regression with its estimator rendered as
+	 a solid blue line was fitted to the differences, and a bootstrap for this regression at 95 \% confidence level was rendered in red
+	 around the estimator line.}
 	\label{fig:gias_BATBxATB}
 \end{figure}
 \newpage

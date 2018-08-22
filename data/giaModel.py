@@ -640,7 +640,7 @@ if(__name__ == "__main__"):
 		with open("%s_intervals.csv" % idString, "wb") as csv_file:
 			writer = csv.writer(csv_file, delimiter=',')
 			
-			writer.writerow([ "name", "Slope Estimator", "Slope Error", "r Squared", "Slope C.I. (95p)"])
+			writer.writerow([ "Sites Compared", "Slope Estimator (cm/century)", "Slope Error (cm/century)", "r Squared", "Slope C.I. (95p)"])
 			for regress in sortedKeys:
 				description = giaRegressionDescriptions[regress]
 				ciStart = 100*100*giaRegressionsByCombo[regress]['gradient'][0]

@@ -1,4 +1,4 @@
-name,Slope Estimator,Slope Error,r Squared,Slope C.I. (95p)
+Sites Compared,Slope Estimator (cm/century),Slope Error (cm/century),r Squared,Slope C.I. (95p)
 ATB relative to BATB model,-27.46700,1.32601,0.881,-24.86803 to -30.06597
 BATB relative to ATB model,26.83591,1.74490,0.858,30.25591 to 23.41592
 GTB relative to ATB model,10.07182,1.77919,0.427,13.55902 to 6.58461
