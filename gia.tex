@@ -13,6 +13,7 @@
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
+
 %% footnote size proved perfect here for getting the code to appear as 80 chars
 %% wide like standard
 
@@ -46,6 +47,10 @@
 \fancyhf{}
 
 \rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\usepackage[bottom=0.8in,top=0.8in]{geometry}
+
+%\usepackage[margin=0.5in,bottom=1in,top=1in]{geometry}
+
 
 
 \usepackage{csvsimple}
@@ -70,8 +75,13 @@
 \tableofcontents
 \newpage
 
+
+\setcounter{secnumdepth}{0}
 \input{abstract}
+\setcounter{secnumdepth}{1}
+
 \newpage
+
 
 \section{Introduction}
 
@@ -82,10 +92,15 @@
  with it. This causes the crust to ride relatively lower in elevation,
  a change which reverses when the weight is removed as the ice sheets melt.
  This vertical motion of the crust while attempting to return to its previous position is known
- as glacial isostatic adjustment (GIA) (Scott et al, 2010).\\
+ as glacial isostatic adjustment (GIA) (Scott et al, 2010). During the most recent
+ half of the Quaternary period, the Great Lakes experienced at least six cycles 
+ of glacial ice advancing to cover the Great Lakes basin before retreating northwards. Each
+ cycle of ice accumulating caused the ground surface to depress under the added 
+ load, as well as damming existing outlets with ice, causing the formation
+ of new glacial lakes (Larson \& Schaetzl, 2001).\\
  
  The process of GIA has implications for the routes that the flow
- of water on the Earths surface takes. The "tilting" of the ground surface caused by 
+ of water on the Earths surface takes as well. The "tilting" of the ground surface caused by 
  uneven rates of GIA in different locations (the thickness and residence time of
  the ice sheet impacts how much the crust subsides and how rapidly it rebounds) 
  may open or close drainage outlets from basins. This
@@ -269,6 +284,8 @@ Mainville, A., \& Craymer, M. R. (2005). Present-day tilting of the Great Lakes 
 Scott, T. W., Swift, D. J., Whittecar, G. R., \& Brook, G. A. (2010). Glacioisostatic influences on Virginia's late Pleistocene coastal plain deposits. Geomorphology, 116(1-2), 175-188.\\
 Johnston, J. W., Argyilan, E. P., Thompson, T. A., Baedke, S. J., Lepper, K., Wilcox, D. A., \& Forman, S. L. (2012). A Sault-outlet-referenced mid-to late-Holocene paleohydrograph for Lake Superior constructed from strandplains of beach ridges. Canadian Journal of Earth Sciences, 49(11), 1263-1279.\\
 Johnston, J. W., Thompson, T. A., \& Wilcox, D. A. (2014). Palaeohydrographic reconstructions from strandplains of beach ridges in the Laurentian Great Lakes. Geological Society, London, Special Publications, 388(1), 213-228.\\
+Larson, G., \& Schaetzl, R. (2001). Origin and evolution of the Great Lakes. Journal of Great Lakes Research, 27(4), 518-546.\\
+
 
 \newpage
 
