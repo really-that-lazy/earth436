@@ -10,11 +10,11 @@
 \contentsline {subsubsection}{GTB-ATB}{35}
 \contentsline {subsubsection}{GTB-TAHB}{39}
 \contentsline {subsubsection}{Summary of calculated GIA values}{43}
-\contentsline {section}{\numberline {5}References}{47}
-\contentsline {section}{\numberline {6}Appendix}{48}
-\contentsline {subsection}{Source code for \textsf {giaModel.py}}{48}
-\contentsline {subsection}{Source code for \textsf {giaUtils.py }}{70}
-\contentsline {subsection}{Source code for \textsf {rawhide/bootstrapper.py}}{73}
-\contentsline {subsection}{Source code for \textsf {rawData.py}}{75}
-\contentsline {subsection}{Source code for \textsf {dataModel.py}}{77}
-\contentsline {subsection}{Source code for \textsf {linearInterpolationModel.py}}{79}
+\contentsline {section}{\numberline {5}References}{48}
+\contentsline {section}{\numberline {6}Appendix}{49}
+\contentsline {subsection}{Source code for \textsf {giaModel.py}}{49}
+\contentsline {subsection}{Source code for \textsf {giaUtils.py }}{71}
+\contentsline {subsection}{Source code for \textsf {rawhide/bootstrapper.py}}{74}
+\contentsline {subsection}{Source code for \textsf {rawData.py}}{76}
+\contentsline {subsection}{Source code for \textsf {dataModel.py}}{78}
+\contentsline {subsection}{Source code for \textsf {linearInterpolationModel.py}}{80}

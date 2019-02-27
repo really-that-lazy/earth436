@@ -1,5 +1,3 @@
-
-
 \subsection{GIA Calculation Results}
 
 
@@ -31,14 +29,14 @@
  approximately 1000 to 3300 years before present,
  with a gap in the record at around 2000 years before present. With the data divided up into bins of 200 years width
  starting at 450 years before present, the data from every bin between 1250 and 3250 was used
- in calculating a rate of GIA, save for the gap from 1850-2050 years before
+ in calculating a rate of GIA, except for the gap from 1850-2050 years before
  present. The regressions derived from comparing ATB \& BATB are shown
  in Figures \ref{fig:gias_ATBxBATB} \& \ref{fig:gias_BATBxATB}. The GIA rates produced
   indicate that the relative rate of GIA between BATB and ATB of
  between of 24.7 - 31.0 cm/century (ie, BATB rising faster than ATB by this amount). In order to produce this range, a
  regression was done on the differences from both ATB measured data to modelled
  BATB data and vice versa, the results of which are reported in
- the table under Figure \ref{fig:ATBxBATB_regression}. The relative rate of GIA was determined from the
+ the table under Table 1. The relative rate of GIA was determined from the
  value of the slopes of each regression, reported here as a 95\% confidence interval
  in cm/century. Once these 95\% intervals were created, a final value was created
  from the range where both confidence intervals overlapped. (for example, with this
@@ -48,13 +46,15 @@
  for the slopes obtained from every linear regression done in this paper can be seen in Figure \ref{fig:intervalsGIA}. \\
 
 
-\begin{figure}[H]
+\begin{center}[H]
 	\begin{flushleft}
 	\csvautotabular[respect all]{data/ATB-BATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
+	\captionof{table}[fig:ATBxBATB_regression]{ATB-BATB Linear regression output parameters. All values reported in cm/century.}
 	\end{flushleft}
-	\caption{ATB-BATB Linear regression output parameters. All values reported in cm/century.}
-	\label{fig:ATBxBATB_regression}
-\end{figure}
+	%\label{fig:ATBxBATB_regression}
+\end{center}
+
+%under Table \ref{table:ATBxBATB_regression}
 
 \newpage
 
@@ -105,18 +105,18 @@ As a result, only the data from 2050 to 3650 years before present were used in
 creating the GIA comparisons between TAHB and BATB.\\
 The linear regressions produced from this pair of datasets are shown in Figures 
 \ref{fig:gias_TAHBxBATB} \& \ref{fig:gias_BATBxTAHB}, with the parameters for each
-regression listed in Figure \ref{fig:TAHBxBATB_regression}. Merging the two ranges
-reported under the "Slope C.I. (95p)" column in Figure \ref{fig:TAHBxBATB_regression} gave
+regression listed in Table 2. Merging the two ranges
+reported under the "Slope C.I. (95p)" column in Table 2 gave
 a value for relative GIA of between 11.9-16.8 cm/century. \\
 
 
-\begin{figure}[H]
+\begin{center}[H]
 	\begin{flushleft}
 	\csvautotabular[respect all]{data/TAHB-BATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
+	\captionof{table}[fig:TAHBxBATB_regression]{TAHB-BATB Regression output parameters. All values reported in cm/century.}
 	\end{flushleft}
-	\caption{TAHB-BATB Regression output parameters. All values reported in cm/century.}
 	\label{fig:TAHBxBATB_regression}
-\end{figure}
+\end{center}
 
 
 \newpage
@@ -161,18 +161,21 @@ can be considered for GIA calculation, starting at 2000 and ending at around 310
 As a result, only datapoints between 2050 and 3250 years before present
 were used, resulting in
 relatively poor regressions ($R^2$ values close to 0.5 where TAHB-BATB and ATB-BATB
-were both well above 0.7) reported in Figure \ref{fig:TAHBxATB_regression}.
+were both well above 0.7) reported in Table 3.
 The weak correlation of these regressions results in a wide range for
 relative GIA of between 19.4-29.2 cm/century. \\
 
 
-\begin{figure}[H]
+\begin{center}[H]
 	\begin{flushleft}
 	\csvautotabular[respect all]{data/TAHB-ATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
+	\captionof{table}[fig:TAHBxATB_regression]{TAHB-ATB Regression output parameters. All values reported in cm/century.}
 	\end{flushleft}
-	\caption{TAHB-ATB Regression output parameters. All values reported in cm/century.}
-	\label{fig:TAHBxATB_regression}
-\end{figure}
+	
+	
+	%\caption{TAHB-ATB Regression output parameters. All values reported in cm/century.}
+	%\label{fig:TAHBxATB_regression}
+\end{center}
 
 
 \newpage
@@ -219,19 +222,21 @@ one of the datasets in that region is low enough to potentially cause inaccurate
 predictions where modelled elevation extends a long distance between measured datapoints.
 The regressions plotted in
 Figures \ref{fig:gias_GTBxBATB} \& \ref{fig:gias_BATBxGTB} are listed in 
-Figure \ref{fig:GTBxBATB_regression}. The $R^2$ values for both regressions
+Table 4. The $R^2$ values for both regressions
 are well over 0.8, and the ranges for relative GIA listed under the "Slope C.I. (95p)" column
 agree to within less than 1 cm/century,
 producing one of the most well constrained values seen in this paper at 10.5-13.4 cm/century. \\
 
 
-\begin{figure}[H]
+\begin{center}[H]
 	\begin{flushleft}
 	\csvautotabular[respect all]{data/GTB-BATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
+	\captionof{table}[fig:GTBxBATB_regression]{GTB-BATB Regression output parameters. All values reported in cm/century.}
+	
 	\end{flushleft}
-	\caption{GTB-BATB Regression output parameters. All values reported in cm/century.}
-	\label{fig:GTBxBATB_regression}
-\end{figure}
+	%\caption{GTB-BATB Regression output parameters. All values reported in cm/century.}
+	%\label{fig:GTBxBATB_regression}
+\end{center}
 
 \newpage
 
@@ -275,7 +280,7 @@ than 75\%. These bins can be seen at 1850-2050, and 2850 to 3050 years before pr
 In Figure \ref{fig:data_GTBxATB}, it can be seen that both of these bins coincide with ranges of
 time where GTB has sparse data, making the GTB models predictions unreliable in that bin.
 The regressions plotted in Figures \ref{fig:gias_GTBxATB} \& \ref{fig:gias_ATBxGTB}, and
-listed in Figure \ref{fig:GTBxATB_regression}. These regressions have weak correlations
+listed in Table 5. These regressions have weak correlations
 (with $R^2$ values of 0.427 and 0.595 respectively), and only overlap in a small
 range of 10.5-13.5 cm/century. Although this range appears very precise, the measurement
 is likely inaccurate, as the comparisons do not agree very well between the forward
@@ -286,9 +291,12 @@ level.\\
 \begin{figure}[H]
 	\begin{flushleft}
 	\csvautotabular[respect all]{data/GTB-ATB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
+	
+	\captionof{table}[fig:GTBxATB_regression]{GTB-ATB Regression output parameters. All values reported in cm/century.}
+	
 	\end{flushleft}
-	\caption{GTB-ATB Regression output parameters. All values reported in cm/century.}
-	\label{fig:GTBxATB_regression}
+	%\caption{GTB-ATB Regression output parameters. All values reported in cm/century.}
+	%\label{fig:GTBxATB_regression}
 \end{figure}
 
 \newpage
@@ -333,7 +341,7 @@ meet the 75\% rule, both would have produced comparisons between areas of
 data in one dataset and a poorly constrained model in the other.
 
 The combination of sites GTB and TAHB has by far the poorest regressions, listed
-in \ref{fig:GTBxTAHB_regression}. This is likely due to the alignment of most
+in Table 6. This is likely due to the alignment of most
 of both datasets only giving limited sample sizes of n=22 (Figure \ref{fig:gias_TAHBxGTB})
 and n=27 (Figure \ref{fig:gias_GTBxTAHB}) for comparisons. 
 This resulted in an estimate of GIA that ranges anywhere from -2.8-8.6 cm/century,
@@ -343,9 +351,12 @@ between the TAHB and GTB sites may be zero. \\
 \begin{figure}[H]
 	\begin{flushleft}
 	\csvautotabular[respect all]{data/GTB-TAHB_regressionTable_bothNonZero_withinSeventyFivePercent.csv}
+	
+	\captionof{table}[fig:GTBxTAHB_regression]{GTB-TAHB Regression output parameters. All values reported in cm/century.}
+	
 	\end{flushleft}
-	\caption{GTB-TAHB Regression output parameters. All values reported in cm/century.}
-	\label{fig:GTBxTAHB_regression}
+	%\caption{GTB-TAHB Regression output parameters. All values reported in cm/century.}
+	%\label{fig:GTBxTAHB_regression}
 \end{figure}
 
 \newpage

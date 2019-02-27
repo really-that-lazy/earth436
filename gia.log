@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.8.25)  26 AUG 2018 14:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.21)  13 JAN 2019 22:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -352,6 +352,10 @@ Package: fp-eval 1995/04/03
 \dtl@entrycr=\count146
 \dtl@omitlines=\count147
 )
+(/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count148
+)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -383,9 +387,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count148
-\Gm@cntv=\count149
-\c@Gm@tempcnt=\count150
+\Gm@cnth=\count149
+\Gm@cntv=\count150
+\c@Gm@tempcnt=\count151
 \Gm@bindingoffset=\dimen131
 \Gm@wd@mp=\dimen132
 \Gm@odd@mp=\dimen133
@@ -396,17 +400,34 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen138
 \Gm@dimlist=\toks53
 )
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen139
+\captionmargin@=\dimen140
+\captionwidth=\dimen141
+\caption@tempdima=\dimen142
+\caption@indent=\dimen143
+\caption@parindent=\dimen144
+\caption@hangindent=\dimen145
+)
+\c@ContinuedFloat=\count152
+Package caption Info: listings package is loaded.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/csvsimple/csvsimple.sty
 Package: csvsimple 2014/07/14 version 1.12 LaTeX CSV file processing
 \csv@file=\read2
-\c@csvinputline=\count151
-\c@csvrow=\count152
-\c@csvcol=\count153
+\c@csvinputline=\count153
+\c@csvrow=\count154
+\c@csvcol=\count155
 \csv@out=\write4
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count154
+\c@float@type=\count156
 \float@exts=\toks54
 \float@box=\box32
 \@float@everytoks=\toks55
@@ -416,31 +437,31 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 (./giaResultsMap.aux))
 \openout1 = `gia.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count155
-\scratchdimen=\dimen139
+\scratchcounter=\count157
+\scratchdimen=\dimen146
 \scratchbox=\box34
-\nofMPsegments=\count156
-\nofMParguments=\count157
+\nofMPsegments=\count158
+\nofMParguments=\count159
 \everyMPshowfont=\toks56
-\MPscratchCnt=\count158
-\MPscratchDim=\dimen140
-\MPnumerator=\count159
-\makeMPintoPDFobject=\count160
+\MPscratchCnt=\count160
+\MPscratchDim=\dimen147
+\MPnumerator=\count161
+\makeMPintoPDFobject=\count162
 \everyMPtoPDFconversion=\toks57
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -487,10 +508,10 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\c@lstlisting=\count161
+\c@lstlisting=\count163
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 69.
+(lastpage)             ! on input line 73.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -526,6 +547,9 @@ Package lastpage Info: Please have a look at the pageslts package at
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
 \openout2 = `titlePage.aux'.
 
 (./titlePage.tex [1
@@ -541,8 +565,8 @@ Package lastpage Info: Please have a look at the pageslts package at
  [3] (./abstract.tex
 \dtldb@result=\toks58
 \dtlkeys@result=\toks59
-\dtlrows@result=\count162
-\dtlcols@result=\count163
+\dtlrows@result=\count164
+\dtlcols@result=\count165
 
 Underfull \hbox (badness 10000) in paragraph at lines 15--29
 
@@ -554,12 +578,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--41
  []
 
 ) [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 88--101
+Underfull \hbox (badness 10000) in paragraph at lines 92--105
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--118
+Underfull \hbox (badness 10000) in paragraph at lines 106--122
 
  []
 
@@ -579,7 +603,7 @@ File: jjGrid.png Graphic file (type png)
 Package pdftex.def Info: jjGrid.png used on input line 48.
 (pdftex.def)             Requested size: 387.00153pt x 150.57143pt.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 122--137
+Underfull \hbox (badness 10000) in paragraph at lines 126--141
 
  []
 
@@ -587,7 +611,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--137
 \openout2 = `rawDataGraph.aux'.
 
  (./rawDataGraph.tex
-<data/theDataRaw.png, id=40, 578.16pt x 433.62pt>
+<data/theDataRaw.png, id=41, 578.16pt x 433.62pt>
 File: data/theDataRaw.png Graphic file (type png)
  <use data/theDataRaw.png>
 Package pdftex.def Info: data/theDataRaw.png used on input line 2.
@@ -600,17 +624,17 @@ Overfull \hbox (43.00308pt too wide) in paragraph at lines 2--3
 ) [10
 
  <./data/theDataRaw.png>]
-<johnstonLaurentianMapWithSites.png, id=45, 839.135pt x 616.3025pt>
+<johnstonLaurentianMapWithSites.png, id=46, 839.135pt x 616.3025pt>
 File: johnstonLaurentianMapWithSites.png Graphic file (type png)
 
 <use johnstonLaurentianMapWithSites.png>
 Package pdftex.def Info: johnstonLaurentianMapWithSites.png used on input line 
-148.
+152.
 (pdftex.def)             Requested size: 344.005pt x 252.64804pt.
  [11
 
  <./johnstonLaurentianMapWithSites.png>] (./rawDataWithModelGraph.tex
-<data/theData.png, id=50, 578.16pt x 433.62pt>
+<data/theData.png, id=51, 578.16pt x 433.62pt>
 File: data/theData.png Graphic file (type png)
  <use data/theData.png>
 Package pdftex.def Info: data/theData.png used on input line 2.
@@ -621,14 +645,14 @@ Overfull \hbox (43.00308pt too wide) in paragraph at lines 2--3
  []
 
 [12] [13 <./data/theData.png>])
-<data/theDataZoomed.png, id=59, 578.16pt x 433.62pt>
+<data/theDataZoomed.png, id=60, 578.16pt x 433.62pt>
 File: data/theDataZoomed.png Graphic file (type png)
 
 <use data/theDataZoomed.png>
-Package pdftex.def Info: data/theDataZoomed.png used on input line 227.
+Package pdftex.def Info: data/theDataZoomed.png used on input line 231.
 (pdftex.def)             Requested size: 473.0077pt x 354.75687pt.
 
-Overfull \hbox (43.00308pt too wide) in paragraph at lines 227--229
+Overfull \hbox (43.00308pt too wide) in paragraph at lines 231--233
 [][] 
  []
 
@@ -639,27 +663,27 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 \openout2 = `graphsCommented.aux'.
 
  (./graphsCommented.tex
-<data/ATB-BATB_DataAndModel.png, id=73, 578.16pt x 433.62pt>
+<data/ATB-BATB_DataAndModel.png, id=74, 578.16pt x 433.62pt>
 File: data/ATB-BATB_DataAndModel.png Graphic file (type png)
 
 <use data/ATB-BATB_DataAndModel.png>
-Package pdftex.def Info: data/ATB-BATB_DataAndModel.png used on input line 26.
+Package pdftex.def Info: data/ATB-BATB_DataAndModel.png used on input line 24.
 (pdftex.def)             Requested size: 442.29314pt x 331.71822pt.
  [18
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 30--49
+Underfull \hbox (badness 10000) in paragraph at lines 28--47
 
  []
 
 [19 <./data/ATB-BATB_DataAndModel.png>]
-Overfull \hbox (21.2185pt too wide) in paragraph at lines 53--54
+Overfull \hbox (21.2185pt too wide) in paragraph at lines 51--52
 []  
  []
 
 [20]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_BATB.png
-, id=85, 867.24pt x 578.16pt>
+, id=86, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_BAT
 B.png Graphic file (type png)
 
@@ -670,7 +694,7 @@ ATB_relative_to_BATB.png used on input line 62.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
 
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_ATB.png
-, id=86, 867.24pt x 578.16pt>
+, id=87, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_AT
 B.png Graphic file (type png)
 
@@ -682,7 +706,7 @@ BATB_relative_to_ATB.png used on input line 71.
  [21 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_B
 ATB.png>] [22 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_rel
 ative_to_ATB.png>]
-<data/TAHB-BATB_DataAndModel.png, id=95, 578.16pt x 433.62pt>
+<data/TAHB-BATB_DataAndModel.png, id=96, 578.16pt x 433.62pt>
 File: data/TAHB-BATB_DataAndModel.png Graphic file (type png)
 
 <use data/TAHB-BATB_DataAndModel.png>
@@ -694,14 +718,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--111
 
  []
 
-
+[23 <./data/TAHB-BATB_DataAndModel.png>]
 Overfull \hbox (28.71852pt too wide) in paragraph at lines 115--116
 []  
  []
 
-[23 <./data/TAHB-BATB_DataAndModel.png>] [24]
+[24]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_BATB.pn
-g, id=103, 867.24pt x 578.16pt>
+g, id=104, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_BA
 TB.png Graphic file (type png)
 
@@ -713,7 +737,7 @@ TAHB_relative_to_BATB.png used on input line 125.
  [25 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_
 BATB.png>]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_TAHB.pn
-g, id=109, 867.24pt x 578.16pt>
+g, id=110, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_TA
 HB.png Graphic file (type png)
 
@@ -723,7 +747,7 @@ Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_
 BATB_relative_to_TAHB.png used on input line 135.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
  [26 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_
-TAHB.png>] <data/TAHB-ATB_DataAndModel.png, id=114, 578.16pt x 433.62pt>
+TAHB.png>] <data/TAHB-ATB_DataAndModel.png, id=115, 578.16pt x 433.62pt>
 File: data/TAHB-ATB_DataAndModel.png Graphic file (type png)
 
 <use data/TAHB-ATB_DataAndModel.png>
@@ -735,171 +759,171 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--167
 
  []
 
-
+[27 <./data/TAHB-ATB_DataAndModel.png>]
 Overfull \hbox (21.63516pt too wide) in paragraph at lines 171--172
 []  
  []
 
-[27 <./data/TAHB-ATB_DataAndModel.png>] [28]
+[28]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_ATB.png
-, id=124, 867.24pt x 578.16pt>
+, id=125, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_AT
 B.png Graphic file (type png)
 
 <use data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_ATB
 .png>
 Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_
-TAHB_relative_to_ATB.png used on input line 181.
+TAHB_relative_to_ATB.png used on input line 184.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
  [29 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_
 ATB.png>]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_TAHB.png
-, id=129, 867.24pt x 578.16pt>
+, id=130, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_TAH
 B.png Graphic file (type png)
 
 <use data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_TAHB
 .png>
 Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_
-ATB_relative_to_TAHB.png used on input line 191.
+ATB_relative_to_TAHB.png used on input line 194.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
  [30 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_T
-AHB.png>] <data/GTB-BATB_DataAndModel.png, id=134, 578.16pt x 433.62pt>
+AHB.png>] <data/GTB-BATB_DataAndModel.png, id=135, 578.16pt x 433.62pt>
 File: data/GTB-BATB_DataAndModel.png Graphic file (type png)
 
 <use data/GTB-BATB_DataAndModel.png>
-Package pdftex.def Info: data/GTB-BATB_DataAndModel.png used on input line 205.
+Package pdftex.def Info: data/GTB-BATB_DataAndModel.png used on input line 208.
 
 (pdftex.def)             Requested size: 442.29314pt x 331.71822pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--226
+Underfull \hbox (badness 10000) in paragraph at lines 212--229
 
  []
 
 [31 <./data/GTB-BATB_DataAndModel.png>]
-Overfull \hbox (17.39905pt too wide) in paragraph at lines 230--231
+Overfull \hbox (17.39905pt too wide) in paragraph at lines 233--234
 []  
  []
 
 [32]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_BATB.png
-, id=143, 867.24pt x 578.16pt>
+, id=144, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_BAT
 B.png Graphic file (type png)
 
 <use data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_BATB
 .png>
 Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_
-GTB_relative_to_BATB.png used on input line 239.
+GTB_relative_to_BATB.png used on input line 244.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
  [33 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_B
 ATB.png>]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_GTB.png
-, id=148, 867.24pt x 578.16pt>
+, id=149, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_GT
 B.png Graphic file (type png)
 
 <use data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_GTB
 .png>
 Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_
-BATB_relative_to_GTB.png used on input line 249.
+BATB_relative_to_GTB.png used on input line 254.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
  [34 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_BATB_relative_to_
-GTB.png>] <data/GTB-ATB_DataAndModel.png, id=153, 578.16pt x 433.62pt>
+GTB.png>] <data/GTB-ATB_DataAndModel.png, id=154, 578.16pt x 433.62pt>
 File: data/GTB-ATB_DataAndModel.png Graphic file (type png)
 
 <use data/GTB-ATB_DataAndModel.png>
-Package pdftex.def Info: data/GTB-ATB_DataAndModel.png used on input line 266.
+Package pdftex.def Info: data/GTB-ATB_DataAndModel.png used on input line 271.
 (pdftex.def)             Requested size: 442.29314pt x 331.71822pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--285
+Underfull \hbox (badness 10000) in paragraph at lines 276--290
 
  []
 
 [35 <./data/GTB-ATB_DataAndModel.png>]
-Overfull \hbox (10.31569pt too wide) in paragraph at lines 288--289
+Overfull \hbox (10.31569pt too wide) in paragraph at lines 293--294
 []  
  []
 
 [36]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_ATB.png,
- id=161, 867.24pt x 578.16pt>
+ id=162, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_ATB
 .png Graphic file (type png)
 
 <use data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_ATB.
 png>
 Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_
-GTB_relative_to_ATB.png used on input line 297.
+GTB_relative_to_ATB.png used on input line 305.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
  [37 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_A
 TB.png>]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_GTB.png,
- id=167, 867.24pt x 578.16pt>
+ id=168, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_GTB
 .png Graphic file (type png)
 
 <use data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_GTB.
 png>
 Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_
-ATB_relative_to_GTB.png used on input line 307.
+ATB_relative_to_GTB.png used on input line 315.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
  [38 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_ATB_relative_to_G
-TB.png>] <data/GTB-TAHB_DataAndModel.png, id=172, 578.16pt x 433.62pt>
+TB.png>] <data/GTB-TAHB_DataAndModel.png, id=173, 578.16pt x 433.62pt>
 File: data/GTB-TAHB_DataAndModel.png Graphic file (type png)
 
 <use data/GTB-TAHB_DataAndModel.png>
-Package pdftex.def Info: data/GTB-TAHB_DataAndModel.png used on input line 325.
+Package pdftex.def Info: data/GTB-TAHB_DataAndModel.png used on input line 333.
 
 (pdftex.def)             Requested size: 442.29314pt x 331.71822pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--342
+Underfull \hbox (badness 10000) in paragraph at lines 343--350
 
  []
 
 [39 <./data/GTB-TAHB_DataAndModel.png>]
-Overfull \hbox (14.48238pt too wide) in paragraph at lines 345--346
+Overfull \hbox (14.48238pt too wide) in paragraph at lines 353--354
 []  
  []
 
 [40]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_TAHB.png
-, id=180, 867.24pt x 578.16pt>
+, id=181, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_TAH
 B.png Graphic file (type png)
 
 <use data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_TAHB
 .png>
 Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_
-GTB_relative_to_TAHB.png used on input line 354.
+GTB_relative_to_TAHB.png used on input line 365.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
  [41 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_GTB_relative_to_T
 AHB.png>]
 <data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_GTB.png
-, id=185, 867.24pt x 578.16pt>
+, id=186, 867.24pt x 578.16pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_GT
 B.png Graphic file (type png)
 
 <use data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_GTB
 .png>
 Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_
-TAHB_relative_to_GTB.png used on input line 364.
+TAHB_relative_to_GTB.png used on input line 375.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
  [42 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_
 GTB.png>]
-<data/bothNonZero/withinSeventyFivePercent/gias/intervals.png, id=190, 600.5637
+<data/bothNonZero/withinSeventyFivePercent/gias/intervals.png, id=191, 600.5637
 pt x 427.8384pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/intervals.png Graphic file
  (type png)
 
 <use data/bothNonZero/withinSeventyFivePercent/gias/intervals.png>
 Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/interva
-ls.png used on input line 375.
+ls.png used on input line 386.
 (pdftex.def)             Requested size: 368.58073pt x 262.58699pt.
  [43 <./data/bothNonZero/withinSeventyFivePercent/gias/intervals.png>])
 \openout2 = `giaResultsMap.aux'.
 
- (./giaResultsMap.tex <johnstonLaurentianMapWithMyGIARates.png, id=196, 813.037
+ (./giaResultsMap.tex <johnstonLaurentianMapWithMyGIARates.png, id=197, 813.037
 5pt x 379.4175pt>
 File: johnstonLaurentianMapWithMyGIARates.png Graphic file (type png)
 
@@ -910,7 +934,7 @@ line 7.
  [44
 
 
- <./johnstonLaurentianMapWithMyGIARates.png>] <mainvilleGias.png, id=201, 986.6
+ <./johnstonLaurentianMapWithMyGIARates.png>] <mainvilleGias.png, id=202, 986.6
 8625pt x 605.26125pt>
 File: mainvilleGias.png Graphic file (type png)
 
@@ -918,7 +942,7 @@ File: mainvilleGias.png Graphic file (type png)
 Package pdftex.def Info: mainvilleGias.png used on input line 13.
 (pdftex.def)             Requested size: 442.29314pt x 271.32141pt.
 
-<johnstonLaurentianMapWithCraymerGIARates.png, id=202, 702.625pt x 279.0425pt>
+<johnstonLaurentianMapWithCraymerGIARates.png, id=203, 702.625pt x 279.0425pt>
 File: johnstonLaurentianMapWithCraymerGIARates.png Graphic file (type png)
 
 <use johnstonLaurentianMapWithCraymerGIARates.png>
@@ -929,45 +953,46 @@ nput line 23.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[45 <./mainvilleGias.png>]) [46 <./johnstonLaurentianMapWithCraymerGIARates.png
->]
-Underfull \hbox (badness 10000) in paragraph at lines 283--288
+[45 <./mainvilleGias.png>] [46 <./johnstonLaurentianMapWithCraymerGIARates.png>
+]) [47]
+Underfull \hbox (badness 10000) in paragraph at lines 287--292
 
  []
 
-[47
+[48
 
-] (./data/giaModel.py [48] [49] [50] [51] [52] [53] [54] [55] [56] [57]
-[58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68]) [69]
-(./data/giaUtils.py [70] [71]) [72] (./data/rawhide/bootstrapper.py [73])
-[74] (./data/rawData.py [75]) [76] (./data/dataModel.py [77]) [78]
-(./data/linearInterpolationModel.py [79] [80] [81] [82]) [83]
+] (./data/giaModel.py [49] [50] [51] [52] [53] [54] [55] [56] [57] [58]
+[59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69]) [70]
+(./data/giaUtils.py [71] [72]) [73] (./data/rawhide/bootstrapper.py [74])
+[75] (./data/rawData.py [76]) [77] (./data/dataModel.py [78]) [79]
+(./data/linearInterpolationModel.py [80] [81] [82] [83]) [84]
 
 AED: lastpage setting LastPage
 (./gia.aux (./titlePage.aux) (./rawDataGraph.aux) (./graphsCommented.aux)
 (./giaResultsMap.aux)) ) 
 Here is how much of TeX's memory you used:
- 12479 strings out of 493029
- 216954 string characters out of 6136234
- 409225 words of memory out of 5000000
- 15711 multiletter control sequences out of 15000+600000
- 7025 words of font info for 26 fonts, out of 8000000 for 9000
+ 13716 strings out of 493029
+ 238209 string characters out of 6136233
+ 526443 words of memory out of 5000000
+ 16937 multiletter control sequences out of 15000+600000
+ 7324 words of font info for 27 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,12n,72p,801b,1879s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,12n,92p,801b,1879s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on gia.pdf (83 pages, 4279041 bytes).
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt8.pfb>
+Output written on gia.pdf (84 pages, 4341664 bytes).
 PDF statistics:
- 368 PDF objects out of 1000 (max. 8388607)
- 216 compressed objects within 3 object streams
+ 375 PDF objects out of 1000 (max. 8388607)
+ 221 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  136 words of extra memory for PDF output out of 10000 (max. 10000000)
 
