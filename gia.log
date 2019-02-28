@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.21)  13 JAN 2019 22:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.21)  27 FEB 2019 19:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -910,51 +910,51 @@ Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/theGIA_
 TAHB_relative_to_GTB.png used on input line 375.
 (pdftex.def)             Requested size: 559.00731pt x 372.68538pt.
  [42 <./data/bothNonZero/withinSeventyFivePercent/gias/theGIA_TAHB_relative_to_
-GTB.png>]
-<data/bothNonZero/withinSeventyFivePercent/gias/intervals.png, id=191, 600.5637
+GTB.png>])
+\openout2 = `giaResultsMap.aux'.
+
+ (./giaResultsMap.tex
+<johnstonLaurentianMapWithMyGIARates.png, id=191, 813.0375pt x 379.4175pt>
+File: johnstonLaurentianMapWithMyGIARates.png Graphic file (type png)
+
+<use johnstonLaurentianMapWithMyGIARates.png>
+Package pdftex.def Info: johnstonLaurentianMapWithMyGIARates.png used on input 
+line 9.
+(pdftex.def)             Requested size: 442.29314pt x 206.39922pt.
+ [43
+
+
+ <./johnstonLaurentianMapWithMyGIARates.png>] <mainvilleGias.png, id=197, 986.6
+8625pt x 605.26125pt>
+File: mainvilleGias.png Graphic file (type png)
+
+<use mainvilleGias.png>
+Package pdftex.def Info: mainvilleGias.png used on input line 20.
+(pdftex.def)             Requested size: 442.29314pt x 271.32141pt.
+
+<johnstonLaurentianMapWithCraymerGIARates.png, id=198, 702.625pt x 279.0425pt>
+File: johnstonLaurentianMapWithCraymerGIARates.png Graphic file (type png)
+
+<use johnstonLaurentianMapWithCraymerGIARates.png>
+Package pdftex.def Info: johnstonLaurentianMapWithCraymerGIARates.png used on i
+nput line 26.
+(pdftex.def)             Requested size: 442.29314pt x 175.65718pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[44 <./mainvilleGias.png>] [45 <./johnstonLaurentianMapWithCraymerGIARates.png>
+]
+<data/bothNonZero/withinSeventyFivePercent/gias/intervals.png, id=207, 600.5637
 pt x 427.8384pt>
 File: data/bothNonZero/withinSeventyFivePercent/gias/intervals.png Graphic file
  (type png)
 
 <use data/bothNonZero/withinSeventyFivePercent/gias/intervals.png>
 Package pdftex.def Info: data/bothNonZero/withinSeventyFivePercent/gias/interva
-ls.png used on input line 386.
+ls.png used on input line 44.
 (pdftex.def)             Requested size: 368.58073pt x 262.58699pt.
- [43 <./data/bothNonZero/withinSeventyFivePercent/gias/intervals.png>])
-\openout2 = `giaResultsMap.aux'.
-
- (./giaResultsMap.tex <johnstonLaurentianMapWithMyGIARates.png, id=197, 813.037
-5pt x 379.4175pt>
-File: johnstonLaurentianMapWithMyGIARates.png Graphic file (type png)
-
-<use johnstonLaurentianMapWithMyGIARates.png>
-Package pdftex.def Info: johnstonLaurentianMapWithMyGIARates.png used on input 
-line 7.
-(pdftex.def)             Requested size: 442.29314pt x 206.39922pt.
- [44
-
-
- <./johnstonLaurentianMapWithMyGIARates.png>] <mainvilleGias.png, id=202, 986.6
-8625pt x 605.26125pt>
-File: mainvilleGias.png Graphic file (type png)
-
-<use mainvilleGias.png>
-Package pdftex.def Info: mainvilleGias.png used on input line 13.
-(pdftex.def)             Requested size: 442.29314pt x 271.32141pt.
-
-<johnstonLaurentianMapWithCraymerGIARates.png, id=203, 702.625pt x 279.0425pt>
-File: johnstonLaurentianMapWithCraymerGIARates.png Graphic file (type png)
-
-<use johnstonLaurentianMapWithCraymerGIARates.png>
-Package pdftex.def Info: johnstonLaurentianMapWithCraymerGIARates.png used on i
-nput line 23.
-(pdftex.def)             Requested size: 442.29314pt x 175.65718pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[45 <./mainvilleGias.png>] [46 <./johnstonLaurentianMapWithCraymerGIARates.png>
-]) [47]
+ [46 <./data/bothNonZero/withinSeventyFivePercent/gias/intervals.png>]) [47]
 Underfull \hbox (badness 10000) in paragraph at lines 287--292
 
  []
@@ -989,7 +989,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmtt8.pfb>
-Output written on gia.pdf (84 pages, 4341664 bytes).
+Output written on gia.pdf (84 pages, 4323960 bytes).
 PDF statistics:
  375 PDF objects out of 1000 (max. 8388607)
  221 compressed objects within 3 object streams
